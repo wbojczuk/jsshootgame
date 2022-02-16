@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Custom Classes */
+
+
+
+/* Main Container */
+
+.main-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ccc;
+    cursor: crosshair;
+}
+
+.thing-one {
+    display: inline-block;
+    width: 4vw;
+    height: 4vw;
+    background-image: url("img/bomb.png");
+    background-size: cover;
+    margin-left: 50%;
+}
+
+.thing-two {
+    margin-left: 20% ;
+    display: inline-block;
+    width: 2%;
+    height: 100%;
+    background-color: #000;
+}
+
+.falling-container {
+    padding: 0 2%;
+    width: 95.5%;
+    height: 4vw;
+}
+
+/* Hearts */
+
+.heart-img {
+    display: inline-block;
+    height: 4vw;
+    width: 4vw;
+    background-image: url('img/heart.png');
+    background-size: cover;
+}
+
+.right-align {
+    display: flex;
+    align-items: right;
+    justify-content: right;
+    height: 4vw;
+    padding-right: 5vw;
+    background-color: #ccc;
+    border-bottom: 4px solid #aaa;
+}
