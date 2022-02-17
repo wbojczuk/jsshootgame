@@ -17,14 +17,14 @@ function startGame() {
                 
                 var fallingHTML = "<div class='falling-container'>";
                 if (counter % 5 == 0) {
-                    fallingHTML += "<div class='thing-one' style='margin-left:" + getRndInteger(1 , 100) +  "%'></div>";
+                    fallingHTML += "<div class='thing-one' style='transform: translateX( " + getRndInteger(-40 , 40) +  "vw)'></div>";
                 } else if ( counter % 13 == 0){
-                    fallingHTML += "<div class='thing-one' style='margin-left:" + getRndInteger(1 , 100) +  "%'></div>";
-                    fallingHTML += "<div class='thing-one' style='margin-left:" + getRndInteger(1 , 100) +  "%'></div>";
+                    fallingHTML += "<div class='thing-one' style='transform: translateX( " + getRndInteger(-40 , 40) +  "vw)'></div>";
+                    fallingHTML += "<div class='thing-one' style='transform: translateX( " + getRndInteger(-40 , 40) +  "vw)'></div>";
                 } else if ( counter % 13 == 0){
-                    fallingHTML += "<div class='thing-one' style='margin-left:" + getRndInteger(1 , 100) +  "%'></div>";
-                    fallingHTML += "<div class='thing-one' style='margin-left:" + getRndInteger(1 , 100) +  "%'></div>";
-                    fallingHTML += "<div class='thing-one' style='margin-left:" + getRndInteger(1 , 100) +  "%'></div>";
+                    fallingHTML += "<div class='thing-one' style='transform: translateX( " + getRndInteger(-40 , 40) +  "vw)'></div>";
+                    fallingHTML += "<div class='thing-one' style='transform: translateX( " + getRndInteger(-40 , 40) +  "vw)'></div>";
+                    fallingHTML += "<div class='thing-one' style='transform: translateX( " + getRndInteger(-40 , 40) +  "vw)'></div>";
                 }
 
                 fallingHTML += "</div>";
@@ -47,11 +47,11 @@ function startGame() {
 
                 // SET EVENT LISTENERS ON CELLS
 
-                var allCells = document.querySelectorAll(".thing-one");
-                var allCellsLength = allCells.length;
+                var allThingOne = document.querySelectorAll(".thing-one");
+                var allThingOneLength = allThingOne.length;
                  
-                    for (let i = 0; i < allCellsLength; i++) {
-                        allCells[i].addEventListener("click", cellClicked);
+                    for (let i = 0; i < allThingOneLength; i++) {
+                        allThingOne[i].addEventListener("click", cellClicked);
                     }
 
 
@@ -64,9 +64,9 @@ function startGame() {
 
             // Test if cell is in viewport
 
-            for (let i = 0; i < allCellsLength; i++) {
+            for (let i = 0; i < allThingOneLength; i++) {
 
-                if (isInViewport(allCells[i]) === false ) {
+                if (isInViewport(allThingOne[i]) === false ) {
 
                     var hearts = document.querySelectorAll(".heart-img");
                     hearts[heartCount].style.backgroundImage = "url('img/heart1.png')";
