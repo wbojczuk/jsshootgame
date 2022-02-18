@@ -6,28 +6,31 @@ function startGame() {
     var counter = 0;
     var heartCount = 0;
 
+    // Main Function Interval
+    var lvlOneRepeat = setInterval(lvlOne, 90);
 
-    // Move blocks
-        setInterval(
-            function() {
+
+    
+        // Main Function
+            function lvlOne(){
 
                 // GENERATE RANDOM FALLING CELLS
 
                 counter += 1;
                 
-                var fallingHTML = "<div class='falling-container'>";
-                if (counter % 5 == 0) {
-                    fallingHTML += "<div class='thing-one' style='transform: translateX( " + getRndInteger(-40 , 40) +  "vw)'></div>";
-                } else if ( counter % 13 == 0){
-                    fallingHTML += "<div class='thing-one' style='transform: translateX( " + getRndInteger(-40 , 40) +  "vw)'></div>";
-                    fallingHTML += "<div class='thing-one' style='transform: translateX( " + getRndInteger(-40 , 40) +  "vw)'></div>";
-                } else if ( counter % 13 == 0){
-                    fallingHTML += "<div class='thing-one' style='transform: translateX( " + getRndInteger(-40 , 40) +  "vw)'></div>";
-                    fallingHTML += "<div class='thing-one' style='transform: translateX( " + getRndInteger(-40 , 40) +  "vw)'></div>";
-                    fallingHTML += "<div class='thing-one' style='transform: translateX( " + getRndInteger(-40 , 40) +  "vw)'></div>";
+                var fallingHTML = "";
+                if (counter % 40 == 0) {
+                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                } else if ( counter % 66 == 0){
+                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                } else if ( counter % 100 == 0){
+                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                } else {
+                    fallingHTML = "<div class='falling-container'></div>"
                 }
-
-                fallingHTML += "</div>";
 
                 // Print cells to screen
                 document.getElementById("mainContainer").insertAdjacentHTML("afterbegin", fallingHTML);
@@ -62,11 +65,14 @@ function startGame() {
 
         
 
-            // Test if cell is in viewport
+            // Test if cell hitbox is in viewport
 
-            for (let i = 0; i < allThingOneLength; i++) {
+            var allThingOneHitbox = document.querySelectorAll(".thing-one-hitbox");
+            var allThingOneLengthHitbox = allThingOne.length;
 
-                if (isInViewport(allThingOne[i]) === false ) {
+            for (let i = 0; i < allThingOneLengthHitbox; i++) {
+
+                if (isInViewport(allThingOneHitbox[i]) === false ) {
 
                     var hearts = document.querySelectorAll(".heart-img");
                     hearts[heartCount].style.backgroundImage = "url('img/heart1.png')";
@@ -88,7 +94,9 @@ function startGame() {
             var viewTest = document.getElementById("mainContainer");
             var viewSubject = viewTest.lastElementChild;
 
-            console.log(isInViewport(viewSubject));
+            var fallingCount = document.querySelectorAll(".falling-container");
+
+            console.log(fallingCount.length);
             if (isInViewport(viewSubject) === false) {
   
                viewSubject.remove();
@@ -113,9 +121,16 @@ function startGame() {
             
 
 
+            //   Speed things up
+
+            if (counter == 1500) {
+                lvlOneRepeat = setInterval(lvlOne, 50);
+            }
+
+
             
         }
-        ,700);
+    
 
 
 }
