@@ -7,12 +7,14 @@ function startGame() {
     var heartCount = 0;
 
     // Main Function Interval
-    var lvlOneRepeat = setInterval(lvlOne, 90);
+    var lvlOneRepeat = setInterval(lvlOne, 80);
 
 
     
         // Main Function
             function lvlOne(){
+                var allThingOneHitbox;
+                var allThingOneLengthHitbox;
 
                 // GENERATE RANDOM FALLING CELLS
 
@@ -67,8 +69,8 @@ function startGame() {
 
             // Test if cell hitbox is in viewport
 
-            var allThingOneHitbox = document.querySelectorAll(".thing-one-hitbox");
-            var allThingOneLengthHitbox = allThingOne.length;
+            allThingOneHitbox = document.querySelectorAll(".thing-one-hitbox");
+            allThingOneLengthHitbox = allThingOne.length;
 
             for (let i = 0; i < allThingOneLengthHitbox; i++) {
 
@@ -77,6 +79,8 @@ function startGame() {
                     var hearts = document.querySelectorAll(".heart-img");
                     hearts[heartCount].style.backgroundImage = "url('img/heart1.png')";
                     heartCount += 1;
+
+                    allThingOneHitbox[i].remove();
 
                     // FAILLLLL
             
@@ -95,11 +99,15 @@ function startGame() {
             var viewSubject = viewTest.lastElementChild;
 
             var fallingCount = document.querySelectorAll(".falling-container");
+            var fallingCountLength = fallingCount.length;
 
             console.log(fallingCount.length);
+            for(let i = 0; i < fallingCountLength; i++)
             if (isInViewport(viewSubject) === false) {
   
                viewSubject.remove();
+
+               viewSubject = viewTest.lastElementChild;
 
             }
 
