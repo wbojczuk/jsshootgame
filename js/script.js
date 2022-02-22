@@ -2,12 +2,23 @@
 "use strict";
 window.onload = startGame();
 
+
+
 function startGame() {
-    var counter = 0;
+    var counter = 1;
     var heartCount = 0;
 
     // Main Function Interval
-    var lvlOneRepeat = setInterval(lvlOne, 80);
+    var lvlOneRepeat = setInterval(lvlOne, 40);
+
+
+    // SECOND COUNTER 
+
+    setInterval(
+        function(){counter = Math.floor(counter) + 1; console.log(counter);
+        }
+        
+    ,1000);
 
 
     
@@ -16,23 +27,37 @@ function startGame() {
                 var allThingOneHitbox;
                 var allThingOneLengthHitbox;
 
-                // GENERATE RANDOM FALLING CELLS
-
-                counter += 1;
                 
+
+                    
+
+
+                    // GENERATE RANDOMLY PLACED FALLING CELLS
                 var fallingHTML = "";
-                if (counter % 40 == 0) {
+
+                // Bomb
+                if (counter % 2 == 0) {
                     fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                } else if ( counter % 66 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                } else if ( counter % 100 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                } else if ( counter % 3 == 0){
                     fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                     fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                } else if ( counter % 4 == 0){
+                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+
                 } else {
                     fallingHTML = "<div class='falling-container'></div>"
                 }
+
+
+
+
+                    // PLACE ON LAST GENERATION IF STATEMENT
+                
+
+                // TEMP DISABLE COUNTER TRIGGERS
+                counter += .001;
 
                 // Print cells to screen
                 document.getElementById("mainContainer").insertAdjacentHTML("afterbegin", fallingHTML);
@@ -101,7 +126,7 @@ function startGame() {
             var fallingCount = document.querySelectorAll(".falling-container");
             var fallingCountLength = fallingCount.length;
 
-            console.log(fallingCount.length);
+           
             for(let i = 0; i < fallingCountLength; i++)
             if (isInViewport(viewSubject) === false) {
   
@@ -129,10 +154,10 @@ function startGame() {
             
 
 
-            //   Speed things up
+            //   Speed things based on time
 
             if (counter == 1500) {
-                lvlOneRepeat = setInterval(lvlOne, 50);
+                lvlOneRepeat = setInterval(lvlOne, 35);
             }
 
 
