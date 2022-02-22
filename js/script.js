@@ -19,22 +19,50 @@ function startGame() {
     // SECOND COUNTER 
 
     setInterval(
-        function(){counter = Math.floor(counter) + 1; console.log(counter);
+        function(){counter = Math.floor(counter) + 1; 
+            console.log(counter);
+
+            // SET EVENT LISTENERS ON CELLS
+
+            var allThingOne = document.querySelectorAll(".thing-one");
+            var allThingOneLength = allThingOne.length;
+             
+                for (let i = 0; i < allThingOneLength; i++) {
+                    allThingOne[i].addEventListener("click", bombClicked);
+                }
+
         }
         
     ,1000);
+    document.addEventListener('click', lvl1BackgroundMusic);
+    
+        
+        function lvl1BackgroundMusic() {
+            // SET BACKGROUND MUSIC
+            
+            var backgroundMusic = new Audio('sounds/lvl1/main_background_music.mp3');
+            backgroundMusic.play();
+            console.log("preloaded");
+            document.removeEventListener('click', lvl1BackgroundMusic);
+            backgroundMusic.addEventListener("ended", function(){
+                backgroundMusic.currentTime = 0;
+                backgroundMusic.play();
+            }); 
 
-
+        
+        }
     
         // Main Function
             function lvlOne(){
+
                 var allThingOneHitbox;
                 var allThingOneLengthHitbox;
 
                 // SET LEVEL ONE BACKGROUND
-                document.getElementById("mainContainer").style.backgroundImage = "url('img/lvl1_background.jpg')";
+                document.getElementById("mainContainer").style.backgroundImage = "url('img/lvl1/lvl1_background.jpg')";
                 document.getElementById("mainContainer").style.backgroundSize = "cover";
                 document.getElementById("mainContainer").style.backgroundRepeat = "no-repeat";
+                document.getElementById("mainContainer").style.cursor = "url('img/lvl1/lvl1_main.cur'), crosshair";
                 
 
                     
@@ -62,10 +90,7 @@ function startGame() {
 
 
                     // PLACE ON LAST GENERATION IF STATEMENT
-                
-
-                // TEMP DISABLE COUNTER TRIGGERS
-                counter += .001;
+            
 
                 // Print cells to screen
                 document.getElementById("mainContainer").insertAdjacentHTML("afterbegin", fallingHTML);
@@ -83,14 +108,7 @@ function startGame() {
                 };
 
 
-                // SET EVENT LISTENERS ON CELLS
-
-                var allThingOne = document.querySelectorAll(".thing-one");
-                var allThingOneLength = allThingOne.length;
-                 
-                    for (let i = 0; i < allThingOneLength; i++) {
-                        allThingOne[i].addEventListener("click", bombClicked);
-                    }
+                
 
 
 
@@ -99,9 +117,11 @@ function startGame() {
         
 
             // Test if cell hitbox is in viewport
+            var allThingOne = document.querySelectorAll(".thing-one");
+            var allThingOneLength = allThingOne.length;
 
             allThingOneHitbox = document.querySelectorAll(".thing-one-hitbox");
-            allThingOneLengthHitbox = allThingOne.length;
+            allThingOneLengthHitbox = allThingOneHitbox.length;
 
             for (let i = 0; i < allThingOneLengthHitbox; i++) {
 
@@ -162,9 +182,13 @@ function startGame() {
 
             //   Speed things based on time
 
-            if (counter == 1500) {
+            if (counter == 60) {
+                console.log("made it");
                 lvlOneRepeat = setInterval(lvlOne, 35);
             }
+
+            // TEMP DISABLE COUNTER TRIGGERS
+            counter += .001;
 
 
             
@@ -175,12 +199,14 @@ function startGame() {
 }
 
 function bombClicked(evt) {
+    evt.target.querySelector(".thing-one-hitbox").remove();
+    evt.target.style.zIndex = "1";
     var audio = new Audio('sounds/bomb_explosion.mp3');
     audio.volume = 0.8;
     audio.playbackRate = 1.1;
     audio.play();
     evt.target.style.backgroundRepeat = "no-repeat";
-    evt.target.style.backgroundImage = "url('img/bomb_explosion.gif')";
+    evt.target.style.backgroundImage = "url('img/lvl1/bomb_explosion.gif')";
     evt.target.style.backgroundSize = "contain";
 
     score += 5;
