@@ -56,10 +56,21 @@ body {
 
 .right-align {
     display: flex;
-    align-items: right;
+    align-items: center;
     justify-content: right;
     height: 4vw;
     padding-right: 5vw;
     background-color: #ccc;
     border-bottom: 4px solid #aaa;
+}
+
+/* SCORES */
+
+.scoreboard {
+    font-size: 3vw;
+    margin-right: 3vw;
+}
+
+.score {
+
 }

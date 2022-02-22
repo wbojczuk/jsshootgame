@@ -2,6 +2,10 @@
 "use strict";
 window.onload = startGame();
 
+// Global Variables
+
+var score = 0;
+
 
 
 function startGame() {
@@ -27,6 +31,10 @@ function startGame() {
                 var allThingOneHitbox;
                 var allThingOneLengthHitbox;
 
+                // SET LEVEL ONE BACKGROUND
+                document.getElementById("mainContainer").style.backgroundImage = "url('img/lvl1_background.jpg')";
+                document.getElementById("mainContainer").style.backgroundSize = "cover";
+                document.getElementById("mainContainer").style.backgroundRepeat = "no-repeat";
                 
 
                     
@@ -81,14 +89,12 @@ function startGame() {
                 var allThingOneLength = allThingOne.length;
                  
                     for (let i = 0; i < allThingOneLength; i++) {
-                        allThingOne[i].addEventListener("click", cellClicked);
+                        allThingOne[i].addEventListener("click", bombClicked);
                     }
 
 
 
-                    function cellClicked(evt) {
-                        evt.target.remove();
-                    }
+                    
 
         
 
@@ -166,4 +172,22 @@ function startGame() {
     
 
 
+}
+
+function bombClicked(evt) {
+    var audio = new Audio('sounds/bomb_explosion.mp3');
+    audio.volume = 0.8;
+    audio.playbackRate = 1.1;
+    audio.play();
+    evt.target.style.backgroundRepeat = "no-repeat";
+    evt.target.style.backgroundImage = "url('img/bomb_explosion.gif')";
+    evt.target.style.backgroundSize = "contain";
+
+    score += 5;
+    document.getElementById("score").innerHTML = score;
+    
+
+    setTimeout(() => {
+        evt.target.remove();
+    }, 440);
 }
