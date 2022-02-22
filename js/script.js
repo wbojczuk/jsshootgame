@@ -22,14 +22,7 @@ function startGame() {
         function(){counter = Math.floor(counter) + 1; 
             console.log(counter);
 
-            // SET EVENT LISTENERS ON CELLS
-
-            var allThingOne = document.querySelectorAll(".thing-one");
-            var allThingOneLength = allThingOne.length;
-             
-                for (let i = 0; i < allThingOneLength; i++) {
-                    allThingOne[i].addEventListener("click", bombClicked);
-                }
+            
 
         }
         
@@ -42,6 +35,7 @@ function startGame() {
             
             var backgroundMusic = new Audio('sounds/lvl1/main_background_music.mp3');
             backgroundMusic.play();
+            backgroundMusic.volume = 0.3;
             console.log("preloaded");
             document.removeEventListener('click', lvl1BackgroundMusic);
             backgroundMusic.addEventListener("ended", function(){
@@ -51,21 +45,21 @@ function startGame() {
 
         
         }
+        lvl1Pre();
+        function lvl1Pre() {
+            
+
+                // SET LEVEL ONE BACKGROUND
+                document.getElementById("body").style.backgroundImage = "url('img/lvl1/lvl1_background.jpg')";
+                document.getElementById("body").style.backgroundSize = "cover";
+                document.getElementById("body").style.backgroundRepeat = "no-repeat";
+                document.getElementById("body").style.cursor = "url('img/lvl1/lvl1_main.cur'), crosshair";
+        }
     
         // Main Function
             function lvlOne(){
-
                 var allThingOneHitbox;
                 var allThingOneLengthHitbox;
-
-                // SET LEVEL ONE BACKGROUND
-                document.getElementById("mainContainer").style.backgroundImage = "url('img/lvl1/lvl1_background.jpg')";
-                document.getElementById("mainContainer").style.backgroundSize = "cover";
-                document.getElementById("mainContainer").style.backgroundRepeat = "no-repeat";
-                document.getElementById("mainContainer").style.cursor = "url('img/lvl1/lvl1_main.cur'), crosshair";
-                
-
-                    
 
 
                     // GENERATE RANDOMLY PLACED FALLING CELLS
@@ -84,6 +78,15 @@ function startGame() {
 
                 } else {
                     fallingHTML = "<div class='falling-container'></div>"
+                }
+
+                // SET EVENT LISTENERS ON CELLS
+
+            var allThingOne = document.querySelectorAll(".thing-one");
+            var allThingOneLength = allThingOne.length;
+             
+                for (let i = 0; i < allThingOneLength; i++) {
+                    allThingOne[i].addEventListener("click", bombClicked);
                 }
 
 
@@ -182,7 +185,7 @@ function startGame() {
 
             //   Speed things based on time
 
-            if (counter == 60) {
+            if (counter == 20) {
                 console.log("made it");
                 lvlOneRepeat = setInterval(lvlOne, 35);
             }

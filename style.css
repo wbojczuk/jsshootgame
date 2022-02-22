@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
 body {
     margin: 0;
     overflow: hidden;
@@ -12,7 +14,6 @@ body {
 .main-container {
     width: 100vw;
     height: 100vh;
-    background-color: #ccc;
 }
 
 .thing-one {
@@ -59,14 +60,19 @@ body {
     align-items: center;
     justify-content: right;
     height: 4vw;
-    padding-right: 5vw;
-    background-color: #ccc;
-    border-bottom: 4px solid #aaa;
+    padding-right: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+background: #ff3fff60;
+background: -webkit-linear-gradient(top left, #FF3FFF60, #FCC2DF60);
+background: -moz-linear-gradient(top left, #FF3FFF60, #FCC2DF60);
+background: linear-gradient(to bottom right, #FF3FFF60, #FCC2DF60);
 }
 
 /* SCORES */
 
 .scoreboard {
+    font-family: "Kaushan Script", cursive;
     font-size: 3vw;
     margin-right: 3vw;
 }
