@@ -31,12 +31,16 @@ body {
     width: .25vw;
 }
 
-.thing-two {
-    margin-left: 20% ;
+/* DOES NOT GET HITBOX */
+.red-potion {
+    position: relative;
     display: inline-block;
-    width: 2%;
-    height: 100%;
-    background-color: #000;
+    width: 5vw;
+    height: 5vw;
+    background-image: url("img/red_potion.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 2;
 }
 
 .falling-container {
@@ -55,6 +59,10 @@ body {
     background-size: cover;
 }
 
+.heart-img-wrapper {
+    display: inline-block;
+}
+
 .right-align {
     display: flex;
     align-items: center;
@@ -63,10 +71,10 @@ body {
     padding-right: 2vw;
     padding-top: 1vw;
     padding-bottom: 1vw;
-background: #ff3fff60;
-background: -webkit-linear-gradient(top left, #FF3FFF60, #FCC2DF60);
-background: -moz-linear-gradient(top left, #FF3FFF60, #FCC2DF60);
-background: linear-gradient(to bottom right, #FF3FFF60, #FCC2DF60);
+    background: #ff3fff60;
+    background: -webkit-linear-gradient(top left, #FF3FFF60, #FCC2DF60);
+    background: -moz-linear-gradient(top left, #FF3FFF60, #FCC2DF60);
+    background: linear-gradient(to bottom right, #FF3FFF60, #FCC2DF60);
 }
 
 /* SCORES */

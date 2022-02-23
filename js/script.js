@@ -5,15 +5,15 @@ window.onload = startGame();
 // Global Variables
 
 var score = 0;
+var heartLost = 0;
 
 
 
 function startGame() {
     var counter = 1;
-    var heartCount = 0;
 
     // Main Function Interval
-    var lvlOneRepeat = setInterval(lvlOne, 40);
+    var lvlOneRepeat = setInterval(lvlOne, 36);
 
 
     // SECOND COUNTER 
@@ -65,13 +65,16 @@ function startGame() {
                     // GENERATE RANDOMLY PLACED FALLING CELLS
                 var fallingHTML = "";
 
-                // Bomb
+                // Bomb Generation
                 if (counter % 2 == 0) {
+                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                     fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                 } else if ( counter % 3 == 0){
                     fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                     fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                 } else if ( counter % 4 == 0){
+                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                     fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                     fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                     fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
@@ -79,6 +82,31 @@ function startGame() {
                 } else {
                     fallingHTML = "<div class='falling-container'></div>"
                 }
+
+
+
+                // Healing/Red Potion Generation
+                
+                    //  sec
+                    if ( counter == Math.floor(getRndInteger(15 , 25)) ) {
+
+                        fallingHTML += "<div class='falling-container'><div class='red-potion' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
+                     } 
+
+                     if ( counter == Math.floor(getRndInteger(60 , 70)) ) {
+
+                        fallingHTML += "<div class='falling-container'><div class='red-potion' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
+                     }
+                     if ( counter == Math.floor(getRndInteger(100 , 120)) ) {
+
+                        fallingHTML += "<div class='falling-container'><div class='red-potion' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
+                     }
+
+
+                // Print cells to screen
+                document.getElementById("mainContainer").insertAdjacentHTML("afterbegin", fallingHTML);
+                
+                
 
                 // SET EVENT LISTENERS ON CELLS
 
@@ -89,14 +117,22 @@ function startGame() {
                     allThingOne[i].addEventListener("click", bombClicked);
                 }
 
+                //SET RED POTION EVENTS
+                var redPotions = document.querySelectorAll(".red-potion");
+
+                for (let i = 0; i < redPotions.length; i++) {
+                    redPotions[i].addEventListener("click", redPotionEffect);
+                }
+            
+            
+
 
 
 
                     // PLACE ON LAST GENERATION IF STATEMENT
             
 
-                // Print cells to screen
-                document.getElementById("mainContainer").insertAdjacentHTML("afterbegin", fallingHTML);
+                
 
 
                 // Function to test if element is in viewport 
@@ -131,8 +167,10 @@ function startGame() {
                 if (isInViewport(allThingOneHitbox[i]) === false ) {
 
                     var hearts = document.querySelectorAll(".heart-img");
-                    hearts[heartCount].style.backgroundImage = "url('img/heart1.png')";
-                    heartCount += 1;
+                    hearts[heartLost].style.backgroundImage = "url('img/heart1.png')";
+                    hearts[heartLost].classList.add("heart-gone");
+
+                    heartLost += 1;
 
                     allThingOneHitbox[i].remove();
 
@@ -140,7 +178,7 @@ function startGame() {
             
 
                     setTimeout( function() {
-                        if (heartCount == hearts.length) {
+                        if (heartLost == hearts.length) {
                             alert('YOU FAILEDD!!');
                         }
                     },500);
@@ -187,7 +225,7 @@ function startGame() {
 
             if (counter == 20) {
                 console.log("made it");
-                lvlOneRepeat = setInterval(lvlOne, 35);
+                lvlOneRepeat = setInterval(lvlOne, 32);
             }
 
             // TEMP DISABLE COUNTER TRIGGERS
@@ -200,6 +238,9 @@ function startGame() {
 
 
 }
+
+
+// ONCLICK FUNCTIONS
 
 function bombClicked(evt) {
     evt.target.querySelector(".thing-one-hitbox").remove();
@@ -219,4 +260,38 @@ function bombClicked(evt) {
     setTimeout(() => {
         evt.target.remove();
     }, 440);
+}
+
+function redPotionEffect(evt) {
+
+    var goneHeartState = document.querySelectorAll(".heart-gone");
+
+    if (goneHeartState.length >= 1){
+        evt.target.style.zIndex = "1";
+        var audio = new Audio('sounds/glass_break.mp3');
+        audio.volume = 0.4;
+        audio.playbackRate = 1;
+        audio.play();
+        evt.target.style.backgroundRepeat = "no-repeat";
+        evt.target.style.backgroundImage = "url('img/red_splash.gif')";
+        evt.target.style.backgroundSize = "contain";
+        var targetHeart = goneHeartState.length - 1;
+        goneHeartState[targetHeart].style.backgroundImage = "url('img/heart.png')";
+        goneHeartState[targetHeart].classList.remove("heart-gone");
+        heartLost -= 1;
+    } else {
+        evt.target.style.zIndex = "1";
+        var audio = new Audio('sounds/glass_break.mp3');
+        audio.volume = 0.2;
+        audio.playbackRate = 1;
+        audio.play();
+        evt.target.style.backgroundRepeat = "no-repeat";
+        evt.target.style.backgroundImage = "url('img/red_splash.gif')";
+        evt.target.style.backgroundSize = "contain";
+        document.getElementById("heartImgWrapper").insertAdjacentHTML("afterbegin", "<div class='heart-img' id='heartImage'></div>");
+}
+
+    setTimeout(() => {
+        evt.target.remove();
+    }, 480);
 }
