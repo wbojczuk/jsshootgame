@@ -13,7 +13,7 @@ function startGame() {
     var counter = 1;
 
     // Main Function Interval
-    var lvlOneRepeat = setInterval(lvlOne, 36);
+    var lvlOneRepeat = setInterval(lvlOne, 18);
 
 
     // SECOND COUNTER 
@@ -88,7 +88,7 @@ function startGame() {
                 // Healing/Red Potion Generation
                 
                     //  sec
-                    if ( counter == Math.floor(getRndInteger(15 , 25)) ) {
+                    if ( counter == 25 ) {
 
                         fallingHTML += "<div class='falling-container'><div class='red-potion' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
                      } 

@@ -27,8 +27,8 @@ body {
 }
 
 .thing-one-hitbox {
-    height: .25vw;
-    width: .25vw;
+    height: .125vw;
+    width: .125vw;
 }
 
 /* DOES NOT GET HITBOX */
@@ -46,7 +46,7 @@ body {
 .falling-container {
     padding: 0 2%;
     width: 95.5%;
-    height: .25vw;
+    height: .125vw;
 }
 
 /* Hearts */
