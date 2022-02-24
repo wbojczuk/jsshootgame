@@ -1,32 +1,55 @@
 
 "use strict";
-window.onload = startGame();
 
 // Global Variables
 
 var score = 0;
 var heartLost = 0;
+var lvlRepeat;
+var currentLvl = "lvl1";
+var counter = 1;
 
 
+
+// SECOND COUNTER 
+
+setInterval(
+    function(){counter = Math.floor(counter) + 1; 
+        console.log(counter);
+        
+
+    }
+    
+,1000);
+
+window.onload = startGame();
+
+
+// START FUNCTION
 
 function startGame() {
-    var counter = 1;
+    clearInterval(lvlRepeat);
+switch (currentLvl) {
+
+
+    case "lvl1":
+        lvl1Pre();
+    break;
+
+}
+
+}
+    
+        
+        function lvl1Pre() {
+
+            currentLvl = "lvl1";
+            counter = 1;
 
     // Main Function Interval
-    var lvlOneRepeat = setInterval(lvlOne, 18);
+    
 
 
-    // SECOND COUNTER 
-
-    setInterval(
-        function(){counter = Math.floor(counter) + 1; 
-            console.log(counter);
-
-            
-
-        }
-        
-    ,1000);
     document.addEventListener('click', lvl1BackgroundMusic);
     
         
@@ -45,8 +68,8 @@ function startGame() {
 
         
         }
-        lvl1Pre();
-        function lvl1Pre() {
+
+                currentLvl = "lvl1";
             
 
                 // SET LEVEL ONE BACKGROUND
@@ -54,7 +77,14 @@ function startGame() {
                 document.getElementById("body").style.backgroundSize = "cover";
                 document.getElementById("body").style.backgroundRepeat = "no-repeat";
                 document.getElementById("body").style.cursor = "url('img/lvl1/lvl1_main.cur'), crosshair";
-        }
+
+                
+                
+
+                lvlRepeat = setInterval(lvlOne, 13);
+                console.log("lvl1pre");
+    }
+        
     
         // Main Function
             function lvlOne(){
@@ -67,17 +97,17 @@ function startGame() {
 
                 // Bomb Generation
                 if (counter % 2 == 0) {
-                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                 } else if ( counter % 3 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                 } else if ( counter % 4 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='thing-one' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
 
                 } else {
                     fallingHTML = "<div class='falling-container'></div>"
@@ -88,19 +118,30 @@ function startGame() {
                 // Healing/Red Potion Generation
                 
                     //  sec
-                    if ( counter == 25 ) {
+                    if ( counter == Math.floor(getRndInteger(30 , 35)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='red-potion' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
+                        fallingHTML += "<div class='falling-container'><div class='red-potion unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
                      } 
 
                      if ( counter == Math.floor(getRndInteger(60 , 70)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='red-potion' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
+                        fallingHTML += "<div class='falling-container'><div class='red-potion unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
                      }
                      if ( counter == Math.floor(getRndInteger(100 , 120)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='red-potion' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
+                        fallingHTML += "<div class='falling-container'><div class='red-potion unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
                      }
+
+
+
+
+
+                    //  RARE EXTRA HEART GENERATION
+
+                    if ( counter == Math.floor(getRndInteger(1, 1500)) ) {
+
+                        fallingHTML += "<div class='falling-container'><div class='extra-heart-orb unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
+                     } 
 
 
                 // Print cells to screen
@@ -110,18 +151,25 @@ function startGame() {
 
                 // SET EVENT LISTENERS ON CELLS
 
-            var allThingOne = document.querySelectorAll(".thing-one");
+            var allThingOne = document.querySelectorAll(".thing-one.unclicked");
             var allThingOneLength = allThingOne.length;
              
                 for (let i = 0; i < allThingOneLength; i++) {
-                    allThingOne[i].addEventListener("click", bombClicked);
+                    allThingOne[i].addEventListener("click", bombClicked, {once: true});
                 }
 
                 //SET RED POTION EVENTS
-                var redPotions = document.querySelectorAll(".red-potion");
+                var redPotions = document.querySelectorAll(".red-potion.unclicked");
 
                 for (let i = 0; i < redPotions.length; i++) {
-                    redPotions[i].addEventListener("click", redPotionEffect);
+                    redPotions[i].addEventListener("click", redPotionEffect, {once: true});
+                }
+
+                //SET Extra Heart Orb EVENTS
+                var extraHeartOrb = document.querySelectorAll(".extra-heart-orb.unclicked");
+
+                for (let i = 0; i < extraHeartOrb.length; i++) {
+                    extraHeartOrb[i].addEventListener("click", extraHeartOrbEffect, {once: true});
                 }
             
             
@@ -169,6 +217,7 @@ function startGame() {
                     var hearts = document.querySelectorAll(".heart-img");
                     hearts[heartLost].style.backgroundImage = "url('img/heart1.png')";
                     hearts[heartLost].classList.add("heart-gone");
+                    hearts[heartLost].classList.remove("heart-here");
 
                     heartLost += 1;
 
@@ -177,11 +226,11 @@ function startGame() {
                     // FAILLLLL
             
 
-                    setTimeout( function() {
+                    
                         if (heartLost == hearts.length) {
-                            alert('YOU FAILEDD!!');
+                            failScreen();
                         }
-                    },500);
+                    
                 }
                 
 
@@ -224,33 +273,62 @@ function startGame() {
             //   Speed things based on time
 
             if (counter == 20) {
-                console.log("made it");
-                lvlOneRepeat = setInterval(lvlOne, 32);
+                clearInterval(lvlRepeat);
+                lvlRepeat = setInterval(lvlOne, 7);
+            }
+
+            if (counter == 40) {
+                clearInterval(lvlRepeat);
+                lvlRepeat = setInterval(lvlOne, 6.5);
+            }
+
+            if (counter == 60) {
+                clearInterval(lvlRepeat);
+                lvlRepeat = setInterval(lvlOne, 6);
+            }
+
+            if (counter == 80) {
+                clearInterval(lvlRepeat);
+                lvlRepeat = setInterval(lvlOne, 5.5);
+            }
+
+            if (counter == 100) {
+                clearInterval(lvlRepeat);
+                lvlRepeat = setInterval(lvlOne, 5);
+            }
+
+            if (counter == 120) {
+                clearInterval(lvlRepeat);
+                lvlRepeat = setInterval(lvlOne, 4.5);
             }
 
             // TEMP DISABLE COUNTER TRIGGERS
-            counter += .001;
+            counter += .0001;
 
 
             
         }
     
+    
 
 
-}
+
 
 
 // ONCLICK FUNCTIONS
 
+// BOMBS
+
 function bombClicked(evt) {
+    evt.target.classList.remove = "unclicked";
     evt.target.querySelector(".thing-one-hitbox").remove();
     evt.target.style.zIndex = "1";
     var audio = new Audio('sounds/bomb_explosion.mp3');
     audio.volume = 0.8;
     audio.playbackRate = 1.1;
     audio.play();
-    evt.target.style.backgroundRepeat = "no-repeat";
     evt.target.style.backgroundImage = "url('img/lvl1/bomb_explosion.gif')";
+    evt.target.style.backgroundRepeat = "no-repeat";
     evt.target.style.backgroundSize = "contain";
 
     score += 5;
@@ -259,12 +337,19 @@ function bombClicked(evt) {
 
     setTimeout(() => {
         evt.target.remove();
-    }, 440);
+    }, 400);
 }
 
+
+
+// RED POTIONS
+
 function redPotionEffect(evt) {
+    evt.target.classList.remove = "unclicked";
 
     var goneHeartState = document.querySelectorAll(".heart-gone");
+
+    score += 15;
 
     if (goneHeartState.length >= 1){
         evt.target.style.zIndex = "1";
@@ -278,6 +363,7 @@ function redPotionEffect(evt) {
         var targetHeart = goneHeartState.length - 1;
         goneHeartState[targetHeart].style.backgroundImage = "url('img/heart.png')";
         goneHeartState[targetHeart].classList.remove("heart-gone");
+        goneHeartState[targetHeart].classList.add("heart-here");
         heartLost -= 1;
     } else {
         evt.target.style.zIndex = "1";
@@ -288,10 +374,93 @@ function redPotionEffect(evt) {
         evt.target.style.backgroundRepeat = "no-repeat";
         evt.target.style.backgroundImage = "url('img/red_splash.gif')";
         evt.target.style.backgroundSize = "contain";
-        document.getElementById("heartImgWrapper").insertAdjacentHTML("afterbegin", "<div class='heart-img' id='heartImage'></div>");
 }
 
     setTimeout(() => {
         evt.target.remove();
     }, 480);
+}
+
+
+// RARE EXTRA HEART ORB
+
+    function extraHeartOrbEffect(evt) {
+        evt.target.classList.remove = "unclicked";
+        evt.target.style.zIndex = "1";
+        var audio = new Audio('sounds/glass_break.mp3');
+        audio.volume = 0.4;
+        audio.playbackRate = 1;
+        audio.play();
+
+        // Insert heart before the first alive heart
+        var heartsHere = document.querySelectorAll(".heart-here");
+        heartsHere[0].insertAdjacentHTML("beforebegin", "<div class='heart-img heart-here extra-heart' id='heartImage'></div>");
+
+        setTimeout(() => {
+            evt.target.remove();
+        }, 200);
+    }
+
+
+
+// FAIL SCREEN
+
+function failScreen() {
+    counter = -10000000;
+    
+    document.getElementById("mainWrapper").style.display = "none";
+    document.getElementById("endScreenWrapper").style.display = "block";
+
+    document.getElementById("endScreenTitle").textContent = "You Died!!";
+    document.getElementById("endScreenScore").innerHTML = "Score: " + score;
+}
+
+// RESTART
+
+function restart() {
+
+    
+
+    score = 0;
+
+    // DISPLAY SWAP
+
+    document.getElementById("mainWrapper").style.display = "block";
+    document.getElementById("endScreenWrapper").style.display = "none";
+
+    // Remove current falling rows
+
+    var fallingCount = document.querySelectorAll(".falling-container");
+    var fallingCountLength = fallingCount.length;
+
+    for (let i = 0; i < fallingCountLength; i++) {
+        fallingCount[i].remove();
+    }
+
+
+    // RESET HEARTS
+
+    // removing the extra hearts
+
+    var extraHearts = document.querySelectorAll(".extra-heart");
+    for (let i = 0; i < extraHearts.length; i++) {
+        extraHearts[i].remove();
+    }
+    
+    heartLost = 0;
+
+    var Gonehearts = document.querySelectorAll(".heart-gone");
+
+    for (let i = 0; i < Gonehearts.length; i++) {
+        Gonehearts[i].classList.remove("heart-gone");
+        Gonehearts[i].classList.add("heart-here");
+        Gonehearts[i].style.backgroundImage = "url('img/heart.png')";
+    }
+
+
+
+    // Load Correct Pre-Level
+
+    startGame();
+
 }

@@ -8,12 +8,15 @@ body {
 /* Custom Classes */
 
 
-
+/* MAIN WRAPPER */
+.main-wrapper {
+    
+}
 /* Main Container */
 
 .main-container {
     width: 100vw;
-    height: 100vh;
+    height: 96vh;
 }
 
 .thing-one {
@@ -35,12 +38,27 @@ body {
 .red-potion {
     position: relative;
     display: inline-block;
-    width: 5vw;
-    height: 5vw;
+    width: 10vw;
+    height: 10vw;
     background-image: url("img/red_potion.gif");
-    background-size: cover;
+    background-size: 50%;
     background-repeat: no-repeat;
+    background-position: center center;
     z-index: 2;
+}
+
+.extra-heart-orb {
+    position: relative;
+    display: inline-block;
+    width: 10vw;
+    height: 10vw;
+    background-image: url("img/heart_orb.gif");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 2;
+    
+
 }
 
 .falling-container {
@@ -57,6 +75,7 @@ body {
     width: 4vw;
     background-image: url('img/heart.png');
     background-size: cover;
+    
 }
 
 .heart-img-wrapper {
@@ -88,3 +107,53 @@ body {
 .score {
 
 }
+
+
+/* End Screen */
+
+ .end-screen-wrapper {
+    height: 100vh;
+    width: 100vw;
+    background: #ff3fff60;
+    background: -webkit-linear-gradient(top left, #FF3FFF60, #FCC2DF60);
+    background: -moz-linear-gradient(top left, #FF3FFF60, #FCC2DF60);
+    background: linear-gradient(to bottom right, #FF3FFF60, #FCC2DF60);
+    display: none;
+ }
+
+ .end-screen-title {
+    padding-top: 5vw;
+    font-size: 5vw;
+    text-align: center;
+    margin-bottom: 2vw;
+    width: 100%;
+ }
+
+ .end-screen-score {
+     font-size: 4vw;
+     text-align: center;
+     margin-bottom: 2vw;
+     width: 100%;
+
+ }
+
+ .restart-wrapper {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .restart {
+     height: 8vw;
+     width: 20vw;
+     font-size: 6vw;
+     font-family: "Kaushan Script", cursive;
+     background-color: #f29bfda1;
+     border: 2px solid #aaa;
+ }
+
+ .restart:hover {
+     cursor: url('img/lvl1/lvl1_main.cur'), crosshair;
+     background-color: #ec75fcd2;
+     color:rgba(0, 0, 0, 0.486);
+ }

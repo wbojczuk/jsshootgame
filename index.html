@@ -9,21 +9,39 @@
     <script src="js/script.js" defer></script>
 </head>
 <body id="body">
-    <div class="right-align">
+    
+    <!-- Main Content -->
+    <div class="main-wrapper" id="mainWrapper">
+        <div class="right-align">
         <div id="scoreboard" class="scoreboard">
             SCORE:&nbsp;
             <span class="score" id="score">0</span>
         </div>
             <div class="heart-img-wrapper" id="heartImgWrapper">
-                <div class="heart-img" id="heartImage"></div>
-                <div class="heart-img" id="heartImage"></div>
-                <div class="heart-img" id="heartImage"></div>
-                <div class="heart-img" id="heartImage"></div>
+                <div class="heart-img heart-here" id="heartImage"></div>
+                <div class="heart-img heart-here" id="heartImage"></div>
+                <div class="heart-img heart-here" id="heartImage"></div>
+                <div class="heart-img heart-here" id="heartImage"></div>
             </div>
     </div>
 
     <div class="main-container" id="mainContainer">  
         
+    </div>
+
+</div>
+
+    <!-- End Screen Wrapper -->
+
+    <div class="end-screen-wrapper" id="endScreenWrapper">
+
+        <div class="end-screen-title" id="endScreenTitle">1</div>
+        <div class="end-screen-score" id="endScreenScore">2</div>
+
+        <div class="restart-wrapper">
+        <button id="restart" class="restart" onclick="restart();">Restart</button>
+    </div>
+
     </div>
     
 </body>
