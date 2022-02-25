@@ -8,6 +8,7 @@ var heartLost = 0;
 var lvlRepeat;
 var currentLvl = "lvl1";
 var counter = 1;
+var speedRepeat;
 
 
 
@@ -29,6 +30,8 @@ window.onload = startGame();
 
 function startGame() {
     clearInterval(lvlRepeat);
+    clearInterval(speedRepeat);
+
 switch (currentLvl) {
 
 
@@ -81,13 +84,16 @@ switch (currentLvl) {
                 
                 
 
-                lvlRepeat = setInterval(lvlOne, 13);
+                lvlRepeat = setInterval(lvlOne, 10);
                 console.log("lvl1pre");
     }
         
     
         // Main Function
             function lvlOne(){
+
+                
+
                 var allThingOneHitbox;
                 var allThingOneLengthHitbox;
 
@@ -97,17 +103,17 @@ switch (currentLvl) {
 
                 // Bomb Generation
                 if (counter % 2 == 0) {
-                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                 } else if ( counter % 3 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                 } else if ( counter % 4 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
 
                 } else {
                     fallingHTML = "<div class='falling-container'></div>"
@@ -120,16 +126,16 @@ switch (currentLvl) {
                     //  sec
                     if ( counter == Math.floor(getRndInteger(30 , 35)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='red-potion unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
+                        fallingHTML += "<div class='falling-container'><div class='noevent red-potion unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
                      } 
 
                      if ( counter == Math.floor(getRndInteger(60 , 70)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='red-potion unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
+                        fallingHTML += "<div class='falling-container'><div class='noevent red-potion unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
                      }
                      if ( counter == Math.floor(getRndInteger(100 , 120)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='red-potion unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
+                        fallingHTML += "<div class='falling-container'><div class='noevent red-potion unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
                      }
 
 
@@ -138,9 +144,9 @@ switch (currentLvl) {
 
                     //  RARE EXTRA HEART GENERATION
 
-                    if ( counter == Math.floor(getRndInteger(1, 1500)) ) {
+                    if ( counter == Math.floor(getRndInteger(1, 500)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='extra-heart-orb unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
+                        fallingHTML += "<div class='falling-container'><div class='noevent extra-heart-orb unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
                      } 
 
 
@@ -151,25 +157,28 @@ switch (currentLvl) {
 
                 // SET EVENT LISTENERS ON CELLS
 
-            var allThingOne = document.querySelectorAll(".thing-one.unclicked");
+            var allThingOne = document.querySelectorAll(".thing-one.unclicked.noevent");
             var allThingOneLength = allThingOne.length;
              
                 for (let i = 0; i < allThingOneLength; i++) {
-                    allThingOne[i].addEventListener("click", bombClicked, {once: true});
+                    allThingOne[i].addEventListener("click", bombClicked);
+                    allThingOne[i].classList.remove("noevent");
                 }
 
                 //SET RED POTION EVENTS
-                var redPotions = document.querySelectorAll(".red-potion.unclicked");
+                var redPotions = document.querySelectorAll(".red-potion.unclicked.noevent");
 
                 for (let i = 0; i < redPotions.length; i++) {
-                    redPotions[i].addEventListener("click", redPotionEffect, {once: true});
+                    redPotions[i].addEventListener("click", redPotionEffect);
+                    redPotions[i].classList.remove("noevent");
                 }
 
                 //SET Extra Heart Orb EVENTS
-                var extraHeartOrb = document.querySelectorAll(".extra-heart-orb.unclicked");
+                var extraHeartOrb = document.querySelectorAll(".extra-heart-orb.unclicked.noevent");
 
                 for (let i = 0; i < extraHeartOrb.length; i++) {
-                    extraHeartOrb[i].addEventListener("click", extraHeartOrbEffect, {once: true});
+                    extraHeartOrb[i].addEventListener("click", extraHeartOrbEffect);
+                    extraHeartOrb[i].classList.remove("noevent");
                 }
             
             
@@ -272,7 +281,7 @@ switch (currentLvl) {
 
             //   Speed things based on time
 
-            if (counter == 20) {
+            if (counter == 200) {
                 clearInterval(lvlRepeat);
                 lvlRepeat = setInterval(lvlOne, 7);
             }
@@ -284,22 +293,52 @@ switch (currentLvl) {
 
             if (counter == 60) {
                 clearInterval(lvlRepeat);
-                lvlRepeat = setInterval(lvlOne, 6);
+                lvlRepeat = setInterval(lvlOne, 4);
             }
 
             if (counter == 80) {
                 clearInterval(lvlRepeat);
-                lvlRepeat = setInterval(lvlOne, 5.5);
+                lvlRepeat = setInterval(lvlOne, 3.5);
             }
 
             if (counter == 100) {
                 clearInterval(lvlRepeat);
-                lvlRepeat = setInterval(lvlOne, 5);
+                lvlRepeat = setInterval(lvlOne, 2);
             }
 
             if (counter == 120) {
                 clearInterval(lvlRepeat);
-                lvlRepeat = setInterval(lvlOne, 4.5);
+                lvlRepeat = setInterval(lvlOne, 1);
+            }
+
+            if (counter == 140) {
+                clearInterval(speedRepeat);
+                speedRepeat = setInterval(lvlOne, 6);
+            }
+
+            if (counter == 160) {
+                clearInterval(speedRepeat);
+                speedRepeat = setInterval(lvlOne, 5);
+            }
+
+            if (counter == 180) {
+                clearInterval(speedRepeat);
+                speedRepeat = setInterval(lvlOne, 4);
+            }
+
+            if (counter == 200) {
+                clearInterval(speedRepeat);
+                speedRepeat = setInterval(lvlOne, 3);
+            }
+
+            if (counter == 220) {
+                clearInterval(speedRepeat);
+                speedRepeat = setInterval(lvlOne, 2);
+            }
+
+            if (counter == 240) {
+                clearInterval(speedRepeat);
+                speedRepeat = setInterval(lvlOne, 1);
             }
 
             // TEMP DISABLE COUNTER TRIGGERS
@@ -308,6 +347,7 @@ switch (currentLvl) {
 
             
         }
+    
     
     
 
@@ -320,7 +360,8 @@ switch (currentLvl) {
 // BOMBS
 
 function bombClicked(evt) {
-    evt.target.classList.remove = "unclicked";
+    evt.target.removeEventListener("click", bombClicked);
+    evt.target.classList.remove("unclicked");
     evt.target.querySelector(".thing-one-hitbox").remove();
     evt.target.style.zIndex = "1";
     var audio = new Audio('sounds/bomb_explosion.mp3');
@@ -345,11 +386,13 @@ function bombClicked(evt) {
 // RED POTIONS
 
 function redPotionEffect(evt) {
-    evt.target.classList.remove = "unclicked";
+    evt.target.classList.remove("unclicked");
+    evt.target.removeEventListener("click", redPotionEffect);
 
     var goneHeartState = document.querySelectorAll(".heart-gone");
 
     score += 15;
+    document.getElementById("score").innerHTML = score;
 
     if (goneHeartState.length >= 1){
         evt.target.style.zIndex = "1";
@@ -385,7 +428,12 @@ function redPotionEffect(evt) {
 // RARE EXTRA HEART ORB
 
     function extraHeartOrbEffect(evt) {
-        evt.target.classList.remove = "unclicked";
+        
+        console.log("hi")
+        evt.target.classList.remove("unclicked");
+        evt.target.removeEventListener("click", extraHeartOrbEffect);
+        score += 80;
+        document.getElementById("score").innerHTML = score;
         evt.target.style.zIndex = "1";
         var audio = new Audio('sounds/glass_break.mp3');
         audio.volume = 0.4;
