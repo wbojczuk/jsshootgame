@@ -75,6 +75,8 @@ function mainMenu() {
         Gonehearts[i].classList.add("heart-here");
         Gonehearts[i].style.backgroundImage = "url('img/heart.png')";
     }
+    clearInterval(lvlRepeat);
+    clearInterval(speedRepeat);
     setBackgroundMusic();
 
 }
@@ -547,6 +549,8 @@ function failScreen() {
 
     document.getElementById("endScreenTitle").textContent = "You Died!!";
     document.getElementById("endScreenScore").innerHTML = "Score: " + score;
+    clearInterval(lvlRepeat);
+    clearInterval(speedRepeat);
 }
 
 // RESTART
