@@ -556,6 +556,7 @@ function restart() {
     
 
     score = 0;
+    document.getElementById("score").innerHTML = score;
 
     // DISPLAY SWAP
 
