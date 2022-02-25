@@ -3,6 +3,9 @@
 body {
     margin: 0;
     overflow: hidden;
+    background-image: url("img/main_screen_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* Custom Classes */
@@ -10,7 +13,7 @@ body {
 
 /* MAIN WRAPPER */
 .main-wrapper {
-    
+    display: none;
 }
 /* Main Container */
 
@@ -112,6 +115,38 @@ body {
 
 }
 
+/* Start Screen */
+
+.start-screen-wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-wrapper {
+    width: 70vw;
+    height: auto;
+    
+}
+
+.carousel-control-next-icon{
+   width: 5vw;
+   height: 5vw;
+   background-image: url("img/fwd_button.svg");
+}
+
+.carousel-imgg {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.carousel-control-prev-icon{
+    width: 5vw;
+    height: 5vw;
+    background-image: url("img/prev_button.svg");
+ }
+
 
 /* End Screen */
 
@@ -150,7 +185,7 @@ body {
  .restart {
      height: 8vw;
      width: 20vw;
-     font-size: 6vw;
+     font-size: 3vw;
      font-family: "Kaushan Script", cursive;
      background-color: #f29bfda1;
      border: 2px solid #aaa;
@@ -160,4 +195,20 @@ body {
      cursor: url('img/lvl1/lvl1_main.cur'), crosshair;
      background-color: #ec75fcd2;
      color:rgba(0, 0, 0, 0.486);
+ }
+
+ .main-menu-button {
+    height: 8vw;
+     width: 20vw;
+     font-size: 3vw;
+     font-family: "Kaushan Script", cursive;
+     background-color: #f29bfda1;
+     border: 2px solid #aaa;
+     margin-right: 5vw;
+ }
+
+ .main-menu-button:hover {
+    cursor: url('img/lvl1/lvl1_main.cur'), crosshair;
+    background-color: #ec75fcd2;
+    color:rgba(0, 0, 0, 0.486);
  }

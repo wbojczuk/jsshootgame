@@ -7,8 +7,10 @@ var score = 0;
 var heartLost = 0;
 var lvlRepeat;
 var currentLvl = "lvl1";
+var selectedLvl = "";
 var counter = 1;
 var speedRepeat;
+var backgroundMusic = new Audio('sounds/menu_background_music.mp3');
 
 
 
@@ -16,21 +18,91 @@ var speedRepeat;
 
 setInterval(
     function(){counter = Math.floor(counter) + 1; 
-        console.log(counter);
+        
         
 
     }
     
 ,1000);
 
-window.onload = startGame();
+
+
+
+// MAIN MENU FUNTION 
+function mainMenu() {
+
+    // DISPLAY SWAP
+
+    document.getElementById("mainWrapper").style.display = "none";
+    document.getElementById("endScreenWrapper").style.display = "none";
+    document.getElementById("startScreenWrapper").style.display = "flex";
+
+    document.getElementById("body").style.backgroundImage = "url('img/main_screen_background.jpg')";
+
+    // set location and music 
+    currentLvl = "menu";
+
+    
+    
+
+    score = -10000000000000000;
+
+    // Remove current falling rows
+
+    var fallingCount = document.querySelectorAll(".falling-container");
+    var fallingCountLength = fallingCount.length;
+
+    for (let i = 0; i < fallingCountLength; i++) {
+        fallingCount[i].remove();
+    }
+
+
+    // RESET HEARTS
+
+    // removing the extra hearts
+
+    var extraHearts = document.querySelectorAll(".extra-heart");
+    for (let i = 0; i < extraHearts.length; i++) {
+        extraHearts[i].remove();
+    }
+    
+    heartLost = 0;
+
+    var Gonehearts = document.querySelectorAll(".heart-gone");
+
+    for (let i = 0; i < Gonehearts.length; i++) {
+        Gonehearts[i].classList.remove("heart-gone");
+        Gonehearts[i].classList.add("heart-here");
+        Gonehearts[i].style.backgroundImage = "url('img/heart.png')";
+    }
+    setBackgroundMusic();
+
+}
 
 
 // START FUNCTION
 
+function preStartGame(sLvl) {
+    selectedLvl = sLvl;
+
+    startGame();
+}
+
 function startGame() {
+    // RESET VARIABLES
+
+    score = 0;
+    heartLost = 0;
+    counter = 1;
+
+    document.addEventListener('click', setBackgroundMusic);
+    document.getElementById("endScreenWrapper").style.display = "none";
+    document.getElementById("startScreenWrapper").style.display = "none";
+    document.getElementById("mainWrapper").style.display = "block";
+    currentLvl = selectedLvl;
     clearInterval(lvlRepeat);
     clearInterval(speedRepeat);
+    
 
 switch (currentLvl) {
 
@@ -38,39 +110,54 @@ switch (currentLvl) {
     case "lvl1":
         lvl1Pre();
     break;
-
+    
 }
 
 }
+
+
+function setBackgroundMusic() {
+    // SET BACKGROUND MUSIC
+
+    switch (currentLvl) {
+        case "lvl1":
+            backgroundMusic.pause();
+            backgroundMusic.currentTime = 0;
+            backgroundMusic = new Audio('sounds/lvl1/main_background_music.mp3');
+        break;
+
+        case "menu":
+            backgroundMusic.pause();
+            backgroundMusic.currentTime = 0;
+            backgroundMusic = new Audio('sounds/menu_background_music.mp3');
+            console.log("menu");
+        break;
+    }
+    
+     
+
+    backgroundMusic.play();
+    backgroundMusic.volume = 0.2;
+    document.removeEventListener('click', setBackgroundMusic);
+    backgroundMusic.addEventListener("ended", function(){
+        backgroundMusic.currentTime = 0;
+        backgroundMusic.play();
+    }); 
+
+
+}
+
     
         
         function lvl1Pre() {
-
-            currentLvl = "lvl1";
-            counter = 1;
+            
 
     // Main Function Interval
     
 
 
-    document.addEventListener('click', lvl1BackgroundMusic);
     
-        
-        function lvl1BackgroundMusic() {
-            // SET BACKGROUND MUSIC
-            
-            var backgroundMusic = new Audio('sounds/lvl1/main_background_music.mp3');
-            backgroundMusic.play();
-            backgroundMusic.volume = 0.3;
-            console.log("preloaded");
-            document.removeEventListener('click', lvl1BackgroundMusic);
-            backgroundMusic.addEventListener("ended", function(){
-                backgroundMusic.currentTime = 0;
-                backgroundMusic.play();
-            }); 
-
-        
-        }
+    
 
                 currentLvl = "lvl1";
             
@@ -85,7 +172,6 @@ switch (currentLvl) {
                 
 
                 lvlRepeat = setInterval(lvlOne, 10);
-                console.log("lvl1pre");
     }
         
     
@@ -313,32 +399,32 @@ switch (currentLvl) {
 
             if (counter == 140) {
                 clearInterval(speedRepeat);
-                speedRepeat = setInterval(lvlOne, 6);
+                speedRepeat = setInterval(lvlOne, 10);
             }
 
             if (counter == 160) {
                 clearInterval(speedRepeat);
-                speedRepeat = setInterval(lvlOne, 5);
+                speedRepeat = setInterval(lvlOne, 9);
             }
 
             if (counter == 180) {
                 clearInterval(speedRepeat);
-                speedRepeat = setInterval(lvlOne, 4);
+                speedRepeat = setInterval(lvlOne, 8);
             }
 
             if (counter == 200) {
                 clearInterval(speedRepeat);
-                speedRepeat = setInterval(lvlOne, 3);
+                speedRepeat = setInterval(lvlOne, 7);
             }
 
             if (counter == 220) {
                 clearInterval(speedRepeat);
-                speedRepeat = setInterval(lvlOne, 2);
+                speedRepeat = setInterval(lvlOne, 6);
             }
 
             if (counter == 240) {
                 clearInterval(speedRepeat);
-                speedRepeat = setInterval(lvlOne, 1);
+                speedRepeat = setInterval(lvlOne, 5);
             }
 
             // TEMP DISABLE COUNTER TRIGGERS
@@ -429,7 +515,7 @@ function redPotionEffect(evt) {
 
     function extraHeartOrbEffect(evt) {
         
-        console.log("hi")
+        
         evt.target.classList.remove("unclicked");
         evt.target.removeEventListener("click", extraHeartOrbEffect);
         score += 80;
