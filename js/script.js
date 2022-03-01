@@ -21,10 +21,13 @@ setInterval(
         
         
 
-    }
-    
-,1000);
+    },1000);
 
+    // Random Numbers
+
+            function getRndInteger(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) ) + min;
+              }
 
 
 
@@ -45,7 +48,7 @@ function mainMenu() {
     
     
 
-    score = -10000000000000000;
+    score = -100000000000000;
 
     // Remove current falling rows
 
@@ -173,7 +176,7 @@ function setBackgroundMusic() {
                 
                 
 
-                lvlRepeat = setInterval(lvlOne, 10);
+                lvlRepeat = setInterval(lvlOne, 13);
     }
         
     
@@ -190,16 +193,20 @@ function setBackgroundMusic() {
                 var fallingHTML = "";
 
                 // Bomb Generation
-                if (counter % 2 == 0) {
+                if (counter % 4 == 0) {
                     fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                     fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                } else if ( counter % 3 == 0){
+                } else if ( counter % 6 == 0){
                     fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                     fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                     fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                } else if ( counter % 4 == 0){
+                } else if ( counter % 10 == 0){
                     fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                     fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+
+                }else if ( counter % 13 == 0){
                     fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                     fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
 
@@ -274,7 +281,7 @@ function setBackgroundMusic() {
 
 
 
-                    // PLACE ON LAST GENERATION IF STATEMENT
+                    
             
 
                 
@@ -355,11 +362,7 @@ function setBackgroundMusic() {
 
             
 
-            // Random Numbers
-
-            function getRndInteger(min, max) {
-                return Math.floor(Math.random() * (max - min + 1) ) + min;
-              }
+            
 
 
 
@@ -456,7 +459,9 @@ function bombClicked(evt) {
     audio.volume = 0.8;
     audio.playbackRate = 1.1;
     audio.play();
-    evt.target.style.backgroundImage = "url('img/lvl1/bomb_explosion.gif')";
+
+    // Cache Bypass, remove when better solution is found
+    evt.target.style.backgroundImage = "url('img/lvl1/bomb_explosion.gif?" + getRndInteger(1, 500000000) + "')";
     evt.target.style.backgroundRepeat = "no-repeat";
     evt.target.style.backgroundSize = "contain";
 

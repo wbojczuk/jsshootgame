@@ -137,8 +137,8 @@ body {
    background-image: url("img/fwd_button.svg");
 }
 
-.carousel-imgg {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+.carousel-wrapper {
+    box-shadow: rgba(0, 0, 4, 0.24) 0px 9px 24px;
 }
 
 .carousel-control-prev-icon{
