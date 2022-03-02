@@ -213,7 +213,7 @@ function lvl1Pre() {
             var fallingCountLength = fallingCount.length;
 
            
-            for(let i = 0; i < fallingCountLength; i++)
+            for(let i = 0; i < fallingCountLength; i++){
             if (isInViewport(viewSubject) === false) {
   
                viewSubject.remove();
@@ -221,6 +221,7 @@ function lvl1Pre() {
                viewSubject = viewTest.lastElementChild;
 
             }
+        }
 
 
 

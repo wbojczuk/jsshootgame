@@ -154,8 +154,7 @@ body {
     height: 4vw;
     width: 4vw;
     margin: 1vw 1vw 0 1vw;
-    border: 1px solid transparent;
-    border-radius: 10px;
+    
     
 }
 
@@ -163,6 +162,8 @@ body {
     background-image: url('img/icons/power1.png');
     background-repeat: no-repeat;
     background-size: cover;
+    border: 0px solid transparent;
+    border-radius: 10px;
     box-shadow: 0px 0px 61px 10px rgba(18, 214, 155, 0.56);
 }
 /* Start Screen */
