@@ -15,6 +15,28 @@ body {
 .main-wrapper {
     display: none;
 }
+
+.preload {
+    z-index: 0;
+}
+
+.preload-screen {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
+#loading {
+    margin-top: auto;
+    width: 100%;
+    background-color: grey;
+  }
+  
+  #loadingBar {
+    width: 1%;
+    height: 50px;
+    background-color: green;
+  }
 /* Main Container */
 
 .main-container {
@@ -27,8 +49,6 @@ body {
     display: inline-block;
     width: 10vw;
     height: 10vw;
-    background-image: url("img/lvl1/bomb.gif");
-    background-size: cover;
     z-index: 2;
     user-select: none;
 }
@@ -42,14 +62,11 @@ body {
 .red-potion {
     position: relative;
     display: inline-block;
-    width: 10vw;
-    height: 10vw;
-    background-image: url("img/red_potion.gif");
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: center center;
+    width: 5vw;
+    height: 5vw;
     z-index: 2;
     user-select: none;
+    padding: 2.5vw;
 }
 
 .extra-heart-orb {
@@ -87,34 +104,67 @@ body {
 
 .heart-img-wrapper {
     display: inline-block;
+    margin-left: 2vw;
 }
 
-.right-align {
+.main-bar {
     display: flex;
-    align-items: center;
-    justify-content: right;
+    width: 100vw;
     height: 4vw;
-    padding-right: 2vw;
     padding-top: 1vw;
     padding-bottom: 1vw;
-    background: #ff3fff60;
-    background: -webkit-linear-gradient(top left, #FF3FFF60, #FCC2DF60);
-    background: -moz-linear-gradient(top left, #FF3FFF60, #FCC2DF60);
-    background: linear-gradient(to bottom right, #FF3FFF60, #FCC2DF60);
+}
+
+.main-bar-left {
+    display: flex;
+    width: 50%;
+    height: 4vw;
+    align-items: center;
+    justify-content: left;
+}
+
+.main-bar-right {
+    display: flex;
+    width: 50%;
+    height: 4vw;
+    align-items: center;
+    justify-content: right;
 }
 
 /* SCORES */
 
 .scoreboard {
+    display: inline-block;
     font-family: "Kaushan Script", cursive;
     font-size: 3vw;
-    margin-right: 3vw;
+    margin-left: 2vw;
+    position: relative;
+    top: 0;
 }
 
 .score {
 
 }
 
+/* TOP RIGHT ICONS */
+
+.power-icon {
+    position: relative;
+    display: inline-block;
+    height: 4vw;
+    width: 4vw;
+    margin: 1vw 1vw 0 1vw;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    
+}
+
+.power1 {
+    background-image: url('img/icons/power1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 61px 10px rgba(18, 214, 155, 0.56);
+}
 /* Start Screen */
 
 .start-screen-wrapper {
@@ -212,3 +262,13 @@ body {
     background-color: #ec75fcd2;
     color:rgba(0, 0, 0, 0.486);
  }
+
+ /* CURSOR TRAILS */
+ .trail { /* className for the trail elements */
+    position: absolute;
+    height: 6px; width: 6px;
+    border-radius: 3px;
+    background: rgb(3, 94, 18);
+
+    pointer-events: none;
+  }
