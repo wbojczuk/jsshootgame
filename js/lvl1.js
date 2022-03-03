@@ -45,7 +45,7 @@ function lvl1Pre() {
                 var fallingHTML = "";
 
                 // Bomb Generation
-                if (counter % 4 == 0) {
+                if (counter % 3 == 0) {
                     fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                     fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
                 } else if ( counter % 6 == 0){

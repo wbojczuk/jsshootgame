@@ -100,13 +100,13 @@ function startGame() {
     heartLost = 0;
     counter = 1;
 
-    document.addEventListener('click', setBackgroundMusic);
     document.getElementById("endScreenWrapper").style.display = "none";
     document.getElementById("startScreenWrapper").style.display = "none";
     document.getElementById("mainWrapper").style.display = "block";
     currentLvl = selectedLvl;
     clearInterval(lvlRepeat);
     clearInterval(speedRepeat);
+    setBackgroundMusic();
     
 
 switch (currentLvl) {
@@ -165,7 +165,6 @@ function failScreen() {
     
     document.getElementById("mainWrapper").style.display = "none";
     document.getElementById("endScreenWrapper").style.display = "block";
-
     document.getElementById("endScreenTitle").textContent = "You Died!!";
     document.getElementById("endScreenScore").innerHTML = "Score: " + score;
     clearInterval(lvlRepeat);

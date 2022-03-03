@@ -3,6 +3,10 @@ window.onload = preloadFunction;
 function preloadFunction(){
     var stuffPreload = "";
 
+    var preloadHintHTML = ["Get to 500 points for a special ability!", "Get the red potions to heal a lost heart!", "Get the rare glowing orb for an additional heart!", "Animated with sprite sheets!", "Coded in strict mode!", "What is life?", "Made in 2022"];
+  var u = preloadHintHTML.length - 1;
+    document.getElementById("preloadHint").textContent = preloadHintHTML[Math.floor(getRndInteger(0, u))];
+
     var i = 0;
     move();
 function move() {
@@ -10,11 +14,18 @@ function move() {
     i = 1;
     var elem = document.getElementById("loadingBar");
     var width = 1;
-    var id = setInterval(frame, 18);
+    var id = setInterval(frame, 25);
     function frame() {
       if (width >= 100) {
         clearInterval(id);
         i = 0;
+        document.getElementById("preload").remove();
+        document.getElementById("preloadScreen").style.display = "none";
+        document.getElementById("endScreenWrapper").style.display = "none";
+        document.getElementById("startScreenWrapper").style.display = "flex";
+        document.getElementById("mainWrapper").style.display = "none";
+        currentLvl = "menu";
+        document.addEventListener("click", setBackgroundMusic);
       } else {
         width++;
         elem.style.width = width + "%";
@@ -35,11 +46,4 @@ function move() {
 
 
     document.getElementById("preload").insertAdjacentHTML("afterbegin", stuffPreload);
-    setTimeout( function() {
-        document.getElementById("preload").remove();
-        document.getElementById("preloadScreen").style.display = "none";
-        document.getElementById("endScreenWrapper").style.display = "none";
-    document.getElementById("startScreenWrapper").style.display = "flex";
-    document.getElementById("mainWrapper").style.display = "none";
-    },2000);
 }

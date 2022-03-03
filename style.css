@@ -21,12 +21,14 @@ body {
 }
 
 .preload-screen {
-    display: flex;
+    display: block;
     height: 100vh;
     width: 100vw;
     z-index: 1;
 }
 #loading {
+    position: absolute;
+    bottom: 0;
     margin-top: auto;
     width: 100%;
     background-color: grey;
@@ -36,6 +38,34 @@ body {
     width: 1%;
     height: 50px;
     background-color: green;
+  }
+
+  .preload-title-wrapper {
+      margin-top: 5vw;
+      display: flex;
+      width: 100vw;
+      height: 10vw;
+      align-items: center;
+      justify-content: center;
+
+  }
+  .preload-hint {
+      margin-top: 5vw;
+      display: block;
+      text-align: center;
+      width: 100%;
+      height: 10vw;
+      font-size: x-large;
+      color: white;
+  }
+
+  .preload-title {
+      display: inline-block;
+      width: 80vw;
+    height: 10vw;
+      background-image: url("img/preload_title.png");
+      background-size: contain;
+      background-repeat: no-repeat;
   }
 /* Main Container */
 
@@ -164,7 +194,7 @@ body {
     background-size: cover;
     border: 0px solid transparent;
     border-radius: 10px;
-    box-shadow: 0px 0px 61px 10px rgba(18, 214, 155, 0.56);
+    box-shadow: 0px 0px 15px 10px rgba(18, 152, 214, 0.767);
 }
 /* Start Screen */
 
