@@ -79,7 +79,7 @@ function lvl1Pre() {
                 // Healing/Red Potion Generation
                 
                     //  sec
-                    if ( counter == 5) {
+                    if ( counter == Math.floor(getRndInteger(25 , 40))) {
 
                         fallingHTML += "<div class='falling-container'><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
                      } 
@@ -99,7 +99,7 @@ function lvl1Pre() {
 
                     //  RARE EXTRA HEART GENERATION
 
-                    if ( counter == 5 ) {
+                    if ( counter == Math.floor(getRndInteger(1, 1000)) ) {
 
                         fallingHTML += "<div class='falling-container'><div class='pow1 clickbox extra-heart-orb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='extra-heart-orb'></div></div></div>";
                      } 
@@ -321,7 +321,7 @@ function lvl1Pre() {
             // Add powers based on score
 
             // MOUSEOVER BOMBS AKA POWER1
-            if (score >= 5) {
+            if (score >= 500) {
                 power1On = 1;
                 
             }

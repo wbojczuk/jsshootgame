@@ -7,3 +7,6 @@ v0.3.a Changelog:
 - converted animations to sprite sheets.
 - added preload system/screen which preloads animation files.
 - added random text to preload screen.
+
+v0.3.c Changelog:
+- added pause screen system.
