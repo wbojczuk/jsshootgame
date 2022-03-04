@@ -2,7 +2,8 @@
 "use strict";
 
 // Global Variables
-
+var resume = 0;
+var currentTime = 0;
 var score = 0;
 var heartLost = 0;
 var lvlRepeat;
@@ -19,7 +20,7 @@ var backgroundMusic = new Audio('sounds/menu_background_music.mp3');
 setInterval(
     function(){counter = Math.floor(counter) + 1; 
         
-        
+        console.log(counter);
 
     },1000);
 
@@ -35,20 +36,29 @@ setInterval(
 function mainMenu() {
 
     // DISPLAY SWAP
-
+    document.getElementById("pauseCheck").removeAttribute("onclick");
+    document.getElementById("pauseCheck").setAttribute("onclick", "pauseGame();")
     document.getElementById("mainWrapper").style.display = "none";
     document.getElementById("endScreenWrapper").style.display = "none";
     document.getElementById("startScreenWrapper").style.display = "flex";
+    document.getElementById("pauseCheck").checked = false;
 
     document.getElementById("body").style.backgroundImage = "url('img/main_screen_background.jpg')";
 
     // set location and music 
     currentLvl = "menu";
 
-    
+    removePowers();
     
 
-    score = -100000000000000;
+    counter = -10000000;
+    score = 0;
+    document.getElementById("score").innerHTML = score;
+    
+    clearInterval(speedRepeat);
+
+    clearInterval(lvlRepeat);
+    
 
     // Remove current falling rows
 
@@ -102,6 +112,8 @@ function startGame() {
 
     document.getElementById("endScreenWrapper").style.display = "none";
     document.getElementById("startScreenWrapper").style.display = "none";
+    document.getElementById("pausePage").style.display = "none";
+    document.getElementById("mainContainer").style.display = "block";
     document.getElementById("mainWrapper").style.display = "block";
     currentLvl = selectedLvl;
     clearInterval(lvlRepeat);
@@ -162,13 +174,14 @@ function setBackgroundMusic() {
 
 function failScreen() {
     counter = -10000000;
-    
+    clearInterval(lvlRepeat);
+    clearInterval(speedRepeat);
+
     document.getElementById("mainWrapper").style.display = "none";
     document.getElementById("endScreenWrapper").style.display = "block";
     document.getElementById("endScreenTitle").textContent = "You Died!!";
     document.getElementById("endScreenScore").innerHTML = "Score: " + score;
-    clearInterval(lvlRepeat);
-    clearInterval(speedRepeat);
+    
 }
 
 // RESTART
@@ -219,5 +232,98 @@ function restart() {
     // Load Correct Pre-Level
 
     startGame();
+
+}
+
+
+// PAUSE GAME
+
+function pauseGame() {
+    clearInterval(lvlRepeat);
+    clearInterval(speedRepeat);
+
+    document.getElementById("pauseCheck").removeAttribute("onclick");
+    document.getElementById("pauseCheck").setAttribute("onclick", "resumeGame();");
+    document.getElementById("mainContainer").style.display = "none";
+    document.getElementById("pausePage").style.display = "flex";
+    
+}
+
+function resumeGame() {
+
+    switch (currentLvl) {
+        case "lvl1":
+        
+            switch (currentTime) {
+                case 1:
+                    lvlRepeat = setInterval(lvlOne, 13);
+                break;
+
+                case 2:
+                    lvlRepeat = setInterval(lvlOne, 11);
+                    console.log("yehh");
+                break;
+
+                case 3:
+                    lvlRepeat = setInterval(lvlOne, 8);
+                break;
+
+                case 4:
+                    lvlRepeat = setInterval(lvlOne, 6);
+                break;
+
+                case 5:
+                    lvlRepeat = setInterval(lvlOne, 3.5);
+                break;
+
+                case 6:
+                    lvlRepeat = setInterval(lvlOne, 2);
+                break;
+
+                case 7:
+                    lvlRepeat = setInterval(lvlOne, 1);
+                break;
+
+                case 8:
+                    lvlRepeat = setInterval(lvlOne, 1);
+                    speedRepeat = setInterval(lvlOne, 10);
+                break;
+
+                case 9:
+                    lvlRepeat = setInterval(lvlOne, 1);
+                    speedRepeat = setInterval(lvlOne, 9);
+                break;
+                case 10:
+                    lvlRepeat = setInterval(lvlOne, 1);
+                    speedRepeat = setInterval(lvlOne, 8);
+                break;
+                case 11:
+                    lvlRepeat = setInterval(lvlOne, 1);
+                    speedRepeat = setInterval(lvlOne, 7);
+                break;
+                case 12:
+                    lvlRepeat = setInterval(lvlOne, 1);
+                    speedRepeat = setInterval(lvlOne, 6);
+                break;
+                case 13:
+                    lvlRepeat = setInterval(lvlOne, 1);
+                    speedRepeat = setInterval(lvlOne, 5);
+                break;
+                case 14:
+                    lvlRepeat = setInterval(lvlOne, 1);
+                    speedRepeat = setInterval(lvlOne, 3);
+                break;
+                case 15:
+                    lvlRepeat = setInterval(lvlOne, 1);
+                    speedRepeat = setInterval(lvlOne, 1);
+                break;
+            }
+        break;
+    }
+    document.getElementById("pauseCheck").checked = false;
+    document.getElementById("mainContainer").style.display = "block";
+    document.getElementById("pausePage").style.display = "none";
+    document.getElementById("pauseCheck").removeAttribute("onclick");
+    document.getElementById("pauseCheck").setAttribute("onclick", "pauseGame();");
 
 }

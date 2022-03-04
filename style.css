@@ -62,7 +62,7 @@ body {
 
   }
   .preload-hint {
-      margin-top: 5vw;
+      
       display: block;
       text-align: center;
       width: 100%;
@@ -74,7 +74,7 @@ body {
   .preload-title {
       display: inline-block;
       width: 80vw;
-    height: 10vw;
+    height: 15vw;
       background-image: url("img/preload_title.png");
       background-size: contain;
       background-repeat: no-repeat;
@@ -302,12 +302,89 @@ body {
     color:rgba(0, 0, 0, 0.486);
  }
 
- /* CURSOR TRAILS */
- .trail { /* className for the trail elements */
-    position: absolute;
-    height: 6px; width: 6px;
-    border-radius: 3px;
-    background: rgb(3, 94, 18);
+  .checki{
+    display:flex;
+     flex-direction:column;
+     width:70px;
+     cursor:pointer;
+     z-index: 6;
+     margin-left: 2vw;
+   }
+   
+   .checki span{
+     background: rgb(165, 165, 165);
+     border-radius:10px;
+     height:7px;
+     margin: 7px 0;
+     transition: .4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
+   
+   }
+   
+   
+   .checki span:nth-of-type(1){
+     width:50%;
+     
+   }
+   
+   .checki span:nth-of-type(2){
+     width:100%;
+   }
+   
+   
+   .checki span:nth-of-type(3){
+     width:75%;
+    
+   }
+   
+   
+   input[type="checkbox"]{
+     display:none;
+   }
+   
+   
+   input[type="checkbox"]:checked ~ span:nth-of-type(1){
+     transform-origin:bottom;
+     transform:rotatez(45deg) translate(8px,0px)
+   }
+   
+   
+   input[type="checkbox"]:checked ~ span:nth-of-type(2){
+     
+     transform-origin:top;
+     transform:rotatez(-45deg)
+   }
+   
+   
+   input[type="checkbox"]:checked ~ span:nth-of-type(3){
+     
+     transform-origin:bottom;
+     width:50%;
+     transform: translate(30px,-11px) rotatez(45deg);
+   
+   }
+   
+   .pause-page {
+       position: relative;
+       top: -6.1vw;
+       display: none;
+       align-items: center;
+       justify-content: center;
+       height: 106.1vh;
+       width: 100vw;
+       background-color: rgba(0, 0, 0, 0.548);
+   }
+   .resume-game-button {
+    height: 8vw;
+     width: 20vw;
+     font-size: 3vw;
+     font-family: "Kaushan Script", cursive;
+     background-color: #f29bfda1;
+     border: 2px solid #aaa;
+     
+ }
 
-    pointer-events: none;
-  }
+ .resume-game-button:hover {
+    cursor: url('img/lvl1/lvl1_main.cur'), crosshair;
+    background-color: #ec75fcd2;
+    color:rgba(0, 0, 0, 0.486);
+ }

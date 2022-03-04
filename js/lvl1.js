@@ -1,24 +1,21 @@
-
-
+var oonlyOne = 1;
+var mainContainerr = document.getElementById("mainContainer");
+var onlyOne = 1;
+var onlyOne1 = 1;
+var powerOneToggle = false; 
+var power1On = 0;
+var allThingOneHitbox;
+var allThingOneLengthHitbox;
 
 function lvl1Pre() {
-    var onepow = 1;
-    var onlyOne = 1;
-    var onlyOne1 = 1;
-    var powerOneToggle = false; 
-    var power1On = 0;
-    var mainContainerr = document.getElementById("mainContainer");
+    
+    
             
 
     // Main Function Interval
-    
-
-
-    
-    
         
                 currentLvl = "lvl1";
-            
+                oonlyOne = 1;
 
                 // SET LEVEL ONE BACKGROUND
                 document.getElementById("body").style.backgroundImage = "url('img/lvl1/lvl1_background.jpg')";
@@ -28,18 +25,15 @@ function lvl1Pre() {
 
                 
                 
-
+                currentTime = 1; 
                 lvlRepeat = setInterval(lvlOne, 13);
+                 
    
         
-    
+}
         // Main Function
             function lvlOne(){
 
-                
-                
-                var allThingOneHitbox;
-                var allThingOneLengthHitbox;
                 
                 
 
@@ -85,7 +79,7 @@ function lvl1Pre() {
                 // Healing/Red Potion Generation
                 
                     //  sec
-                    if ( counter == Math.floor(getRndInteger(25 , 40))) {
+                    if ( counter == 5) {
 
                         fallingHTML += "<div class='falling-container'><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
                      } 
@@ -105,7 +99,7 @@ function lvl1Pre() {
 
                     //  RARE EXTRA HEART GENERATION
 
-                    if ( counter == Math.floor(getRndInteger(1 , 1000)) ) {
+                    if ( counter == 5 ) {
 
                         fallingHTML += "<div class='falling-container'><div class='pow1 clickbox extra-heart-orb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='extra-heart-orb'></div></div></div>";
                      } 
@@ -239,72 +233,97 @@ function lvl1Pre() {
 
             //   Speed things based on time
 
-            if (counter == 200) {
+            if (counter == 20) {
                 clearInterval(lvlRepeat);
                 lvlRepeat = setInterval(lvlOne, 11);
+                currentTime += 1; 
             }
 
             if (counter == 40) {
                 clearInterval(lvlRepeat);
                 lvlRepeat = setInterval(lvlOne, 8);
+                currentTime += 1;
             }
 
             if (counter == 60) {
                 clearInterval(lvlRepeat);
                 lvlRepeat = setInterval(lvlOne, 6);
+                currentTime += 1;
             }
 
             if (counter == 80) {
                 clearInterval(lvlRepeat);
                 lvlRepeat = setInterval(lvlOne, 3.5);
+                currentTime += 1;
             }
 
             if (counter == 100) {
                 clearInterval(lvlRepeat);
                 lvlRepeat = setInterval(lvlOne, 2);
+                currentTime += 1;
             }
 
             if (counter == 120) {
                 clearInterval(lvlRepeat);
                 lvlRepeat = setInterval(lvlOne, 1);
+                currentTime += 1;
             }
 
             if (counter == 140) {
                 clearInterval(speedRepeat);
                 speedRepeat = setInterval(lvlOne, 10);
+                currentTime += 1;
             }
 
             if (counter == 160) {
                 clearInterval(speedRepeat);
                 speedRepeat = setInterval(lvlOne, 9);
+                currentTime += 1;
             }
 
             if (counter == 180) {
                 clearInterval(speedRepeat);
                 speedRepeat = setInterval(lvlOne, 8);
+                currentTime += 1;
             }
 
             if (counter == 200) {
                 clearInterval(speedRepeat);
                 speedRepeat = setInterval(lvlOne, 7);
+                currentTime += 1;
             }
 
             if (counter == 220) {
                 clearInterval(speedRepeat);
                 speedRepeat = setInterval(lvlOne, 6);
+                currentTime += 1;
             }
 
             if (counter == 240) {
                 clearInterval(speedRepeat);
                 speedRepeat = setInterval(lvlOne, 5);
+                currentTime += 1;
+            }
+
+            if (counter == 260) {
+                clearInterval(speedRepeat);
+                speedRepeat = setInterval(lvlOne, 3);
+                currentTime += 1;
+            }
+
+            if (counter == 280) {
+                clearInterval(speedRepeat);
+                speedRepeat = setInterval(lvlOne, 1);
+                currentTime += 1;
             }
 
 
             // Add powers based on score
 
             // MOUSEOVER BOMBS AKA POWER1
-            if (score >= 500) {
+            if (score >= 5) {
                 power1On = 1;
+                
             }
 
             if(power1On == 1){
@@ -319,15 +338,16 @@ function lvl1Pre() {
                     });
 
                     // SET ICON
-                var iconHTML = "<div class='power-icon power1' id='powerIcon'></div>";
+                var pow1IconHTML = "<div class='power-icon power1' id='powerIcon'></div>";
 
-                document.getElementById("mainBarRight").insertAdjacentHTML("afterbegin", iconHTML);
+                document.getElementById("mainBarRight").insertAdjacentHTML("afterbegin", pow1IconHTML);
+                console.log("rlly");
                     
                     onlyOne += 1;
                 }
 
                 if (powerOneToggle == true) {
-                    
+                    document.getElementById("body").style.cursor = "url('img/lvl1/power1.cur'), crosshair"
                    var extraHeartOrbP1 = mainContainerr.querySelectorAll(".pow1.extra-heart-orb-clickbox");
                    var redPotionsP1 = mainContainerr.querySelectorAll(".pow1.red-potion-clickbox");
                    var bombsP1 = mainContainerr.querySelectorAll(".pow1.bomb-clickbox");
@@ -358,7 +378,7 @@ function lvl1Pre() {
             }
 
                 if (powerOneToggle == false) {
-               
+                    document.getElementById("body").style.cursor = "url('img/lvl1/lvl1_main.cur'), crosshair";
                 var extraHeartOrbP1 = mainContainerr.querySelectorAll(".extra-heart-orb-clickbox:not(.pow1)");
                    var redPotionsP1 = mainContainerr.querySelectorAll(".red-potion-clickbox:not(.pow1)");
                    var bombsP1 = mainContainerr.querySelectorAll(".bomb-clickbox:not(.pow1)");
@@ -413,7 +433,7 @@ function lvl1Pre() {
     function removePowers() {
         // POWER ONE REMOVAL
 
-        var power1Current = document.querySelectorAll('.power1');
+        var power1Current = document.querySelectorAll('.power1.power-icon');
 
         if (power1Current.length >= 1) { 
 
@@ -426,7 +446,8 @@ function lvl1Pre() {
         
         powerOneToggle = false;
         power1On = 0;
-        document.querySelector(".power1").remove();
+        onlyOne = 1
+        document.querySelector(".power1.power-icon").remove();
     }
     }
 
@@ -437,7 +458,7 @@ function lvl1Pre() {
     }
 
 
-    }
+    
 
 
 
@@ -473,7 +494,7 @@ function bombClicked(evt) {
     
     this.querySelector(".thing-one-hitbox").remove();
     targetElement.style.height = "7.5vw";
-    targetElement.style.width = "9vw";
+    targetElement.style.width = "9.5vw";
     var nowLeft = this.style.getPropertyValue("left");
     var calcLeft = parseInt(nowLeft) - 1;
     this.style.left = calcLeft + "vw";
