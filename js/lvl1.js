@@ -2,10 +2,12 @@
 
 
 function lvl1Pre() {
+    var onepow = 1;
     var onlyOne = 1;
     var onlyOne1 = 1;
     var powerOneToggle = false; 
     var power1On = 0;
+    var mainContainerr = document.getElementById("mainContainer");
             
 
     // Main Function Interval
@@ -46,32 +48,32 @@ function lvl1Pre() {
 
                 // Bomb Generation
                 if (counter % 3 == 0) {
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                 } else if ( counter % 6 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                     
                     
                 } else if ( counter % 10 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
 
                 }else if ( counter % 20 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                 }else if ( counter % 15 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                 }else if ( counter % 13 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                     
 
                 } else {
@@ -83,18 +85,18 @@ function lvl1Pre() {
                 // Healing/Red Potion Generation
                 
                     //  sec
-                    if ( counter == Math.floor(getRndInteger(25, 40))) {
+                    if ( counter == Math.floor(getRndInteger(25 , 40))) {
 
-                        fallingHTML += "<div class='falling-container'><div class='clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
+                        fallingHTML += "<div class='falling-container'><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
                      } 
 
                      if ( counter == Math.floor(getRndInteger(60 , 70)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='noevent red-potion unclicked' style='left: " + getRndInteger(1 , 70) +  "vw'></div></div>";
+                        fallingHTML += "<div class='falling-container'><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
                      }
                      if ( counter == Math.floor(getRndInteger(100 , 120)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='noevent red-potion unclicked' style='left: " + getRndInteger(1 , 70) +  "vw'></div></div>";
+                        fallingHTML += "<div class='falling-container'><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
                      }
 
 
@@ -105,7 +107,7 @@ function lvl1Pre() {
 
                     if ( counter == Math.floor(getRndInteger(1 , 1000)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='clickbox extra-heart-orb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='extra-heart-orb'></div></div></div>";
+                        fallingHTML += "<div class='falling-container'><div class='pow1 clickbox extra-heart-orb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='extra-heart-orb'></div></div></div>";
                      } 
 
 
@@ -168,14 +170,11 @@ function lvl1Pre() {
                 
 
 
-
-                    
+                
 
         
 
             // Test if cell hitbox is in viewport
-             allThingOne = document.querySelectorAll(".bomb-clickbox");
-            allThingOneLength = allThingOne.length;
 
             allThingOneHitbox = document.querySelectorAll(".thing-one-hitbox");
             allThingOneLengthHitbox = allThingOneHitbox.length;
@@ -224,7 +223,6 @@ function lvl1Pre() {
 
             }
         }
-
 
 
             // Test if falling-container is in viewport
@@ -310,7 +308,7 @@ function lvl1Pre() {
             }
 
             if(power1On == 1){
-
+                
                 // Set Events
                 while (onlyOne == 1) {
                     document.getElementById("mainContainer").addEventListener("mousedown", function(evt) {
@@ -330,32 +328,60 @@ function lvl1Pre() {
 
                 if (powerOneToggle == true) {
                     
-                for (let i = 0; i < allThingOneLength; i++) {
-                    allThingOne[i].addEventListener("mouseover", bombClicked);
-                }
-
-                for (let i = 0; i < redPotionslength; i++) {
-                    redPotions[i].addEventListener("mouseover", redPotionEffect);
+                   var extraHeartOrbP1 = mainContainerr.querySelectorAll(".pow1.extra-heart-orb-clickbox");
+                   var redPotionsP1 = mainContainerr.querySelectorAll(".pow1.red-potion-clickbox");
+                   var bombsP1 = mainContainerr.querySelectorAll(".pow1.bomb-clickbox");
+                   var bombsLengthP1 = bombsP1.length;
+                   var redPotionslengthP1 = redPotionsP1.length;
+                   var extraHeartOrblengthP1 = extraHeartOrbP1.length;
+                   
+                   
+                    
+                for (let i = 0; i < bombsLengthP1; i++) {
+                    bombsP1[i].addEventListener("mouseover", bombClicked);
+                    bombsP1[i].classList.remove("pow1");
                     
                 }
 
-                for (let i = 0; i < extraHeartOrblength; i++) {
-                    extraHeartOrb[i].addEventListener("mouseover", extraHeartOrbEffect);
+                for (let i = 0; i < redPotionslengthP1; i++) {
+                    redPotionsP1[i].addEventListener("mouseover", redPotionEffect);
+                    redPotionsP1[i].classList.remove("pow1");
                 }
+
+                for (let i = 0; i < extraHeartOrblengthP1; i++) {
+                    extraHeartOrbP1[i].addEventListener("mouseover", extraHeartOrbEffect);
+                    extraHeartOrbP1[i].classList.remove("pow1");
+                }
+                
+            
+            
             }
 
                 if (powerOneToggle == false) {
-                for (let i = 0; i < allThingOneLength; i++) {
-                    allThingOne[i].removeEventListener("mouseover", bombClicked);
-                }
-                for (let i = 0; i < redPotions.length; i++) {
-                    redPotions[i].addEventListener("mouseover", redPotionEffect);
-                    
+               
+                var extraHeartOrbP1 = mainContainerr.querySelectorAll(".extra-heart-orb-clickbox:not(.pow1)");
+                   var redPotionsP1 = mainContainerr.querySelectorAll(".red-potion-clickbox:not(.pow1)");
+                   var bombsP1 = mainContainerr.querySelectorAll(".bomb-clickbox:not(.pow1)");
+                   var bombsLengthP1 = bombsP1.length;
+                   var redPotionslengthP1 = redPotionsP1.length;
+                   var extraHeartOrblengthP1 = extraHeartOrbP1.length;
+                   
+
+                   for (let i = 0; i < bombsLengthP1; i++) {
+                    bombsP1[i].removeEventListener("mouseover", bombClicked);
+                    bombsP1[i].classList.add("pow1");
                 }
 
-                for (let i = 0; i < extraHeartOrb.length; i++) {
-                    extraHeartOrb[i].addEventListener("mouseover", extraHeartOrbEffect);
+                for (let i = 0; i < redPotionslengthP1; i++) {
+                    redPotionsP1[i].removeEventListener("mouseover", redPotionEffect);
+                    redPotionsP1[i].classList.add("pow1");
                 }
+
+                for (let i = 0; i < extraHeartOrblengthP1; i++) {
+                    extraHeartOrbP1[i].removeEventListener("mouseover", extraHeartOrbEffect);
+                    extraHeartOrbP1[i].classList.add("pow1");
+                }
+                
             }
 
                 
@@ -434,6 +460,7 @@ function lvl1Pre() {
 
 function bombClicked(evt) {
     this.removeEventListener("click", bombClicked);
+    this.removeEventListener("mouseover", bombClicked);
     this.classList.remove("unclicked");
     
     this.style.zIndex = "1";
@@ -443,7 +470,7 @@ function bombClicked(evt) {
     audio.play();
     var targetElementTemp = this.querySelectorAll(".thing-one");
     var targetElement = targetElementTemp[0];
-    console.log(targetElement);
+    
     this.querySelector(".thing-one-hitbox").remove();
     targetElement.style.height = "7.5vw";
     targetElement.style.width = "9vw";
@@ -471,6 +498,7 @@ function bombClicked(evt) {
 function redPotionEffect(evt) {
     this.classList.remove("unclicked");
     this.removeEventListener("click", redPotionEffect);
+    this.removeEventListener("mouseover", redPotionEffect);
 
     var goneHeartState = document.querySelectorAll(".heart-gone");
 
@@ -493,7 +521,7 @@ function redPotionEffect(evt) {
         goneHeartState[targetHeart].classList.add("heart-here");
         heartLost -= 1;
     } else {
-        evt.target.style.zIndex = "1";
+        this.style.zIndex = "1";
         var audio = new Audio('sounds/glass_break.mp3');
         audio.volume = 0.2;
         audio.playbackRate = 1;
@@ -516,6 +544,7 @@ function redPotionEffect(evt) {
         var targetElement = this.querySelector(".extra-heart-orb");
         this.classList.remove("unclicked");
         this.removeEventListener("click", extraHeartOrbEffect);
+        this.removeEventListener("mouseover", extraHeartOrbEffect);
         score += 80;
         document.getElementById("score").innerHTML = score;
         this.style.zIndex = "1";
