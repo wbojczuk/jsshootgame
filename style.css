@@ -11,6 +11,18 @@ body {
 /* Custom Classes */
 
 
+/* CLICKBOX */
+
+.clickbox {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vw;
+    width: 10vw;
+    z-index: 4;
+}
+
 /* MAIN WRAPPER */
 .main-wrapper {
     display: none;
@@ -77,8 +89,8 @@ body {
 .thing-one {
     position: relative;
     display: inline-block;
-    width: 10vw;
-    height: 10vw;
+    width: 5.5vw;
+    height: 5vw;
     z-index: 2;
     user-select: none;
 }
@@ -96,18 +108,14 @@ body {
     height: 5vw;
     z-index: 2;
     user-select: none;
-    padding: 2.5vw;
+
 }
 
 .extra-heart-orb {
     position: relative;
     display: inline-block;
-    width: 10vw;
-    height: 10vw;
-    background-image: url("img/heart_orb.gif");
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: center center;
+    width: 5vw;
+    height: 5vw;
     z-index: 2;
     user-select: none;
     

@@ -39,39 +39,40 @@ function lvl1Pre() {
                 var allThingOneHitbox;
                 var allThingOneLengthHitbox;
                 
-
+                
 
                     // GENERATE RANDOMLY PLACED FALLING CELLS
                 var fallingHTML = "";
 
                 // Bomb Generation
                 if (counter % 3 == 0) {
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                 } else if ( counter % 6 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    
+                    
                 } else if ( counter % 10 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
 
                 }else if ( counter % 20 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                 }else if ( counter % 15 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                 }else if ( counter % 13 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='noevent thing-one unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'><div class='thing-one-hitbox'></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container'><div class='clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    
 
                 } else {
                     fallingHTML = "<div class='falling-container'></div>"
@@ -82,18 +83,18 @@ function lvl1Pre() {
                 // Healing/Red Potion Generation
                 
                     //  sec
-                    if ( counter == Math.floor(getRndInteger(20 , 40)) ) {
+                    if ( counter == Math.floor(getRndInteger(25, 40))) {
 
-                        fallingHTML += "<div class='falling-container'><div class='noevent red-potion unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
+                        fallingHTML += "<div class='falling-container'><div class='clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
                      } 
 
                      if ( counter == Math.floor(getRndInteger(60 , 70)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='noevent red-potion unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
+                        fallingHTML += "<div class='falling-container'><div class='noevent red-potion unclicked' style='left: " + getRndInteger(1 , 70) +  "vw'></div></div>";
                      }
                      if ( counter == Math.floor(getRndInteger(100 , 120)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='noevent red-potion unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
+                        fallingHTML += "<div class='falling-container'><div class='noevent red-potion unclicked' style='left: " + getRndInteger(1 , 70) +  "vw'></div></div>";
                      }
 
 
@@ -104,7 +105,7 @@ function lvl1Pre() {
 
                     if ( counter == Math.floor(getRndInteger(1 , 1000)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='noevent extra-heart-orb unclicked' style='transform: translateX( " + getRndInteger(1 , 70) +  "vw)'></div></div>";
+                        fallingHTML += "<div class='falling-container'><div class='clickbox extra-heart-orb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='extra-heart-orb'></div></div></div>";
                      } 
 
 
@@ -115,16 +116,17 @@ function lvl1Pre() {
 
                 // SET EVENT LISTENERS ON CELLS
 
-            var allThingOne = document.querySelectorAll(".thing-one.unclicked.noevent");
+            var allThingOne = document.querySelectorAll(".bomb-clickbox.unclicked.no-event");
             var allThingOneLength = allThingOne.length;
-             
+            
                 for (let i = 0; i < allThingOneLength; i++) {
+                    
                     allThingOne[i].addEventListener("click", bombClicked);
                     allThingOne[i].classList.remove("noevent");
                 }
 
                 //SET RED POTION EVENTS
-                var redPotions = document.querySelectorAll(".red-potion.unclicked.noevent");
+                var redPotions = document.querySelectorAll(".red-potion-clickbox.unclicked.no-event");
                 var redPotionslength = redPotions.length;
                 for (let i = 0; i < redPotionslength; i++) {
                     redPotions[i].addEventListener("click", redPotionEffect);
@@ -132,7 +134,7 @@ function lvl1Pre() {
                 }
 
                 //SET Extra Heart Orb EVENTS
-                var extraHeartOrb = document.querySelectorAll(".extra-heart-orb.unclicked.noevent");
+                var extraHeartOrb = document.querySelectorAll(".extra-heart-orb-clickbox.unclicked.no-event");
                 var extraHeartOrblength = extraHeartOrb.length;
 
                 for (let i = 0; i < extraHeartOrblength; i++) {
@@ -172,8 +174,8 @@ function lvl1Pre() {
         
 
             // Test if cell hitbox is in viewport
-            var allThingOne = document.querySelectorAll(".thing-one");
-            var allThingOneLength = allThingOne.length;
+             allThingOne = document.querySelectorAll(".bomb-clickbox");
+            allThingOneLength = allThingOne.length;
 
             allThingOneHitbox = document.querySelectorAll(".thing-one-hitbox");
             allThingOneLengthHitbox = allThingOneHitbox.length;
@@ -431,26 +433,34 @@ function lvl1Pre() {
 // BOMBS
 
 function bombClicked(evt) {
-    evt.target.removeEventListener("click", bombClicked);
-    evt.target.classList.remove("unclicked");
-    evt.target.querySelector(".thing-one-hitbox").remove();
-    evt.target.style.zIndex = "1";
+    this.removeEventListener("click", bombClicked);
+    this.classList.remove("unclicked");
+    
+    this.style.zIndex = "1";
     var audio = new Audio('sounds/bomb_explosion.mp3');
     audio.volume = 0.8;
     audio.playbackRate = 1.1;
     audio.play();
-
-    evt.target.style.height = "8vw";
-    evt.target.style.background = "url('img/lvl1/bomb_explosion_sprite.png')" ;
-    evt.target.style.animation = "bomb_explosion 390ms steps(8)";
-    evt.target.style.backgroundSize= "800% 100%";
+    var targetElementTemp = this.querySelectorAll(".thing-one");
+    var targetElement = targetElementTemp[0];
+    console.log(targetElement);
+    this.querySelector(".thing-one-hitbox").remove();
+    targetElement.style.height = "7.5vw";
+    targetElement.style.width = "9vw";
+    var nowLeft = this.style.getPropertyValue("left");
+    var calcLeft = parseInt(nowLeft) - 1;
+    this.style.left = calcLeft + "vw";
+    this.style.transform = "translateY(-.5vw)";
+    targetElement.style.background = "url('img/lvl1/bomb_explosion_sprite.png')" ;
+    targetElement.style.animation = "bomb_explosion 390ms steps(8)";
+    targetElement.style.backgroundSize= "800% 100%";
 
     score += 5;
     document.getElementById("score").innerHTML = score;
     
 
     setTimeout(() => {
-        evt.target.remove();
+        this.remove();
     }, 390);
 }
 
@@ -459,23 +469,24 @@ function bombClicked(evt) {
 // RED POTIONS
 
 function redPotionEffect(evt) {
-    evt.target.classList.remove("unclicked");
-    evt.target.removeEventListener("click", redPotionEffect);
+    this.classList.remove("unclicked");
+    this.removeEventListener("click", redPotionEffect);
 
     var goneHeartState = document.querySelectorAll(".heart-gone");
 
     score += 15;
     document.getElementById("score").innerHTML = score;
-
+    var targetElement = this.querySelector(".red-potion");
     if (goneHeartState.length >= 1){
-        evt.target.style.zIndex = "1";
+        this.style.zIndex = "1";
         var audio = new Audio('sounds/glass_break.mp3');
         audio.volume = 0.4;
         audio.playbackRate = 1;
         audio.play();
-        evt.target.style.backgroundRepeat = "no-repeat";
-        evt.target.style.backgroundImage = "url('img/red_splash.gif')";
-        evt.target.style.backgroundSize = "contain";
+        
+        targetElement.style.background = "url('img/red_splash_sprite.png')" ;
+        targetElement.style.animation = "red_splash 480ms steps(24)";
+        targetElement.style.backgroundSize= "2400% 100%";
         var targetHeart = goneHeartState.length - 1;
         goneHeartState[targetHeart].style.backgroundImage = "url('img/heart.png')";
         goneHeartState[targetHeart].classList.remove("heart-gone");
@@ -487,13 +498,13 @@ function redPotionEffect(evt) {
         audio.volume = 0.2;
         audio.playbackRate = 1;
         audio.play();
-        evt.target.style.backgroundRepeat = "no-repeat";
-        evt.target.style.backgroundImage = "url('img/red_splash.gif')";
-        evt.target.style.backgroundSize = "contain";
+        targetElement.style.background = "url('img/red_splash_sprite.png')" ;
+        targetElement.style.animation = "red_splash 480ms steps(24)";
+        targetElement.style.backgroundSize= "2400% 100%";
 }
 
     setTimeout(() => {
-        evt.target.remove();
+        this.remove();
     }, 480);
 }
 
@@ -502,27 +513,29 @@ function redPotionEffect(evt) {
 
     function extraHeartOrbEffect(evt) {
         
-        
-        evt.target.classList.remove("unclicked");
-        evt.target.removeEventListener("click", extraHeartOrbEffect);
+        var targetElement = this.querySelector(".extra-heart-orb");
+        this.classList.remove("unclicked");
+        this.removeEventListener("click", extraHeartOrbEffect);
         score += 80;
         document.getElementById("score").innerHTML = score;
-        evt.target.style.zIndex = "1";
+        this.style.zIndex = "1";
         var audio = new Audio('sounds/lvl1/heart_orb.mp3');
-        audio.volume = 0.4;
+        audio.volume = 0.2;
         audio.playbackRate = 1;
         audio.play();
-
-        evt.target.style.backgroundImage = "url('img/heart_orb_explosion.gif')";
-        evt.target.style.backgroundRepeat = "no-repeat";
-        evt.target.style.backgroundSize = "contain";
+        targetElement.style.height = "8vw";
+        targetElement.style.width = "8vw";
+        
+        targetElement.style.background = "url('img/extra_heart_orb_explosion_sprite.png')" ;
+        targetElement.style.animation = "extra_heart_orb_explosion 480ms steps(19)";
+        targetElement.style.backgroundSize= "1900% 8vw";
 
         // Insert heart before the first alive heart
         var heartsHere = document.querySelectorAll(".heart-here");
         heartsHere[0].insertAdjacentHTML("beforebegin", "<div class='heart-img heart-here extra-heart' id='heartImage'></div>");
 
         setTimeout(() => {
-            evt.target.remove();
+            this.remove();
         }, 470);
     }
 
