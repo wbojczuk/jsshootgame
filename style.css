@@ -155,7 +155,7 @@ body {
 
 .main-bar-left {
     display: flex;
-    width: 50%;
+    width: 70%;
     height: 4vw;
     align-items: center;
     justify-content: left;
@@ -163,7 +163,7 @@ body {
 
 .main-bar-right {
     display: flex;
-    width: 50%;
+    width: 30%;
     height: 4vw;
     align-items: center;
     justify-content: right;
