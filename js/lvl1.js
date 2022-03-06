@@ -79,10 +79,15 @@ function lvl1Pre() {
                 // Healing/Red Potion Generation
                 
                     //  sec
-                    if ( counter == Math.floor(getRndInteger(25 , 40))) {
+                    if ( counter == Math.floor(getRndInteger(20 , 30))) {
 
                         fallingHTML += "<div class='falling-container'><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
                      } 
+
+                     if ( counter == Math.floor(getRndInteger(30 , 40))) {
+
+                        fallingHTML += "<div class='falling-container'><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
+                     }
 
                      if ( counter == Math.floor(getRndInteger(60 , 70)) ) {
 
@@ -99,7 +104,12 @@ function lvl1Pre() {
 
                     //  RARE EXTRA HEART GENERATION
 
-                    if ( counter == Math.floor(getRndInteger(1, 1000)) ) {
+                    if ( counter == Math.floor(getRndInteger(1, 300)) ) {
+
+                        fallingHTML += "<div class='falling-container'><div class='pow1 clickbox extra-heart-orb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='extra-heart-orb'></div></div></div>";
+                     }
+                     
+                     if ( counter == Math.floor(getRndInteger(200, 300)) ) {
 
                         fallingHTML += "<div class='falling-container'><div class='pow1 clickbox extra-heart-orb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='extra-heart-orb'></div></div></div>";
                      } 
@@ -271,49 +281,74 @@ function lvl1Pre() {
 
             if (counter == 140) {
                 clearInterval(speedRepeat);
+                clearInterval(lvlRepeat);
+                lvlRepeat = setInterval(lvlOne, 1);
                 speedRepeat = setInterval(lvlOne, 10);
                 currentTime += 1;
             }
 
             if (counter == 160) {
                 clearInterval(speedRepeat);
+                clearInterval(lvlRepeat);
+                lvlRepeat = setInterval(lvlOne, 1);
                 speedRepeat = setInterval(lvlOne, 9);
                 currentTime += 1;
             }
 
             if (counter == 180) {
                 clearInterval(speedRepeat);
+                clearInterval(lvlRepeat);
+                lvlRepeat = setInterval(lvlOne, 1);
                 speedRepeat = setInterval(lvlOne, 8);
                 currentTime += 1;
             }
 
             if (counter == 200) {
                 clearInterval(speedRepeat);
-                speedRepeat = setInterval(lvlOne, 7);
+                clearInterval(lvlRepeat);
+                lvlRepeat = setInterval(lvlOne, 1);
+                speedRepeat = setInterval(lvlOne, 4);
                 currentTime += 1;
             }
 
             if (counter == 220) {
                 clearInterval(speedRepeat);
-                speedRepeat = setInterval(lvlOne, 6);
+                clearInterval(lvlRepeat);
+                lvlRepeat = setInterval(lvlOne, 1);
+                speedRepeat = setInterval(lvlOne, 1);
                 currentTime += 1;
             }
 
             if (counter == 240) {
                 clearInterval(speedRepeat);
-                speedRepeat = setInterval(lvlOne, 5);
+                clearInterval(lvlRepeat);
+                clearInterval(speedyRepeat);
+               
+                lvlRepeat = setInterval(lvlOne, 1);
+                speedRepeat = setInterval(lvlOne, 1);
+                speedyRepeat = setInterval(lvlOne, 5);
                 currentTime += 1;
             }
 
             if (counter == 260) {
                 clearInterval(speedRepeat);
-                speedRepeat = setInterval(lvlOne, 3);
+                clearInterval(lvlRepeat);
+                clearInterval(speedyRepeat);
+                
+                lvlRepeat = setInterval(lvlOne, 1);
+                speedRepeat = setInterval(lvlOne, 1);
+                speedyRepeat = setInterval(lvlOne, 3);
                 currentTime += 1;
             }
 
             if (counter == 280) {
                 clearInterval(speedRepeat);
+                clearInterval(lvlRepeat);
+                clearInterval(speedyRepeat);
+                
+                lvlRepeat = setInterval(lvlOne, 1);
                 speedRepeat = setInterval(lvlOne, 1);
+                speedyRepeat = setInterval(lvlOne, 1);
                 currentTime += 1;
             }
 
@@ -500,7 +535,7 @@ function bombClicked(evt) {
     this.style.left = calcLeft + "vw";
     this.style.transform = "translateY(-.5vw)";
     targetElement.style.background = "url('img/lvl1/bomb_explosion_sprite.png')" ;
-    targetElement.style.animation = "bomb_explosion 390ms steps(8)";
+    targetElement.style.animation = "bomb_explosion 400ms steps(8)";
     targetElement.style.backgroundSize= "800% 100%";
 
     score += 5;

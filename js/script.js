@@ -11,7 +11,9 @@ var currentLvl = "lvl1";
 var selectedLvl = "";
 var counter = 1;
 var speedRepeat;
+var speedyRepeat;
 var backgroundMusic = new Audio('sounds/menu_background_music.mp3');
+var tempCounter = 0;
 
 
 
@@ -239,13 +241,17 @@ function restart() {
 // PAUSE GAME
 
 function pauseGame() {
+    
     clearInterval(lvlRepeat);
     clearInterval(speedRepeat);
+    clearInterval(speedyRepeat);
 
     document.getElementById("pauseCheck").removeAttribute("onclick");
     document.getElementById("pauseCheck").setAttribute("onclick", "resumeGame();");
     document.getElementById("mainContainer").style.display = "none";
     document.getElementById("pausePage").style.display = "flex";
+
+    tempCounter = counter;
     
 }
 
@@ -299,27 +305,31 @@ function resumeGame() {
                 break;
                 case 11:
                     lvlRepeat = setInterval(lvlOne, 1);
-                    speedRepeat = setInterval(lvlOne, 7);
+                    speedRepeat = setInterval(lvlOne, 4);
                 break;
                 case 12:
                     lvlRepeat = setInterval(lvlOne, 1);
-                    speedRepeat = setInterval(lvlOne, 6);
+                    speedRepeat = setInterval(lvlOne, 1);
                 break;
                 case 13:
                     lvlRepeat = setInterval(lvlOne, 1);
                     speedRepeat = setInterval(lvlOne, 5);
+                    speedyRepeat = setInterval(lvlOne, 5);
                 break;
                 case 14:
                     lvlRepeat = setInterval(lvlOne, 1);
                     speedRepeat = setInterval(lvlOne, 3);
+                    speedyRepeat = setInterval(lvlOne, 3);
                 break;
                 case 15:
                     lvlRepeat = setInterval(lvlOne, 1);
                     speedRepeat = setInterval(lvlOne, 1);
+                    speedyRepeat = setInterval(lvlOne, 1);
                 break;
             }
         break;
     }
+    counter = tempCounter;
     document.getElementById("pauseCheck").checked = false;
     document.getElementById("mainContainer").style.display = "block";
     document.getElementById("pausePage").style.display = "none";
