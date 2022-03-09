@@ -10,3 +10,9 @@ v0.3.a Changelog:
 
 v0.3.c Changelog:
 - added pause screen system.
+
+v0.4.a Changelog:
+- Updated the whole backend system to be more efficient/stable.
+- Changed falling item movement system.
+- Seperated different tasks into seperate functions with their own intervals.
+- Item Generation optimized.
