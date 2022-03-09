@@ -14,19 +14,22 @@ var speedRepeat;
 var speedyRepeat;
 var backgroundMusic = new Audio('sounds/menu_background_music.mp3');
 var tempCounter = 0;
+var generationRepeat;
+var eventsRepeat;
+var testViewportRepeat;
+var power1Repeat;
+var onlyOne11 = 1;
+var checkPowersRepeat;
+var moveItemsRepeat;
 
 
 
 // SECOND COUNTER 
 
 setInterval(
-    function(){counter = Math.floor(counter) + 1; 
-        
-        console.log(counter);
+    function(){counter = Math.floor(counter) + 1;},1000);
 
-    },1000);
-
-    // Random Numbers
+    // Random Number Generator
 
             function getRndInteger(min, max) {
                 return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -34,8 +37,14 @@ setInterval(
 
 
 
+    
+
+
+
 // MAIN MENU FUNTION 
 function mainMenu() {
+
+    window.removeEventListener("keydown", escPause);
 
     // DISPLAY SWAP
     document.getElementById("pauseCheck").removeAttribute("onclick");
@@ -49,17 +58,23 @@ function mainMenu() {
 
     // set location and music 
     currentLvl = "menu";
+    currentTime = 1;
 
-    removePowers();
+    
     
 
     counter = -10000000;
     score = 0;
     document.getElementById("score").innerHTML = score;
     
-    clearInterval(speedRepeat);
-
-    clearInterval(lvlRepeat);
+    //  Clear functions
+    clearInterval(generationRepeat);
+    clearInterval(eventsRepeat);
+    clearInterval(testViewportRepeat);
+    clearInterval(checkPowersRepeat);
+    clearInterval(moveItemsRepeat);
+    clearInterval(power1Repeat);
+    removePowers();
     
 
     // Remove current falling rows
@@ -90,8 +105,7 @@ function mainMenu() {
         Gonehearts[i].classList.add("heart-here");
         Gonehearts[i].style.backgroundImage = "url('img/heart.png')";
     }
-    clearInterval(lvlRepeat);
-    clearInterval(speedRepeat);
+    
     setBackgroundMusic();
 
 }
@@ -111,6 +125,11 @@ function startGame() {
     score = 0;
     heartLost = 0;
     counter = 1;
+    onlyOne11 = 1;
+
+    // Add Support for ESC KEY PAUSE
+
+    window.addEventListener("keydown", escPause);
 
     document.getElementById("endScreenWrapper").style.display = "none";
     document.getElementById("startScreenWrapper").style.display = "none";
@@ -176,8 +195,15 @@ function setBackgroundMusic() {
 
 function failScreen() {
     counter = -10000000;
-    clearInterval(lvlRepeat);
-    clearInterval(speedRepeat);
+    //  Clear functions
+    clearInterval(generationRepeat);
+    clearInterval(eventsRepeat);
+    clearInterval(testViewportRepeat);
+    clearInterval(checkPowersRepeat);
+    clearInterval(moveItemsRepeat);
+    clearInterval(power1Repeat);
+    removePowers();
+    window.removeEventListener("keydown", escPause);
 
     document.getElementById("mainWrapper").style.display = "none";
     document.getElementById("endScreenWrapper").style.display = "block";
@@ -242,9 +268,14 @@ function restart() {
 
 function pauseGame() {
     
-    clearInterval(lvlRepeat);
-    clearInterval(speedRepeat);
-    clearInterval(speedyRepeat);
+    //  Clear functions
+    clearInterval(generationRepeat);
+    clearInterval(eventsRepeat);
+    clearInterval(testViewportRepeat);
+    clearInterval(checkPowersRepeat);
+    clearInterval(moveItemsRepeat);
+    clearInterval(power1Repeat);
+    
 
     document.getElementById("pauseCheck").removeAttribute("onclick");
     document.getElementById("pauseCheck").setAttribute("onclick", "resumeGame();");
@@ -255,78 +286,62 @@ function pauseGame() {
     
 }
 
+//   ESC PAUSE 
+
+function escPause(evt) {
+    if (evt.key == "Escape") {
+        pauseGame();
+        document.getElementById("pauseCheck").checked = true;
+    }
+}
+
 function resumeGame() {
 
     switch (currentLvl) {
         case "lvl1":
-        
+            generationRepeat = setInterval(lvlOneGeneration, 1000);
+            eventsRepeat = setInterval(lvlOneEvents, 100);
+            testViewportRepeat = setInterval(testViewport, 10);
+            checkPowersrepeat = setInterval(checkPowers, 100);
+            
+
             switch (currentTime) {
-                case 1:
-                    lvlRepeat = setInterval(lvlOne, 13);
+
+                case 1 :
+                    moveItemsRepeat = setInterval(moveItems, 10);
                 break;
 
-                case 2:
-                    lvlRepeat = setInterval(lvlOne, 11);
-                    console.log("yehh");
+                case 2 :
+                    moveItemsRepeat = setInterval(moveItems, 9);
                 break;
 
-                case 3:
-                    lvlRepeat = setInterval(lvlOne, 8);
+                case 3 :
+                    moveItemsRepeat = setInterval(moveItems, 8);
+                break;
+                    
+                case 4 :
+                    moveItemsRepeat = setInterval(moveItems, 6);
                 break;
 
-                case 4:
-                    lvlRepeat = setInterval(lvlOne, 6);
+                case 5 :
+                    moveItemsRepeat = setInterval(moveItems, 5);
+                break;
+                case 6 :
+                    moveItemsRepeat = setInterval(moveItems, 5);
+                break;
+                case 7 :
+                    moveItemsRepeat = setInterval(moveItems, 5);
+                break;
+                case 8 :
+                    moveItemsRepeat = setInterval(moveItems, 5);
+                break;
+                case 9 :
+                    moveItemsRepeat = setInterval(moveItems, 4);
                 break;
 
-                case 5:
-                    lvlRepeat = setInterval(lvlOne, 3.5);
-                break;
 
-                case 6:
-                    lvlRepeat = setInterval(lvlOne, 2);
-                break;
-
-                case 7:
-                    lvlRepeat = setInterval(lvlOne, 1);
-                break;
-
-                case 8:
-                    lvlRepeat = setInterval(lvlOne, 1);
-                    speedRepeat = setInterval(lvlOne, 10);
-                break;
-
-                case 9:
-                    lvlRepeat = setInterval(lvlOne, 1);
-                    speedRepeat = setInterval(lvlOne, 9);
-                break;
-                case 10:
-                    lvlRepeat = setInterval(lvlOne, 1);
-                    speedRepeat = setInterval(lvlOne, 8);
-                break;
-                case 11:
-                    lvlRepeat = setInterval(lvlOne, 1);
-                    speedRepeat = setInterval(lvlOne, 4);
-                break;
-                case 12:
-                    lvlRepeat = setInterval(lvlOne, 1);
-                    speedRepeat = setInterval(lvlOne, 1);
-                break;
-                case 13:
-                    lvlRepeat = setInterval(lvlOne, 1);
-                    speedRepeat = setInterval(lvlOne, 5);
-                    speedyRepeat = setInterval(lvlOne, 5);
-                break;
-                case 14:
-                    lvlRepeat = setInterval(lvlOne, 1);
-                    speedRepeat = setInterval(lvlOne, 3);
-                    speedyRepeat = setInterval(lvlOne, 3);
-                break;
-                case 15:
-                    lvlRepeat = setInterval(lvlOne, 1);
-                    speedRepeat = setInterval(lvlOne, 1);
-                    speedyRepeat = setInterval(lvlOne, 1);
-                break;
             }
+
         break;
     }
     counter = tempCounter;

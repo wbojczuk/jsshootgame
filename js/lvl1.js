@@ -12,7 +12,7 @@ function lvl1Pre() {
     
             
 
-    // Main Function Interval
+   
         
                 currentLvl = "lvl1";
                 oonlyOne = 1;
@@ -26,13 +26,21 @@ function lvl1Pre() {
                 
                 
                 currentTime = 1; 
-                lvlRepeat = setInterval(lvlOne, 13);
-                 
+
+                //  Set InterVals
+                
+                 generationRepeat = setInterval(lvlOneGeneration, 1000);
+                 eventsRepeat = setInterval(lvlOneEvents, 10);
+                 testViewportRepeat = setInterval(testViewport, 10);
+                 checkPowersrepeat = setInterval(checkPowers, 100);
+                 moveItemsRepeat = setInterval(moveItems, 10);
+                
+                
    
         
 }
         // Main Function
-            function lvlOne(){
+            function lvlOneGeneration(){
 
                 
                 
@@ -42,37 +50,38 @@ function lvl1Pre() {
 
                 // Bomb Generation
                 if (counter % 3 == 0) {
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                 } else if ( counter % 6 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                      
                     
                     
                 } else if ( counter % 10 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
 
                 }else if ( counter % 20 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                 }else if ( counter % 15 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                 }else if ( counter % 13 == 0){
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container'><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    
+                    
                     
 
-                } else {
-                    fallingHTML = "<div class='falling-container'></div>"
-                }
+                } 
 
 
 
@@ -81,21 +90,21 @@ function lvl1Pre() {
                     //  sec
                     if ( counter == Math.floor(getRndInteger(20 , 30))) {
 
-                        fallingHTML += "<div class='falling-container'><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
+                        fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
                      } 
 
                      if ( counter == Math.floor(getRndInteger(30 , 40))) {
 
-                        fallingHTML += "<div class='falling-container'><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
+                        fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
                      }
 
                      if ( counter == Math.floor(getRndInteger(60 , 70)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
+                        fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
                      }
                      if ( counter == Math.floor(getRndInteger(100 , 120)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
+                        fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
                      }
 
 
@@ -106,21 +115,81 @@ function lvl1Pre() {
 
                     if ( counter == Math.floor(getRndInteger(1, 300)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='pow1 clickbox extra-heart-orb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='extra-heart-orb'></div></div></div>";
+                        fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox extra-heart-orb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='extra-heart-orb'></div></div></div>";
                      }
                      
                      if ( counter == Math.floor(getRndInteger(200, 300)) ) {
 
-                        fallingHTML += "<div class='falling-container'><div class='pow1 clickbox extra-heart-orb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='extra-heart-orb'></div></div></div>";
+                        fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox extra-heart-orb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='extra-heart-orb'></div></div></div>";
                      } 
 
 
                 // Print cells to screen
                 document.getElementById("mainContainer").insertAdjacentHTML("afterbegin", fallingHTML);
-                
+
                 
 
-                // SET EVENT LISTENERS ON CELLS
+                //   Speed things based on time
+
+    
+                if (counter == 20) {
+                    currentTime = 2;
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 9); 
+                }
+    
+                if (counter == 40) {
+                    currentTime = 3;
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 8); 
+                }
+    
+                if (counter == 60) {
+                    currentTime = 4; 
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 6); 
+                }
+    
+                if (counter == 80) {
+                    currentTime = 5; 
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 5); 
+                }
+    
+                if (counter == 100) {
+                    currentTime = 6; 
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 5);
+                }
+                if (counter == 120) {
+                    currentTime = 7; 
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 5);
+                }
+    
+                if (counter == 140) {
+                    currentTime = 8; 
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 5);
+                }
+    
+                if (counter == 160) {
+                    currentTime = 9; 
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 4);
+                }
+    
+                // TEMP DISABLE COUNTER TRIGGERS
+            counter += .0001;
+                
+                    }
+
+
+                
+                    // SET EVENT LISTENERS ON CELLS
+
+                    function lvlOneEvents() {
+                
 
             var allThingOne = document.querySelectorAll(".bomb-clickbox.unclicked.no-event");
             var allThingOneLength = allThingOne.length;
@@ -148,15 +217,85 @@ function lvl1Pre() {
                     extraHeartOrb[i].classList.remove("noevent");
                 }
             
-            
-
-
-
-
+                }
                     
             
 
-                
+
+                // MOVE FALLING CONTAINERS
+               function moveItems() {
+                  
+                   var fallingContainerss = document.querySelectorAll(".falling-container");
+                   var fallingContainersLengths = fallingContainerss.length;
+
+
+                   if ((currentTime == 1) || (currentTime == 2) || (currentTime == 3)){
+
+                   for (let i = 0; i < fallingContainersLengths; i++){
+                        var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 1;
+                        
+                    
+                       fallingContainerss[i].style.top = + tempppValue + "px";
+                       fallingContainerss[i].setAttribute("value", tempppValue);
+                   }
+                }else if (currentTime == 4){
+                    
+                    for (let i = 0; i < fallingContainersLengths; i++){
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 2;
+                         
+                     
+                         fallingContainerss[i].style.top = + tempppValue + "px";
+                        fallingContainerss[i].setAttribute("value", tempppValue);
+                    }
+                 } else if (currentTime == 5){
+                    
+                    for (let i = 0; i < fallingContainersLengths; i++){
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 2;
+                         
+                     
+                         fallingContainerss[i].style.top = + tempppValue + "px";
+                        fallingContainerss[i].setAttribute("value", tempppValue);
+                    }
+                 }else if (currentTime == 6){
+                    
+                    for (let i = 0; i < fallingContainersLengths; i++){
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 2;
+                         
+                     
+                         fallingContainerss[i].style.top = + tempppValue + "px";
+                        fallingContainerss[i].setAttribute("value", tempppValue);
+                    }
+                 }else if (currentTime == 7){
+                    
+                    for (let i = 0; i < fallingContainersLengths; i++){
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 3;
+                         
+                     
+                         fallingContainerss[i].style.top = + tempppValue + "px";
+                        fallingContainerss[i].setAttribute("value", tempppValue);
+                    }
+                 }else if (currentTime == 8){
+                    
+                    for (let i = 0; i < fallingContainersLengths; i++){
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 4;
+                         
+                     
+                         fallingContainerss[i].style.top = + tempppValue + "px";
+                        fallingContainerss[i].setAttribute("value", tempppValue);
+                    }
+                 }else if (currentTime == 9){
+                    
+                    for (let i = 0; i < fallingContainersLengths; i++){
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 6;
+                         
+                     
+                         fallingContainerss[i].style.top = + tempppValue + "px";
+                        fallingContainerss[i].setAttribute("value", tempppValue);
+                    }
+                 }
+
+
+               }
 
 
                 // Function to test if element is in viewport 
@@ -179,6 +318,8 @@ function lvl1Pre() {
         
 
             // Test if cell hitbox is in viewport
+
+            function testViewport(){
 
             allThingOneHitbox = document.querySelectorAll(".thing-one-hitbox");
             allThingOneLengthHitbox = allThingOneHitbox.length;
@@ -210,7 +351,6 @@ function lvl1Pre() {
                 
 
             }
-
             var viewTest = document.getElementById("mainContainer");
             var viewSubject = viewTest.lastElementChild;
 
@@ -228,6 +368,8 @@ function lvl1Pre() {
             }
         }
 
+            
+    }
 
             // Test if falling-container is in viewport
 
@@ -239,127 +381,26 @@ function lvl1Pre() {
 
             
             
-
-
-            //   Speed things based on time
-
-            if (counter == 20) {
-                clearInterval(lvlRepeat);
-                lvlRepeat = setInterval(lvlOne, 11);
-                currentTime += 1; 
+            function checkPowers() {
+                if (score >= 500 && onlyOne11 == 1) {
+                    power1Repeat = setInterval(power1Function, 100);
+                    onlyOne11 += 1;
+                }
             }
 
-            if (counter == 40) {
-                clearInterval(lvlRepeat);
-                lvlRepeat = setInterval(lvlOne, 8);
-                currentTime += 1;
-            }
+            
 
-            if (counter == 60) {
-                clearInterval(lvlRepeat);
-                lvlRepeat = setInterval(lvlOne, 6);
-                currentTime += 1;
-            }
-
-            if (counter == 80) {
-                clearInterval(lvlRepeat);
-                lvlRepeat = setInterval(lvlOne, 3.5);
-                currentTime += 1;
-            }
-
-            if (counter == 100) {
-                clearInterval(lvlRepeat);
-                lvlRepeat = setInterval(lvlOne, 2);
-                currentTime += 1;
-            }
-
-            if (counter == 120) {
-                clearInterval(lvlRepeat);
-                lvlRepeat = setInterval(lvlOne, 1);
-                currentTime += 1;
-            }
-
-            if (counter == 140) {
-                clearInterval(speedRepeat);
-                clearInterval(lvlRepeat);
-                lvlRepeat = setInterval(lvlOne, 1);
-                speedRepeat = setInterval(lvlOne, 10);
-                currentTime += 1;
-            }
-
-            if (counter == 160) {
-                clearInterval(speedRepeat);
-                clearInterval(lvlRepeat);
-                lvlRepeat = setInterval(lvlOne, 1);
-                speedRepeat = setInterval(lvlOne, 9);
-                currentTime += 1;
-            }
-
-            if (counter == 180) {
-                clearInterval(speedRepeat);
-                clearInterval(lvlRepeat);
-                lvlRepeat = setInterval(lvlOne, 1);
-                speedRepeat = setInterval(lvlOne, 8);
-                currentTime += 1;
-            }
-
-            if (counter == 200) {
-                clearInterval(speedRepeat);
-                clearInterval(lvlRepeat);
-                lvlRepeat = setInterval(lvlOne, 1);
-                speedRepeat = setInterval(lvlOne, 4);
-                currentTime += 1;
-            }
-
-            if (counter == 220) {
-                clearInterval(speedRepeat);
-                clearInterval(lvlRepeat);
-                lvlRepeat = setInterval(lvlOne, 1);
-                speedRepeat = setInterval(lvlOne, 1);
-                currentTime += 1;
-            }
-
-            if (counter == 240) {
-                clearInterval(speedRepeat);
-                clearInterval(lvlRepeat);
-                clearInterval(speedyRepeat);
-               
-                lvlRepeat = setInterval(lvlOne, 1);
-                speedRepeat = setInterval(lvlOne, 1);
-                speedyRepeat = setInterval(lvlOne, 5);
-                currentTime += 1;
-            }
-
-            if (counter == 260) {
-                clearInterval(speedRepeat);
-                clearInterval(lvlRepeat);
-                clearInterval(speedyRepeat);
-                
-                lvlRepeat = setInterval(lvlOne, 1);
-                speedRepeat = setInterval(lvlOne, 1);
-                speedyRepeat = setInterval(lvlOne, 3);
-                currentTime += 1;
-            }
-
-            if (counter == 280) {
-                clearInterval(speedRepeat);
-                clearInterval(lvlRepeat);
-                clearInterval(speedyRepeat);
-                
-                lvlRepeat = setInterval(lvlOne, 1);
-                speedRepeat = setInterval(lvlOne, 1);
-                speedyRepeat = setInterval(lvlOne, 1);
-                currentTime += 1;
-            }
+           
 
 
             // Add powers based on score
 
+            function power1Function() {
             // MOUSEOVER BOMBS AKA POWER1
-            if (score >= 500) {
+            
                 power1On = 1;
                 
-            }
+            
 
             if(power1On == 1){
                 
@@ -455,8 +496,7 @@ function lvl1Pre() {
 
             }
 
-            // TEMP DISABLE COUNTER TRIGGERS
-            counter += .0001;
+            
 
 
             
@@ -533,7 +573,7 @@ function bombClicked(evt) {
     var nowLeft = this.style.getPropertyValue("left");
     var calcLeft = parseInt(nowLeft) - 1;
     this.style.left = calcLeft + "vw";
-    this.style.transform = "translateY(-.5vw)";
+    
     targetElement.style.background = "url('img/lvl1/bomb_explosion_sprite.png')" ;
     targetElement.style.animation = "bomb_explosion 400ms steps(8)";
     targetElement.style.backgroundSize= "800% 100%";

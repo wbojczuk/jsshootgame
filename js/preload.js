@@ -5,7 +5,7 @@ window.onload = preloadFunction;
 function preloadFunction(){
     var stuffPreload = "";
 
-    var preloadHintHTML = ["Get to a score of 500 for a special ability!", "Get the red potions to heal a lost heart!", "Get the glowing orb for an additional heart!", "Animated with sprite sheets!", "Coded in strict mode!", "What is life?", "Made in 2022"];
+    var preloadHintHTML = ["Get to a score of 500 for a special ability!", "Get the red potions to heal a lost heart!", "Get the glowing orb for an additional heart!", "Animated with sprite sheets!", "Coded in strict mode!", "Why did I make this?", "Made in 2022"];
   var u = preloadHintHTML.length - 1;
     document.getElementById("preloadHint").textContent = preloadHintHTML[Math.floor(getRndInteger(0, u))];
 

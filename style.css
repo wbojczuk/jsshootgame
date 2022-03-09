@@ -20,7 +20,7 @@ body {
     justify-content: center;
     height: 10vw;
     width: 10vw;
-    z-index: 4;
+    z-index: 3;
 }
 
 /* MAIN WRAPPER */
@@ -87,45 +87,48 @@ body {
 }
 
 .thing-one {
-    position: relative;
+    
     display: inline-block;
     width: 5.5vw;
     height: 5vw;
-    z-index: 2;
+   
     user-select: none;
 }
 
 .thing-one-hitbox {
-    height: .125vw;
-    width: .125vw;
+    height: .001vw;
+    width: .001vw;
 }
 
 /* DOES NOT GET HITBOX */
 .red-potion {
-    position: relative;
+    
     display: inline-block;
     width: 5vw;
     height: 5vw;
-    z-index: 2;
+   
     user-select: none;
 
 }
 
 .extra-heart-orb {
-    position: relative;
+    
     display: inline-block;
     width: 5vw;
     height: 5vw;
-    z-index: 2;
+    
     user-select: none;
     
 
 }
 
 .falling-container {
+    
+    position: relative;
+    
     padding: 0 2%;
     width: 95.5%;
-    height: .125vw;
+    height: 0.0001vw;
     user-select: none;
 }
 
@@ -178,10 +181,6 @@ body {
     margin-left: 2vw;
     position: relative;
     top: 0;
-}
-
-.score {
-
 }
 
 /* TOP RIGHT ICONS */
