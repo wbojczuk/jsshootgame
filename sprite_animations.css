@@ -18,6 +18,19 @@
     background-size: 3000% 5vw;
     background-position: center;
 }
+.snowball {
+    background: url('img/snowball_sprite.png') ;
+    animation: snowball 400ms steps(6) infinite;
+    background-size: 600% 5vw;
+    background-position: center;
+}
+
+.blue-crystal {
+    background: url('img/blue_crystal_sprite.png') ;
+    animation: blue_crystal 2900ms steps(73) infinite;
+    background-size: 7300% 5vw;
+    background-position: center;
+}
 
 
 
@@ -53,6 +66,26 @@
 @keyframes extra_heart_orb_explosion {
     from{background-position: 0% 0;}
     to{background-position: -1900% 0;}
+}
+
+@keyframes snowball {
+    from{background-position: 0% 0;}
+    to{background-position: -600% 0;}
+}
+
+@keyframes snowball_explosion {
+    from{background-position: 0% 0;}
+    to{background-position: -1200% 0;}
+}
+
+@keyframes blue_crystal {
+    from{background-position: 0% 0;}
+    to{background-position: -7300% 0;}
+}
+
+@keyframes blue_crystal_explosion {
+    from{background-position: 0% 0;}
+    to{background-position: -1500% 0;}
 }
 
 /* PRELOAD called ANIMATIONS */
@@ -103,4 +136,20 @@
     background: url('img/extra_heart_orb_explosion_sprite.png') ;
     animation: extra_heart_orb_explosion 480ms steps(19) infinite;
     background-size: 1900% 1vw;
+}
+
+.blue-crystal-preload {
+    height: 1vw;
+    width: 1vw;
+    background: url('img/blue_crystal_sprite.png') ;
+    animation: blue_crystal 390ms steps(73);
+    background-size: 7300% 1vw;
+}
+
+.blue-crystal-explosion-preload {
+    height: 1vw;
+    width: 1vw;
+    background: url('img/blue_crystal_explosion_sprite.png') ;
+    animation: blue_crystal_explosion 300ms steps(15);
+    background-size: 1500% 1vw;
 }

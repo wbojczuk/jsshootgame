@@ -28,7 +28,7 @@ var moveItemsRepeat;
 
 setInterval(
     function(){counter = Math.floor(counter) + 1;
-    console.log(counter);
+    
     },1000);
 
     // Random Number Generator

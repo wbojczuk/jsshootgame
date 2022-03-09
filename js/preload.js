@@ -26,6 +26,10 @@ function preloadFunction(){
 
     stuffPreload += "<div class='extra-heart-orb-explosion-preload preload'></div>";
 
+    stuffPreload += "<div class='blue-crystal-preload preload'></div>";
+
+    stuffPreload += "<div class='blue-crystal-explosion-preload preload'></div>";
+
 
 
     document.getElementById("preload").insertAdjacentHTML("afterbegin", stuffPreload);

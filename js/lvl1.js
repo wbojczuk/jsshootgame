@@ -50,13 +50,15 @@ function lvl1Pre() {
 
                 // Bomb Generation
                 if (counter % 3 == 0) {
+
+                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox blue-crystal-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='blue-crystal'><div class='thing-one-hitbox'></div></div></div></div>";
+
                     fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                     fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                 } else if ( counter % 6 == 0){
                     fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                     fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                      
+                    
                     
                     
                 } else if ( counter % 10 == 0){
@@ -72,7 +74,7 @@ function lvl1Pre() {
                     fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                     fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                     fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    
                 }else if ( counter % 13 == 0){
                     fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                     fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
@@ -220,6 +222,16 @@ function lvl1Pre() {
                 for (let i = 0; i < extraHeartOrblength; i++) {
                     extraHeartOrb[i].addEventListener("click", extraHeartOrbEffect);
                     extraHeartOrb[i].classList.remove("noevent");
+                }
+
+                // SET BLUE CRYSTAL EVENTS
+
+                var blueCrystal = document.querySelectorAll(".blue-crystal-clickbox.unclicked.no-event");
+                var BlueCrystalLength = blueCrystal.length;
+
+                for (let i = 0; i < BlueCrystalLength; i++) {
+                    blueCrystal[i].addEventListener("click", blueCrystalEffect);
+                    blueCrystal[i].classList.remove("noevent");
                 }
             
                 }
@@ -439,11 +451,13 @@ function lvl1Pre() {
                 if (powerOneToggle == true) {
                     document.getElementById("body").style.cursor = "url('img/lvl1/power1.cur'), crosshair"
                    var extraHeartOrbP1 = mainContainerr.querySelectorAll(".pow1.extra-heart-orb-clickbox");
+                   var blueCrystalP1 = mainContainerr.querySelectorAll(".pow1.blue-crystal-clickbox");
                    var redPotionsP1 = mainContainerr.querySelectorAll(".pow1.red-potion-clickbox");
                    var bombsP1 = mainContainerr.querySelectorAll(".pow1.bomb-clickbox");
                    var bombsLengthP1 = bombsP1.length;
                    var redPotionslengthP1 = redPotionsP1.length;
                    var extraHeartOrblengthP1 = extraHeartOrbP1.length;
+                   var blueCrystalLengthP1 = blueCrystalP1.length;
                    
                    
                     
@@ -462,6 +476,11 @@ function lvl1Pre() {
                     extraHeartOrbP1[i].addEventListener("mouseover", extraHeartOrbEffect);
                     extraHeartOrbP1[i].classList.remove("pow1");
                 }
+
+                for (let i = 0; i < blueCrystalLengthP1; i++) {
+                    blueCrystalP1[i].addEventListener("mouseover", blueCrystalEffect);
+                    blueCrystalP1[i].classList.remove("pow1");
+                }
                 
             
             
@@ -472,6 +491,8 @@ function lvl1Pre() {
                 var extraHeartOrbP1 = mainContainerr.querySelectorAll(".extra-heart-orb-clickbox:not(.pow1)");
                    var redPotionsP1 = mainContainerr.querySelectorAll(".red-potion-clickbox:not(.pow1)");
                    var bombsP1 = mainContainerr.querySelectorAll(".bomb-clickbox:not(.pow1)");
+                   var blueCrystalP1 = mainContainerr.querySelectorAll(".blue-crystal-clickbox:not(.pow1)");
+                   var blueCrystalLengthP1 = blueCrystalP1.length;
                    var bombsLengthP1 = bombsP1.length;
                    var redPotionslengthP1 = redPotionsP1.length;
                    var extraHeartOrblengthP1 = extraHeartOrbP1.length;
@@ -490,6 +511,11 @@ function lvl1Pre() {
                 for (let i = 0; i < extraHeartOrblengthP1; i++) {
                     extraHeartOrbP1[i].removeEventListener("mouseover", extraHeartOrbEffect);
                     extraHeartOrbP1[i].classList.add("pow1");
+                }
+
+                for (let i = 0; i < blueCrystalLengthP1; i++) {
+                    blueCrystalP1[i].removeEventListener("mouseover", blueCrystalEffect);
+                    blueCrystalP1[i].classList.add("pow1");
                 }
                 
             }
@@ -676,6 +702,31 @@ function redPotionEffect(evt) {
         setTimeout(() => {
             this.remove();
         }, 470);
+    }
+
+    function blueCrystalEffect(evt) {
+        var targetElement = this.querySelector(".blue-crystal");
+        this.classList.remove("unclicked");
+        this.removeEventListener("click", blueCrystalEffect);
+        this.removeEventListener("mouseover", blueCrystalEffect);
+        this.querySelector(".thing-one-hitbox").remove();
+        score += 10;
+        document.getElementById("score").innerHTML = score;
+        this.style.zIndex = "1";
+        var audio = new Audio('sounds/blue_crystal_explosion.mp3');
+        audio.volume = 0.2;
+        audio.playbackRate = 1;
+        audio.play();
+        targetElement.style.height = "8vw";
+        targetElement.style.width = "8vw";
+
+        targetElement.style.background = "url('img/blue_crystal_explosion_sprite.png')" ;
+        targetElement.style.animation = "blue_crystal_explosion 300ms steps(15)";
+        targetElement.style.backgroundSize= "1500% 8vw";
+
+        setTimeout(() => {
+            this.remove();
+        }, 300);
     }
 
 
