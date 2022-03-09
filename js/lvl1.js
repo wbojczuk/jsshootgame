@@ -383,7 +383,7 @@ function lvl1Pre() {
             
             function checkPowers() {
                 if (score >= 500 && onlyOne11 == 1) {
-                    power1Repeat = setInterval(power1Function, 100);
+                    power1Repeat = setInterval(power1Function, 10);
                     onlyOne11 += 1;
                 }
             }

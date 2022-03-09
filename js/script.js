@@ -275,6 +275,7 @@ function pauseGame() {
     clearInterval(checkPowersRepeat);
     clearInterval(moveItemsRepeat);
     clearInterval(power1Repeat);
+    onlyOne11 = 1;
     
 
     document.getElementById("pauseCheck").removeAttribute("onclick");
