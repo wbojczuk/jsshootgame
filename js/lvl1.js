@@ -147,7 +147,7 @@ function lvl1Pre() {
                 if (counter == 60) {
                     currentTime = 4; 
                     clearInterval(moveItemsRepeat);
-                    moveItemsRepeat = setInterval(moveItems, 6); 
+                    moveItemsRepeat = setInterval(moveItems, 5); 
                 }
     
                 if (counter == 80) {
@@ -164,19 +164,24 @@ function lvl1Pre() {
                 if (counter == 120) {
                     currentTime = 7; 
                     clearInterval(moveItemsRepeat);
-                    moveItemsRepeat = setInterval(moveItems, 5);
+                    moveItemsRepeat = setInterval(moveItems, 4);
                 }
     
                 if (counter == 140) {
                     currentTime = 8; 
                     clearInterval(moveItemsRepeat);
-                    moveItemsRepeat = setInterval(moveItems, 5);
+                    moveItemsRepeat = setInterval(moveItems, 3);
                 }
     
                 if (counter == 160) {
                     currentTime = 9; 
                     clearInterval(moveItemsRepeat);
-                    moveItemsRepeat = setInterval(moveItems, 4);
+                    moveItemsRepeat = setInterval(moveItems, 2);
+                }
+                if (counter == 180) {
+                    currentTime = 10; 
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 1);
                 }
     
                 // TEMP DISABLE COUNTER TRIGGERS
@@ -241,7 +246,7 @@ function lvl1Pre() {
                 }else if (currentTime == 4){
                     
                     for (let i = 0; i < fallingContainersLengths; i++){
-                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 2;
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 1.5;
                          
                      
                          fallingContainerss[i].style.top = + tempppValue + "px";
@@ -268,7 +273,7 @@ function lvl1Pre() {
                  }else if (currentTime == 7){
                     
                     for (let i = 0; i < fallingContainersLengths; i++){
-                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 3;
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 2;
                          
                      
                          fallingContainerss[i].style.top = + tempppValue + "px";
@@ -277,7 +282,7 @@ function lvl1Pre() {
                  }else if (currentTime == 8){
                     
                     for (let i = 0; i < fallingContainersLengths; i++){
-                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 4;
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 3;
                          
                      
                          fallingContainerss[i].style.top = + tempppValue + "px";
@@ -286,7 +291,16 @@ function lvl1Pre() {
                  }else if (currentTime == 9){
                     
                     for (let i = 0; i < fallingContainersLengths; i++){
-                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 6;
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 4;
+                         
+                     
+                         fallingContainerss[i].style.top = + tempppValue + "px";
+                        fallingContainerss[i].setAttribute("value", tempppValue);
+                    }
+                 }else if (currentTime == 10){
+                    
+                    for (let i = 0; i < fallingContainersLengths; i++){
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 5;
                          
                      
                          fallingContainerss[i].style.top = + tempppValue + "px";

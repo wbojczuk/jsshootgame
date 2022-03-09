@@ -27,7 +27,9 @@ var moveItemsRepeat;
 // SECOND COUNTER 
 
 setInterval(
-    function(){counter = Math.floor(counter) + 1;},1000);
+    function(){counter = Math.floor(counter) + 1;
+    console.log(counter);
+    },1000);
 
     // Random Number Generator
 
@@ -321,7 +323,7 @@ function resumeGame() {
                 break;
                     
                 case 4 :
-                    moveItemsRepeat = setInterval(moveItems, 6);
+                    moveItemsRepeat = setInterval(moveItems, 5);
                 break;
 
                 case 5 :
@@ -331,13 +333,16 @@ function resumeGame() {
                     moveItemsRepeat = setInterval(moveItems, 5);
                 break;
                 case 7 :
-                    moveItemsRepeat = setInterval(moveItems, 5);
+                    moveItemsRepeat = setInterval(moveItems, 4);
                 break;
                 case 8 :
-                    moveItemsRepeat = setInterval(moveItems, 5);
+                    moveItemsRepeat = setInterval(moveItems, 3);
                 break;
                 case 9 :
-                    moveItemsRepeat = setInterval(moveItems, 4);
+                    moveItemsRepeat = setInterval(moveItems, 2);
+                break;
+                case 10 :
+                    moveItemsRepeat = setInterval(moveItems, 1);
                 break;
 
 
