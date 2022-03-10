@@ -27,7 +27,7 @@
 
 .blue-crystal {
     background: url('img/blue_crystal_sprite.png') ;
-    animation: blue_crystal 2900ms steps(73) infinite;
+    animation: blue_crystal 2000ms steps(73) infinite;
     background-size: 7300% 5vw;
     background-position: center;
 }

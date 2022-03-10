@@ -51,7 +51,7 @@ function lvl1Pre() {
                 // Bomb Generation
                 if (counter % 3 == 0) {
 
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox blue-crystal-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='blue-crystal'><div class='thing-one-hitbox'></div></div></div></div>";
+                    fallingHTML += "<div class='falling-container blue-crystal-falling-container' value='0' ><div class='pow1 clickbox blue-crystal-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='blue-crystal'><div class='thing-one-hitbox'></div></div></div></div>";
 
                     fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                     fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
@@ -252,7 +252,7 @@ function lvl1Pre() {
                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 1;
                         
                     
-                       fallingContainerss[i].style.top = + tempppValue + "px";
+                       fallingContainerss[i].style.top =  tempppValue + "px";
                        fallingContainerss[i].setAttribute("value", tempppValue);
                    }
                 }else if (currentTime == 4){
@@ -261,7 +261,7 @@ function lvl1Pre() {
                          var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 1.5;
                          
                      
-                         fallingContainerss[i].style.top = + tempppValue + "px";
+                         fallingContainerss[i].style.top =  tempppValue + "px";
                         fallingContainerss[i].setAttribute("value", tempppValue);
                     }
                  } else if (currentTime == 5){
@@ -270,7 +270,7 @@ function lvl1Pre() {
                          var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 2;
                          
                      
-                         fallingContainerss[i].style.top = + tempppValue + "px";
+                         fallingContainerss[i].style.top =  tempppValue + "px";
                         fallingContainerss[i].setAttribute("value", tempppValue);
                     }
                  }else if (currentTime == 6){
@@ -279,7 +279,7 @@ function lvl1Pre() {
                          var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 2;
                          
                      
-                         fallingContainerss[i].style.top = + tempppValue + "px";
+                         fallingContainerss[i].style.top =  tempppValue + "px";
                         fallingContainerss[i].setAttribute("value", tempppValue);
                     }
                  }else if (currentTime == 7){
@@ -288,7 +288,7 @@ function lvl1Pre() {
                          var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 2;
                          
                      
-                         fallingContainerss[i].style.top = + tempppValue + "px";
+                         fallingContainerss[i].style.top =  tempppValue + "px";
                         fallingContainerss[i].setAttribute("value", tempppValue);
                     }
                  }else if (currentTime == 8){
@@ -297,7 +297,7 @@ function lvl1Pre() {
                          var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 3;
                          
                      
-                         fallingContainerss[i].style.top = + tempppValue + "px";
+                         fallingContainerss[i].style.top =  tempppValue + "px";
                         fallingContainerss[i].setAttribute("value", tempppValue);
                     }
                  }else if (currentTime == 9){
@@ -306,7 +306,7 @@ function lvl1Pre() {
                          var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 4;
                          
                      
-                         fallingContainerss[i].style.top = + tempppValue + "px";
+                         fallingContainerss[i].style.top =  tempppValue + "px";
                         fallingContainerss[i].setAttribute("value", tempppValue);
                     }
                  }else if (currentTime == 10){
@@ -315,10 +315,20 @@ function lvl1Pre() {
                          var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 5;
                          
                      
-                         fallingContainerss[i].style.top = + tempppValue + "px";
+                         fallingContainerss[i].style.top =  tempppValue + "px";
                         fallingContainerss[i].setAttribute("value", tempppValue);
                     }
                  }
+
+                 var blueCrystal = document.querySelectorAll(".blue-crystal-falling-container");
+                var BlueCrystalLength = blueCrystal.length;
+
+                for (let i = 0; i < BlueCrystalLength; i++) {
+                    
+                    var tempValue = parseInt(blueCrystal[i].getAttribute("value")) + 1;
+                blueCrystal[i].style.top =  tempValue + "px";
+                blueCrystal[i].setAttribute("value", tempValue);
+                }
 
 
                }
@@ -714,7 +724,7 @@ function redPotionEffect(evt) {
         document.getElementById("score").innerHTML = score;
         this.style.zIndex = "1";
         var audio = new Audio('sounds/blue_crystal_explosion.mp3');
-        audio.volume = 0.2;
+        audio.volume = 0.1;
         audio.playbackRate = 1;
         audio.play();
         targetElement.style.height = "8vw";
