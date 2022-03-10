@@ -32,14 +32,14 @@
 
   <div class="preload-screen" id="preloadScreen">
     <div class="preload-title-wrapper"><div class="preload-title"></div></div>
-    <div class="preload-hint" id="preloadHint"></div>
+    <div class="hint-wrapper"><div class="hint-icon"></div><div class="preload-hint" id="preloadHint"></div></div>
     
     <div id="loading">
-      <div id="loadingBar"></div>
+      <div id="loadingBar"><div class="loading"></div></div>
     </div>
-  
+    <div id="preload"></div>
   </div>
-  <div id="preload"></div>
+  
 
     <!-- Main Content -->
     
@@ -92,7 +92,7 @@
 <div class="start-screen-wrapper" id="startScreenWrapper">
     
 <!-- Carousel -->
-
+<div class="carousel-containerr">
 <div class="carousel-wrapper" id="carouselWrapper">
 
 <div id="startCarousel" class="carousel slide start-carousel" data-bs-ride="carousel" data-interval="false">
@@ -122,6 +122,8 @@
   </div>
 
 </div>
+</div><br>
+<div class="version">v0.5.a</div>
 </div>
 
     <!-- End Screen -->

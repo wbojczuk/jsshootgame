@@ -260,7 +260,7 @@ function lvl1Pre() {
                 }else if (currentTime == 4){
                     
                     for (let i = 0; i < fallingContainersLengths; i++){
-                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 1.5;
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 2;
                          
                      
                          fallingContainerss[i].style.top =  tempppValue + "px";

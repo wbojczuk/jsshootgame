@@ -32,6 +32,18 @@
     background-position: center;
 }
 
+.loading {
+    background: url('img/loading.svg') ;
+    background-position: center;
+    background-size: contain;
+}
+
+.hint-icon {
+    background: url('img/hint_sprite.png') ;
+    animation: hint 2000ms steps(35) infinite;
+    background-size: 3500% 10vw;
+    background-position: center;
+}
 
 
 
@@ -86,6 +98,11 @@
 @keyframes blue_crystal_explosion {
     from{background-position: 0% 0;}
     to{background-position: -1500% 0;}
+}
+
+@keyframes hint {
+    from{background-position: 0% 0;}
+    to{background-position: -3500% 0;}
 }
 
 /* PRELOAD called ANIMATIONS */

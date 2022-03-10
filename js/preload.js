@@ -4,7 +4,6 @@ window.onload = preloadFunction;
 
 function preloadFunction(){
     var stuffPreload = "";
-
     var preloadHintHTML = ["Get to a score of 500 for a special ability!", "Get the red potions to heal a lost heart!", "Get the glowing orb for an additional heart!", "Animated with sprite sheets!", "Coded in strict mode!", "Why did I make this?", "Made in 2022"];
   var u = preloadHintHTML.length - 1;
     document.getElementById("preloadHint").textContent = preloadHintHTML[Math.floor(getRndInteger(0, u))];
@@ -36,30 +35,18 @@ function preloadFunction(){
 
 
 
-    var i = 0;
-    move();
-function move() {
-  if (i == 0) {
-    i = 1;
-    var elem = document.getElementById("loadingBar");
-    var width = 1;
-    var id = setInterval(frame, 25);
-    function frame() {
-      if (width >= 100) {
-        clearInterval(id);
-        i = 0;
+    
+   
+      setTimeout(function(){
         document.getElementById("preload").remove();
+        document.getElementById("body").style.backgroundImage = "url('img/main_screen_background.jpg')";
         document.getElementById("preloadScreen").style.display = "none";
         document.getElementById("endScreenWrapper").style.display = "none";
-        document.getElementById("startScreenWrapper").style.display = "flex";
+        document.getElementById("startScreenWrapper").style.display = "block";
         document.getElementById("mainWrapper").style.display = "none";
         currentLvl = "menu";
         document.addEventListener("click", setBackgroundMusic);
-      } else {
-        width++;
-        elem.style.width = width + "%";
+      }, 3000);
+        
+      
       }
-    }
-  }
-}
-}

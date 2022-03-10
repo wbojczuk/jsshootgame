@@ -28,7 +28,7 @@ var moveItemsRepeat;
 
 setInterval(
     function(){counter = Math.floor(counter) + 1;
-    
+        console.log(counter);
     },1000);
 
     // Random Number Generator
@@ -47,13 +47,13 @@ setInterval(
 function mainMenu() {
 
     window.removeEventListener("keydown", escPause);
-
+    document.getElementById("body").style.cursor = "default"
     // DISPLAY SWAP
     document.getElementById("pauseCheck").removeAttribute("onclick");
     document.getElementById("pauseCheck").setAttribute("onclick", "pauseGame();")
     document.getElementById("mainWrapper").style.display = "none";
     document.getElementById("endScreenWrapper").style.display = "none";
-    document.getElementById("startScreenWrapper").style.display = "flex";
+    document.getElementById("startScreenWrapper").style.display = "block";
     document.getElementById("pauseCheck").checked = false;
 
     document.getElementById("body").style.backgroundImage = "url('img/main_screen_background.jpg')";

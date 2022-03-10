@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap');
 
 body {
     margin: 0;
     overflow: hidden;
-    background-image: url("img/main_screen_background.jpg");
+    background-image: url('img/preload_background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -21,6 +22,7 @@ body {
     height: 10vw;
     width: 10vw;
     z-index: 3;
+    user-select: none;
 }
 
 /* MAIN WRAPPER */
@@ -30,6 +32,7 @@ body {
 
 .preload {
     z-index: 0;
+    opacity: 0.01;
 }
 
 .preload-screen {
@@ -37,19 +40,26 @@ body {
     height: 100vh;
     width: 100vw;
     z-index: 1;
+    user-select: none;
 }
 #loading {
     position: absolute;
     bottom: 0;
     margin-top: auto;
     width: 100%;
-    background-color: grey;
   }
+  .loading {
+    display: inline-block;
+    width: 7vw;
+    height: 7vw;
+    user-select: none;
+}
   
   #loadingBar {
-    width: 1%;
-    height: 50px;
-    background-color: green;
+    display: flex;
+    width: 100%;
+    align-items: right;
+    justify-content: right;
   }
 
   .preload-title-wrapper {
@@ -61,14 +71,30 @@ body {
       justify-content: center;
 
   }
-  .preload-hint {
-      
-      display: block;
-      text-align: center;
+  .hint-wrapper {
+      position: relative;
+      top: -8vw;
       width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .hint-icon {
+    display: inline-block;
+    width: 10vw;
+    height: 10vw;
+    user-select: none;
+    transform: translateX(-4vw);
+}
+  .preload-hint {
+      margin-top: 8vw;
+      display: inline-block;
+      text-align: left;
+      width: auto;
       height: 10vw;
-      font-size: x-large;
+      font-size: 2vw;
       color: white;
+      transform: translateX(-5vw);
   }
 
   .preload-title {
@@ -165,6 +191,7 @@ body {
     height: 4vw;
     padding-top: 1vw;
     padding-bottom: 1vw;
+    user-select: none;
 }
 
 .main-bar-left {
@@ -219,12 +246,31 @@ body {
 .start-screen-wrapper {
     height: 100vh;
     width: 100vw;
+    display: none;
+    user-select: none;
+}
+
+.version {
+    display: block;
+    width: 100vw;
+    text-align: right;
+    color: #fff;
+    position: relative;
+    top: -4vh;
+
+}
+
+.carousel-containerr {
+    
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 95vh;
 }
 
 .carousel-wrapper {
+    display: inline-block;
     width: 70vw;
     height: auto;
     
@@ -257,21 +303,23 @@ body {
     background: -moz-linear-gradient(top left, #FF3FFF60, #FCC2DF60);
     background: linear-gradient(to bottom right, #FF3FFF60, #FCC2DF60);
     display: none;
+    user-select: none;
  }
 
  .end-screen-title {
     padding-top: 5vw;
-    font-size: 5vw;
+    font-size: 8vw;
     text-align: center;
-    margin-bottom: 2vw;
     width: 100%;
+    font-family: 'Tangerine', cursive;
  }
 
  .end-screen-score {
-     font-size: 4vw;
+     font-size: 6vw;
      text-align: center;
      margin-bottom: 2vw;
      width: 100%;
+     font-family: 'Tangerine', cursive;
 
  }
 
@@ -279,37 +327,43 @@ body {
      display: flex;
      align-items: center;
      justify-content: center;
+     user-select: none;
  }
 
  .restart {
-     height: 8vw;
-     width: 20vw;
+    height: 6vw;
+     width: 25vw;
      font-size: 3vw;
      font-family: "Kaushan Script", cursive;
-     background-color: #f29bfda1;
-     border: 2px solid #aaa;
+     background-color: #25587f;
+     color: #afc9ff;
+     border: 1px solid rgb(106, 117, 175);
+     border-radius: .5vw;
  }
 
  .restart:hover {
-     cursor: url('img/lvl1/lvl1_main.cur'), crosshair;
-     background-color: #ec75fcd2;
-     color:rgba(0, 0, 0, 0.486);
+    cursor: pointer;
+     background-color: #347bb1;
+    color:#afc8ffbd;
  }
 
  .main-menu-button {
-    height: 8vw;
-     width: 20vw;
+    height: 6vw;
+     width: 25vw;
      font-size: 3vw;
      font-family: "Kaushan Script", cursive;
-     background-color: #f29bfda1;
-     border: 2px solid #aaa;
+     background-color: #25587f;
+     color: #afc9ff;
+     border: 1px solid rgb(106, 117, 175);
+     border-radius: .5vw;
      margin-right: 5vw;
+     user-select: none;
  }
 
  .main-menu-button:hover {
-    cursor: url('img/lvl1/lvl1_main.cur'), crosshair;
-    background-color: #ec75fcd2;
-    color:rgba(0, 0, 0, 0.486);
+    cursor: pointer;
+    background-color: #347bb1;
+    color:#afc8ffbd;
  }
 
   .checki{
@@ -322,12 +376,15 @@ body {
    }
    
    .checki span{
-     background: rgb(165, 165, 165);
+     background: #2e6ea0;
      border-radius:10px;
      height:7px;
      margin: 7px 0;
      transition: .4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
    
+   }
+   .checki:hover span{
+    background: #afc9ff;
    }
    
    
@@ -382,19 +439,25 @@ body {
        height: 106.1vh;
        width: 100vw;
        background-color: rgba(0, 0, 0, 0.548);
+       user-select: none;
+       cursor: default;
    }
    .resume-game-button {
-    height: 8vw;
-     width: 20vw;
+    height: 6vw;
+     width: 25vw;
      font-size: 3vw;
      font-family: "Kaushan Script", cursive;
-     background-color: #f29bfda1;
-     border: 2px solid #aaa;
+     background-color: #25587f;
+     color: #afc9ff;
+     border: 1px solid rgb(106, 117, 175);
+     border-radius: .5vw;
+     user-select: none;
+     
      
  }
 
  .resume-game-button:hover {
-    cursor: url('img/lvl1/lvl1_main.cur'), crosshair;
-    background-color: #ec75fcd2;
-    color:rgba(0, 0, 0, 0.486);
+    cursor: pointer;
+    background-color: #347bb1;
+    color:#afc8ffbd;
  }
