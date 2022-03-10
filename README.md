@@ -1,5 +1,5 @@
-# JavaSCript Shooting Game.
-Lets See how this goes lol.
+# JavaScript Fantasy Shooting Game.
+it's going
 
 v0.3.x Changelog:
 - added adjustable clickboxes and updated code to support.
