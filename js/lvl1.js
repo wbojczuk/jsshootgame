@@ -160,29 +160,29 @@ function lvl1Pre() {
                     moveItemsRepeat = setInterval(moveItems, 5); 
                 }
     
-                if (counter == 75) {
+                if (counter == 80) {
                     currentTime = 6; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 5);
                 }
-                if (counter == 90) {
+                if (counter == 100) {
                     currentTime = 7; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 4);
                 }
     
-                if (counter == 105) {
+                if (counter == 120) {
                     currentTime = 8; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 3);
                 }
     
-                if (counter == 120) {
+                if (counter == 140) {
                     currentTime = 9; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 2);
                 }
-                if (counter == 135) {
+                if (counter == 160) {
                     currentTime = 10; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 1);
