@@ -435,7 +435,7 @@ function lvl1Pre() {
             
             
             function checkPowers() {
-                if (score >= 500 && onlyOne11 == 1) {
+                if (score >= 5 && onlyOne11 == 1) {
                     power1Repeat = setInterval(power1Function, 10);
                     onlyOne11 += 1;
                 }
@@ -715,11 +715,17 @@ function lvl1Pre() {
         
         powerOneToggle = false;
         power1On = 0;
-        onlyOne = 1
+        onlyOne = 1;
         document.querySelector(".power1.power-icon").remove();
 
         // POWER 2
-        document.querySelector(".power2.power-icon").remove();
+        
+    }
+
+    var power2Current = document.querySelectorAll(".power2.power-icon");
+
+    if (power2Current.length >= 1){
+        power2Current[0].remove();
         window.removeEventListener("keydown", power2Function);
     }
     }
