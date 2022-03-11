@@ -136,53 +136,53 @@ function lvl1Pre() {
                 //   Speed things based on time
 
     
-                if (counter == 20) {
+                if (counter == 15) {
                     currentTime = 2;
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 9); 
                 }
     
-                if (counter == 40) {
+                if (counter == 30) {
                     currentTime = 3;
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 8); 
                 }
     
-                if (counter == 60) {
+                if (counter == 45) {
                     currentTime = 4; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 5); 
                 }
     
-                if (counter == 80) {
+                if (counter == 60) {
                     currentTime = 5; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 5); 
                 }
     
-                if (counter == 100) {
+                if (counter == 75) {
                     currentTime = 6; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 5);
                 }
-                if (counter == 120) {
+                if (counter == 90) {
                     currentTime = 7; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 4);
                 }
     
-                if (counter == 140) {
+                if (counter == 105) {
                     currentTime = 8; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 3);
                 }
     
-                if (counter == 160) {
+                if (counter == 120) {
                     currentTime = 9; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 2);
                 }
-                if (counter == 180) {
+                if (counter == 135) {
                     currentTime = 10; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 1);
