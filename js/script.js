@@ -21,6 +21,7 @@ var power1Repeat;
 var onlyOne11 = 1;
 var checkPowersRepeat;
 var moveItemsRepeat;
+var randomNum1 = 0;
 
 
 
@@ -47,6 +48,7 @@ setInterval(
 function mainMenu() {
 
     window.removeEventListener("keydown", escPause);
+    window.removeEventListener("keydown", escResume);
     document.getElementById("body").style.cursor = "default"
     // DISPLAY SWAP
     document.getElementById("pauseCheck").removeAttribute("onclick");
@@ -278,12 +280,14 @@ function pauseGame() {
     clearInterval(moveItemsRepeat);
     clearInterval(power1Repeat);
     onlyOne11 = 1;
-    
-
     document.getElementById("pauseCheck").removeAttribute("onclick");
     document.getElementById("pauseCheck").setAttribute("onclick", "resumeGame();");
     document.getElementById("mainContainer").style.display = "none";
     document.getElementById("pausePage").style.display = "flex";
+
+    window.removeEventListener("keydown", escPause);
+
+    window.addEventListener("keydown", escResume);
 
     tempCounter = counter;
     
@@ -295,6 +299,13 @@ function escPause(evt) {
     if (evt.key == "Escape") {
         pauseGame();
         document.getElementById("pauseCheck").checked = true;
+    }
+}
+
+function escResume(evt){
+    if (evt.key == "Escape") {
+        resumeGame();
+        
     }
 }
 
@@ -319,7 +330,7 @@ function resumeGame() {
                 break;
 
                 case 3 :
-                    moveItemsRepeat = setInterval(moveItems, 8);
+                    moveItemsRepeat = setInterval(moveItems, 7);
                 break;
                     
                 case 4 :
@@ -356,5 +367,7 @@ function resumeGame() {
     document.getElementById("pausePage").style.display = "none";
     document.getElementById("pauseCheck").removeAttribute("onclick");
     document.getElementById("pauseCheck").setAttribute("onclick", "pauseGame();");
+    window.removeEventListener("keydown", escResume);
+    window.addEventListener("keydown", escPause);
 
 }

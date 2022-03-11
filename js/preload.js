@@ -29,6 +29,12 @@ function preloadFunction(){
 
     stuffPreload += "<div class='blue-crystal-explosion-preload preload'></div>";
 
+    stuffPreload += "<div class='snowflake-preload preload'></div>";
+
+    stuffPreload += "<div class='snowflake-explosion-preload preload'></div>";
+
+    stuffPreload += "<div class='frost-preload preload'></div>";
+
 
 
     document.getElementById("preload").insertAdjacentHTML("afterbegin", stuffPreload);

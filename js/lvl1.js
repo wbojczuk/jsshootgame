@@ -13,10 +13,9 @@ function lvl1Pre() {
             
 
    
-        
+                randomNum1 = Math.floor(getRndInteger(1, 120));
                 currentLvl = "lvl1";
                 oonlyOne = 1;
-
                 // SET LEVEL ONE BACKGROUND
                 document.getElementById("body").style.backgroundImage = "url('img/lvl1/lvl1_background.jpg')";
                 document.getElementById("body").style.backgroundSize = "cover";
@@ -50,8 +49,6 @@ function lvl1Pre() {
 
                 // Bomb Generation
                 if (counter % 3 == 0) {
-
-                    
 
                     fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
                     fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
@@ -128,6 +125,13 @@ function lvl1Pre() {
                      } 
 
 
+                    //  Snowflake Generator
+
+                    if (counter == randomNum1){
+                        fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox snowflake-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='snowflake'></div></div></div>";
+                    }
+
+
                 // Print cells to screen
                 document.getElementById("mainContainer").insertAdjacentHTML("afterbegin", fallingHTML);
 
@@ -145,44 +149,44 @@ function lvl1Pre() {
                 if (counter == 30) {
                     currentTime = 3;
                     clearInterval(moveItemsRepeat);
-                    moveItemsRepeat = setInterval(moveItems, 8); 
+                    moveItemsRepeat = setInterval(moveItems, 7); 
                 }
     
-                if (counter == 45) {
+                if (counter == 50) {
                     currentTime = 4; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 5); 
                 }
     
-                if (counter == 60) {
+                if (counter == 70) {
                     currentTime = 5; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 5); 
                 }
     
-                if (counter == 80) {
+                if (counter == 100) {
                     currentTime = 6; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 5);
                 }
-                if (counter == 100) {
+                if (counter == 130) {
                     currentTime = 7; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 4);
                 }
     
-                if (counter == 120) {
+                if (counter == 150) {
                     currentTime = 8; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 3);
                 }
     
-                if (counter == 140) {
+                if (counter == 180) {
                     currentTime = 9; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 2);
                 }
-                if (counter == 160) {
+                if (counter == 200) {
                     currentTime = 10; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 1);
@@ -234,6 +238,17 @@ function lvl1Pre() {
                 for (let i = 0; i < BlueCrystalLength; i++) {
                     blueCrystal[i].addEventListener("click", blueCrystalEffect);
                     blueCrystal[i].classList.remove("noevent");
+                }
+
+
+                // Snowflake Events
+
+                var snowFlake = document.querySelectorAll(".snowflake-clickbox.unclicked.no-event");
+                var snowFlakeLength = snowFlake.length;
+
+                for (let i = 0; i < snowFlakeLength; i++) {
+                    snowFlake[i].addEventListener("click", snowflakeEffect);
+                    snowFlake[i].classList.remove("noevent");
                 }
             
                 }
@@ -452,10 +467,10 @@ function lvl1Pre() {
                     });
 
                     // SET ICON
-                var pow1IconHTML = "<div class='power-icon power1' id='powerIcon'></div>";
+                var pow1IconHTML = "<div class='power-icon power1' id='power1Icon'></div>";
 
                 document.getElementById("mainBarRight").insertAdjacentHTML("afterbegin", pow1IconHTML);
-                console.log("rlly");
+                
                     
                     onlyOne += 1;
                 }
@@ -467,6 +482,8 @@ function lvl1Pre() {
                    var redPotionsP1 = mainContainerr.querySelectorAll(".pow1.red-potion-clickbox");
                    var bombsP1 = mainContainerr.querySelectorAll(".pow1.bomb-clickbox");
                    var bombsLengthP1 = bombsP1.length;
+                   var snowflakeP1 = mainContainerr.querySelectorAll(".pow1.snowflake-clickbox");
+                   var snowflakeLengthP1 = snowflakeP1.length;
                    var redPotionslengthP1 = redPotionsP1.length;
                    var extraHeartOrblengthP1 = extraHeartOrbP1.length;
                    var blueCrystalLengthP1 = blueCrystalP1.length;
@@ -493,6 +510,11 @@ function lvl1Pre() {
                     blueCrystalP1[i].addEventListener("mouseover", blueCrystalEffect);
                     blueCrystalP1[i].classList.remove("pow1");
                 }
+
+                for (let i = 0; i < snowflakeLengthP1; i++) {
+                    snowflakeP1[i].addEventListener("mouseover", snowflakeEffect);
+                    snowflakeP1[i].classList.remove("pow1");
+                }
                 
             
             
@@ -504,6 +526,8 @@ function lvl1Pre() {
                    var redPotionsP1 = mainContainerr.querySelectorAll(".red-potion-clickbox:not(.pow1)");
                    var bombsP1 = mainContainerr.querySelectorAll(".bomb-clickbox:not(.pow1)");
                    var blueCrystalP1 = mainContainerr.querySelectorAll(".blue-crystal-clickbox:not(.pow1)");
+                   var snowflakeP1 = mainContainerr.querySelectorAll(".snowflake-clickbox:not(.pow1)");
+                   var snowflakeLengthP1 = snowflakeP1.length;
                    var blueCrystalLengthP1 = blueCrystalP1.length;
                    var bombsLengthP1 = bombsP1.length;
                    var redPotionslengthP1 = redPotionsP1.length;
@@ -529,6 +553,11 @@ function lvl1Pre() {
                     blueCrystalP1[i].removeEventListener("mouseover", blueCrystalEffect);
                     blueCrystalP1[i].classList.add("pow1");
                 }
+
+                for (let i = 0; i < snowflakeLengthP1; i++) {
+                    snowflakeP1[i].removeEventListener("mouseover", snowflakeEffect);
+                    snowflakeP1[i].classList.add("pow1");
+                }
                 
             }
 
@@ -553,6 +582,119 @@ function lvl1Pre() {
 
             
         }
+
+        function power2Function(evt) {
+            if ((evt.key == "S") || (evt.key == "s")) {
+                var tempSpeed = 0;
+                document.querySelector(".power2.power-icon").style.boxShadow = "0px 0px 15px 10px rgba(0, 204, 255, 0.664)";
+                window.removeEventListener("keydown", power2Function);
+                var tempCounterr = counter;
+                clearInterval(generationRepeat);
+
+                var audio = new Audio('sounds/lvl1/ice_cracking.mp3');
+                audio.volume = 0.4;
+                audio.playbackRate = 1;
+                audio.play();
+
+                document.getElementById("body").style.backgroundImage = "url('img/lvl1/frost_overlay.jpg')";
+
+                if (currentTime == 1) {
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 15);
+                    tempSpeed = 1;
+                }
+
+                if (currentTime == 2) {
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 14);
+                    tempSpeed = 2;
+                }
+
+                if (currentTime == 3) {
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 13);
+                    tempSpeed = 3;
+                }
+
+                if ((currentTime == 4) || (currentTime == 5) || (currentTime == 6)){
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 9);
+                    tempSpeed = 4;
+                }
+
+                if (currentTime == 7) {
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 9);
+                    tempSpeed = 5;
+                }
+
+                if (currentTime == 8) {
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 9);
+                    tempSpeed = 6;
+                }
+
+                if (currentTime == 9) {
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 9);
+                    tempSpeed = 7;
+                }
+                
+                setTimeout(function(){
+                    if (tempSpeed == 1) {
+                        clearInterval(moveItemsRepeat);
+                        moveItemsRepeat = setInterval(moveItems, 10); 
+                    }
+        
+                    if (tempSpeed == 2) {
+                        clearInterval(moveItemsRepeat);
+                        moveItemsRepeat = setInterval(moveItems, 9); 
+                    }
+        
+                    if (tempSpeed == 3) {
+                        
+                        clearInterval(moveItemsRepeat);
+                        moveItemsRepeat = setInterval(moveItems, 7); 
+                    }
+        
+                    if (tempSpeed == 4) {
+                        
+                        clearInterval(moveItemsRepeat);
+                        moveItemsRepeat = setInterval(moveItems, 5); 
+                    }
+        
+
+                    if (tempSpeed == 5) {
+                        
+                        clearInterval(moveItemsRepeat);
+                        moveItemsRepeat = setInterval(moveItems, 4);
+                    }
+        
+                    if (tempSpeed == 6) {
+                        
+                        clearInterval(moveItemsRepeat);
+                        moveItemsRepeat = setInterval(moveItems, 3);
+                    }
+        
+                    if (tempSpeed == 7) {
+                        
+                        clearInterval(moveItemsRepeat);
+                        moveItemsRepeat = setInterval(moveItems, 2);
+                    }
+                    if (tempSpeed == 8) {
+                        
+                        clearInterval(moveItemsRepeat);
+                        moveItemsRepeat = setInterval(moveItems, 1);
+                    }
+                    generationRepeat = setInterval(lvlOneGeneration, 1000);
+                    counter = tempCounterr;
+                    document.getElementById("body").style.backgroundImage = "url('img/lvl1/lvl1_background.jpg')";
+                    document.querySelector(".power2.power-icon").remove();
+                },5000);
+
+            }
+
+        }
     
     
     
@@ -575,6 +717,10 @@ function lvl1Pre() {
         power1On = 0;
         onlyOne = 1
         document.querySelector(".power1.power-icon").remove();
+
+        // POWER 2
+        document.querySelector(".power2.power-icon").remove();
+        window.removeEventListener("keydown", power2Function);
     }
     }
 
@@ -742,5 +888,38 @@ function redPotionEffect(evt) {
     }
 
 
+
+function snowflakeEffect(evt) {
+    var targetElement = this.querySelector(".snowflake");
+        this.classList.remove("unclicked");
+        this.removeEventListener("click", snowflakeEffect);
+        this.removeEventListener("mouseover", snowflakeEffect);
+        score += 100;
+        document.getElementById("score").innerHTML = score;
+        this.style.zIndex = "1";
+        var audio = new Audio('sounds/lvl1/ice_break.mp3');
+        audio.volume = 0.2;
+        audio.playbackRate = 1;
+        audio.play();
+        targetElement.style.height = "5.6vw";
+        targetElement.style.width = "4.5vw";
+        
+        targetElement.style.background = "url('img/snowflake_explosion_sprite.png')" ;
+        targetElement.style.animation = "snowflake_explosion 300ms steps(16)";
+        targetElement.style.backgroundSize= "1600% 5.6vw";
+
+        var pow2IconHTML = "<div class='power-icon power2' id='power2Icon'></div>";
+
+        document.getElementById("mainBarRight").insertAdjacentHTML("afterbegin", pow2IconHTML);
+
+        // POWERRR 2
+
+        window.addEventListener("keydown", power2Function);
+
+
+        setTimeout(() => {
+            this.remove();
+        }, 300);
+}
 
     

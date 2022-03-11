@@ -45,6 +45,13 @@
     background-position: center;
 }
 
+.snowflake {
+    background: url('img/snowflake_sprite.png') ;
+    animation: snowflake 2000ms steps(59) infinite;
+    background-size: 6000% 7vw;
+    background-position: center;
+}
+
 
 
 
@@ -103,6 +110,16 @@
 @keyframes hint {
     from{background-position: 0% 0;}
     to{background-position: -3500% 0;}
+}
+
+@keyframes snowflake {
+    from{background-position: 0% 0;}
+    to{background-position: -5900% 0;}
+}
+
+@keyframes snowflake_explosion {
+    from{background-position: 0% 0;}
+    to{background-position: -1600% 0;}
 }
 
 /* PRELOAD called ANIMATIONS */
@@ -169,4 +186,26 @@
     background: url('img/blue_crystal_explosion_sprite.png') ;
     animation: blue_crystal_explosion 300ms steps(15);
     background-size: 1500% 1vw;
+}
+
+.snowflake-preload {
+    height: 1vw;
+    width: 1vw;
+    background: url('img/snowflake_sprite.png') ;
+    animation: snowflake 390ms steps(60);
+    background-size: 6000% 1vw;
+}
+
+.snowflake-explosion-preload {
+    height: 1vw;
+    width: 1vw;
+    background: url('img/snowflake_explosion_sprite.png') ;
+    animation: snowflake 300ms steps(16);
+    background-size: 1600% 1vw;
+}
+
+.frost-preload {
+    background-image: url('img/lvl1/frost_overlay.jpg');
+    height: 1vw;
+    width: 1vw;
 }

@@ -117,7 +117,13 @@ body {
     display: inline-block;
     width: 5.5vw;
     height: 5vw;
-   
+    user-select: none;
+}
+
+.blue-crystal {
+    display: inline-block;
+    width: 5vw;
+    height: 5.2vw;
     user-select: none;
 }
 
@@ -134,10 +140,10 @@ body {
     user-select: none;
 }
 
-.blue-crystal {
+.snowflake {
     display: inline-block;
-    width: 5vw;
-    height: 5.2vw;
+    width: 7vw;
+    height: 7vw;
     user-select: none;
 }
 
@@ -229,8 +235,6 @@ body {
     height: 4vw;
     width: 4vw;
     margin: 1vw 1vw 0 1vw;
-    
-    
 }
 
 .power1 {
@@ -240,6 +244,15 @@ body {
     border: 0px solid transparent;
     border-radius: 10px;
     box-shadow: 0px 0px 15px 10px rgba(214, 48, 255, 0.767);
+}
+
+.power2 {
+    background-image: url('img/icons/power2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0px solid transparent;
+    border-radius: 10px;
+    
 }
 /* Start Screen */
 
