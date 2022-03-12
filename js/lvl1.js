@@ -592,11 +592,12 @@ function lvl1Pre() {
                 clearInterval(generationRepeat);
 
                 var audio = new Audio('sounds/lvl1/ice_cracking.mp3');
-                audio.volume = 0.6;
+                audio.volume = 1;
                 audio.playbackRate = 1;
                 audio.play();
 
-                document.getElementById("body").style.backgroundImage = "url('img/lvl1/frost_overlay.jpg')";
+                document.getElementById("mainWrapper").style.backgroundImage = "url('img/lvl1/frost_overlay.png')";
+                document.getElementById("mainWrapper").style.backgroundSize = "100% 100%";
 
                 if (currentTime == 1) {
                     clearInterval(moveItemsRepeat);
@@ -688,7 +689,7 @@ function lvl1Pre() {
                     }
                     generationRepeat = setInterval(lvlOneGeneration, 1000);
                     counter = tempCounterr;
-                    document.getElementById("body").style.backgroundImage = "url('img/lvl1/lvl1_background.jpg')";
+                    document.getElementById("mainWrapper").style.backgroundImage = "none";
                     document.querySelector(".power2.power-icon").remove();
                 },5000);
 
