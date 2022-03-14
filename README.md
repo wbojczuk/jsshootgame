@@ -17,3 +17,6 @@ v0.4.x Changelog:
 - Balanced speed/time relationship.
 - added support for Escape key pausing.
 - added Blue Crystal.
+
+v0.7.x Changelog:
+- Changed HTML GENERATION from string parsing to Document Fragment Node creation for performance.
