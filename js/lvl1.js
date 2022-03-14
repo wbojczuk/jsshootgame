@@ -155,10 +155,7 @@ function lvl1Pre() {
 
                 // Bomb Generation
                 if (counter % 4 == 0) {   
-
-                    nodeContainer.appendChild(thingOneNode.cloneNode(true));
-                    nodeContainer.appendChild(thingOneNode.cloneNode(true));
-                    
+                    nodeContainer.appendChild(thingOneNode.cloneNode(true)); 
                 } 
                 
                 if (counter % 7 == 0) {   

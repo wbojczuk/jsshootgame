@@ -95,27 +95,35 @@
 <div class="carousel-containerr">
 <div class="carousel-wrapper" id="carouselWrapper">
 
-<div id="startCarousel" class="carousel slide start-carousel" data-bs-ride="carousel" data-interval="false">
+<div id="carouselTarget" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false" >
     <div class="carousel-indicators">
-      <!-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
+     <button type="button" data-bs-target="#carouselTarget" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselTarget" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <a href="#" onclick="preStartGame('lvl1');"><img src="img/lvl1/lvl1_background.jpg" class="carousel-imgg d-block w-100 img-fluid" alt="heh">
+        <a href="#" onclick="preStartGame('lvl1');"><img src="img/lvl1/lvl1_background.jpg" class="carousel-img d-block w-100 " alt="First Slide">
         <div class="carousel-caption d-none d-md-block">
           <h1 style="text-decoration: none; color: #fff;">Level One</h1>
-          <h4 style="text-decoration: none; color: #fff;">Fantasy landscape, fantasy gameplay</h4>
+          <h4 style="text-decoration: none; color: #fff;">Attack on Alluna</h4>
+        </div>
+    </a>
+      </div>
+      <div class="carousel-item">
+        <a href="#"><img src="img/lvl2/lvl2_background.jpg" class="carousel-img d-block w-100 " alt="Second Slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h1 style="text-decoration: none; color: #fff;">Level Two</h1>
+          <h4 style="text-decoration: none; color: #fff;">Coming Soon!</h4>
         </div>
     </a>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselTarget" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselTarget" data-bs-slide="next">
       <span class="carousel-control-next-icon sir" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
@@ -123,7 +131,7 @@
 
 </div>
 </div><br>
-<div class="version">v0.7.a</div>
+<div class="version">v0.7.b</div>
 </div>
 
     <!-- End Screen -->

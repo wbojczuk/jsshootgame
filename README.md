@@ -20,3 +20,4 @@ v0.4.x Changelog:
 
 v0.7.x Changelog:
 - Changed HTML GENERATION from string parsing to Document Fragment Node creation for performance.
+- Level 2 under way???????
