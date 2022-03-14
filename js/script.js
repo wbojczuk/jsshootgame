@@ -15,7 +15,6 @@ var speedyRepeat;
 var backgroundMusic = new Audio('sounds/menu_background_music.mp3');
 var tempCounter = 0;
 var generationRepeat;
-var eventsRepeat;
 var testViewportRepeat;
 var power1Repeat;
 var onlyOne11 = 1;
@@ -29,7 +28,7 @@ var randomNum1 = 0;
 
 setInterval(
     function(){counter = Math.floor(counter) + 1;
-        console.log(counter);
+        
     },1000);
 
     // Random Number Generator
@@ -73,7 +72,6 @@ function mainMenu() {
     
     //  Clear functions
     clearInterval(generationRepeat);
-    clearInterval(eventsRepeat);
     clearInterval(testViewportRepeat);
     clearInterval(checkPowersRepeat);
     clearInterval(moveItemsRepeat);
@@ -201,7 +199,6 @@ function failScreen() {
     counter = -10000000;
     //  Clear functions
     clearInterval(generationRepeat);
-    clearInterval(eventsRepeat);
     clearInterval(testViewportRepeat);
     clearInterval(checkPowersRepeat);
     clearInterval(moveItemsRepeat);
@@ -274,7 +271,6 @@ function pauseGame() {
     
     //  Clear functions
     clearInterval(generationRepeat);
-    clearInterval(eventsRepeat);
     clearInterval(testViewportRepeat);
     clearInterval(checkPowersRepeat);
     clearInterval(moveItemsRepeat);
@@ -314,7 +310,6 @@ function resumeGame() {
     switch (currentLvl) {
         case "lvl1":
             generationRepeat = setInterval(lvlOneGeneration, 1000);
-            eventsRepeat = setInterval(lvlOneEvents, 100);
             testViewportRepeat = setInterval(testViewport, 10);
             checkPowersrepeat = setInterval(checkPowers, 100);
             

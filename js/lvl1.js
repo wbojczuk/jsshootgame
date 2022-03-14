@@ -6,6 +6,13 @@ var powerOneToggle = false;
 var power1On = 0;
 var allThingOneHitbox;
 var allThingOneLengthHitbox;
+var thingOneNode;
+var redPotionNode;
+var extraHeartOrbNode;
+var blueCrystalNode;
+var snowflakeNode;
+
+
 
 function lvl1Pre() {
     
@@ -21,18 +28,118 @@ function lvl1Pre() {
                 document.getElementById("body").style.backgroundSize = "cover";
                 document.getElementById("body").style.backgroundRepeat = "no-repeat";
                 document.getElementById("body").style.cursor = "url('img/lvl1/lvl1_main.cur'), crosshair";
-
+                
                 
                 
                 currentTime = 1; 
 
                 //  Set InterVals
                 
-                 generationRepeat = setInterval(lvlOneGeneration, 1000);
-                 eventsRepeat = setInterval(lvlOneEvents, 10);
+                 
+                 
+                
+
+
+                //  NODE CREATIONS
+                // DEFAUL FALLING CONTAINER NODE
+                var fallingContainerNode = document.createElement("div");
+                fallingContainerNode.setAttribute("class", "falling-container");
+                fallingContainerNode.setAttribute("value", "0");
+
+                // Default hitbox
+                var thingOneHitboxNode =  document.createElement("div");
+                thingOneHitboxNode.setAttribute("class", "thing-one-hitbox");
+                
+                //  BOMB NODE CREATION
+
+                // Bomb Clickbox
+                var bombClickboxNode = document.createElement("div");
+                bombClickboxNode.setAttribute("class", "pow1 clickbox bomb-clickbox");
+                // Bomb Image Box
+                var thingOneDisplayNode = document.createElement("div");
+                thingOneDisplayNode.setAttribute("class", "thing-one");
+
+                // MAIN BOMB NODE
+
+                thingOneNode = fallingContainerNode.cloneNode(false);
+
+                thingOneNode.appendChild(bombClickboxNode.cloneNode(false));
+                thingOneNode.firstChild.appendChild(thingOneDisplayNode.cloneNode(false));
+                thingOneNode.firstChild.firstChild.appendChild(thingOneHitboxNode.cloneNode(false));
+
+
+
+                // RED POTION 
+
+                var redPotionClickboxNode = document.createElement("div");
+                redPotionClickboxNode.setAttribute("class", "pow1 clickbox red-potion-clickbox");
+                // POTION Image Box
+                var redPotionDisplayNode = document.createElement("div");
+                redPotionDisplayNode.setAttribute("class", "red-potion");
+
+                // MAIN REDPOTION NODE
+                redPotionNode = fallingContainerNode.cloneNode(false);
+                redPotionNode.appendChild(redPotionClickboxNode.cloneNode(false));
+                redPotionNode.firstChild.appendChild(redPotionDisplayNode.cloneNode(false));
+                
+
+
+                // Extra Heart Orb NODE
+
+                var extraHeartOrbClickboxNode = document.createElement("div");
+                extraHeartOrbClickboxNode.setAttribute("class", "pow1 clickbox extra-heart-orb-clickbox");
+                // Extra Heart Orb Image Box
+                var extraHeartOrbDisplayNode = document.createElement("div");
+                extraHeartOrbDisplayNode.setAttribute("class", "extra-heart-orb");
+
+                // MAIN Extra Heart Orb NODE
+                extraHeartOrbNode = fallingContainerNode.cloneNode(false);
+                extraHeartOrbNode.appendChild(extraHeartOrbClickboxNode.cloneNode(false));
+                extraHeartOrbNode.firstChild.appendChild(extraHeartOrbDisplayNode.cloneNode(false));
+
+
+                 // Blue Crystal Clickbox
+                 var blueCrystalClickboxNode = document.createElement("div");
+                 blueCrystalClickboxNode.setAttribute("class", "pow1 clickbox blue-crystal-clickbox");
+                 // Blue Crystal Image Box
+                 var blueCrystalDisplayNode = document.createElement("div");
+                 blueCrystalDisplayNode.setAttribute("class", "blue-crystal");
+ 
+                 // MAIN Blue Crystal NODE
+ 
+                 blueCrystalNode = fallingContainerNode.cloneNode(false);
+                 blueCrystalNode .setAttribute("class", "falling-container blue-crystal-falling-container");
+ 
+                 blueCrystalNode.appendChild(blueCrystalClickboxNode.cloneNode(false));
+                 blueCrystalNode.firstChild.appendChild(blueCrystalDisplayNode.cloneNode(false));
+                 blueCrystalNode.firstChild.firstChild.appendChild(thingOneHitboxNode.cloneNode(false));
+
+
+
+                 // Snowflake NODE
+
+                var snowflakeClickboxNode = document.createElement("div");
+                snowflakeClickboxNode.setAttribute("class", "pow1 clickbox snowflake-clickbox");
+                // Snowflake Image Box
+                var snowflakeDisplayNode = document.createElement("div");
+                snowflakeDisplayNode.setAttribute("class", "snowflake");
+
+                // MAIN Snowflake NODE
+                snowflakeNode = fallingContainerNode.cloneNode(false);
+                snowflakeNode.appendChild(snowflakeClickboxNode.cloneNode(false));
+                snowflakeNode.firstChild.appendChild(snowflakeDisplayNode.cloneNode(false));
+
+
+
+
+                
                  testViewportRepeat = setInterval(testViewport, 10);
                  checkPowersrepeat = setInterval(checkPowers, 100);
                  moveItemsRepeat = setInterval(moveItems, 10);
+                 generationRepeat = setInterval(lvlOneGeneration, 1000);
+
+
+    
                 
                 
    
@@ -40,100 +147,155 @@ function lvl1Pre() {
 }
         // Main Function
             function lvlOneGeneration(){
+                var nodeContainer = document.createElement("div");
 
-                
-                
 
                     // GENERATE RANDOMLY PLACED FALLING CELLS
-                var fallingHTML = "";
+                
 
                 // Bomb Generation
-                if (counter % 3 == 0) {
+                if (counter % 4 == 0) {   
 
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                } else if ( counter % 6 == 0){
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
+                    nodeContainer.appendChild(thingOneNode.cloneNode(true));
+                    nodeContainer.appendChild(thingOneNode.cloneNode(true));
                     
-                    
-                    
-                } else if ( counter % 10 == 0){
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container blue-crystal-falling-container' value='0' ><div class='pow1 clickbox blue-crystal-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='blue-crystal'><div class='thing-one-hitbox'></div></div></div></div>";
-
-                }else if ( counter % 20 == 0){
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                }else if ( counter % 15 == 0){
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container blue-crystal-falling-container' value='0' ><div class='pow1 clickbox blue-crystal-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='blue-crystal'><div class='thing-one-hitbox'></div></div></div></div>";
-                    
-                }else if ( counter % 13 == 0){
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox bomb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='thing-one'><div class='thing-one-hitbox'></div></div></div></div>";
-                    
-                    
-                    
-
                 } 
+                if (counter % 15 == 0) {   
+                    nodeContainer.appendChild(thingOneNode.cloneNode(true));
+                    nodeContainer.appendChild(thingOneNode.cloneNode(true));
+                    nodeContainer.appendChild(thingOneNode.cloneNode(true));
+                    
+            } 
+                if (counter % 7 == 0) {   
+                    nodeContainer.appendChild(thingOneNode.cloneNode(true));
+                    nodeContainer.appendChild(thingOneNode.cloneNode(true));
+                } 
+                if (counter % 13 == 0) {
+                    nodeContainer.appendChild(thingOneNode.cloneNode(true));
+                    nodeContainer.appendChild(thingOneNode.cloneNode(true));
+                }
+
+            // Blue Crystal generation
+                if (counter % 8 == 0) {
+                    nodeContainer.appendChild(blueCrystalNode.cloneNode(true));
+                }
+           
+            // SNOWFLAKE GENERATION
+
+            if (counter == randomNum1) {
+                nodeContainer.appendChild(snowflakeNode.cloneNode(true));
+            }
+
+            // EXTRA HEART ORB GENERATION
+
+            if ( counter == Math.floor(getRndInteger(1, 200)) ) {
+                nodeContainer.appendChild(extraHeartOrbNode.cloneNode(true));
+            }
+            if ( counter == Math.floor(getRndInteger(200, 300)) ) {
+                nodeContainer.appendChild(extraHeartOrbNode.cloneNode(true));
+            }
+
+            // RED POTION GENERATION
 
 
+            if ( counter == Math.floor(getRndInteger(20 , 30))) {
+                nodeContainer.appendChild(redPotionNode.cloneNode(true));
+            }
 
-                // Healing/Red Potion Generation
-                
-                    //  sec
-                    if ( counter == Math.floor(getRndInteger(20 , 30))) {
+             if ( counter == Math.floor(getRndInteger(30 , 40))) {
+                nodeContainer.appendChild(redPotionNode.cloneNode(true));
+             }
 
-                        fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
-                     } 
-
-                     if ( counter == Math.floor(getRndInteger(30 , 40))) {
-
-                        fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
-                     }
-
-                     if ( counter == Math.floor(getRndInteger(60 , 70)) ) {
-
-                        fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
-                     }
-                     if ( counter == Math.floor(getRndInteger(100 , 120)) ) {
-
-                        fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox red-potion-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='red-potion'></div></div></div>";
-                     }
+             if ( counter == Math.floor(getRndInteger(60 , 70)) ) {
+                nodeContainer.appendChild(redPotionNode.cloneNode(true));
+             }
+             if ( counter == Math.floor(getRndInteger(100 , 120)) ) {
+                nodeContainer.appendChild(redPotionNode.cloneNode(true));
+             }
 
 
+                // APPLY INDIVIDUAL PROPERTIES TO NODES
+                var nodeContainerLength = nodeContainer.children.length;
+                for (var i = 0; i < nodeContainerLength; i++) {
+
+                    
+                    var tempNode = nodeContainer.children[i];
+
+                    // USE THIS NODE CLONE
+                    var tempNodeMain = tempNode.cloneNode(true);
+
+                    // SET Random X-Axis Placement
+                    tempNodeMain.firstChild.setAttribute("style", "left: " + getRndInteger(1 , 90) +  "vw");
+                    
+                    
+                    // Attach Events
+
+                    // SET BOMBS EVENTS
+                    var allThingOne = tempNodeMain.querySelectorAll(".bomb-clickbox");
+                    var allThingOneLength = allThingOne.length;
+                        
+                            if (allThingOneLength >= 1){
+                                
+                                tempNodeMain.firstChild.addEventListener("click", bombClicked);
+                            }
 
 
-
-                    //  RARE EXTRA HEART GENERATION
-
-                    if ( counter == Math.floor(getRndInteger(1, 300)) ) {
-
-                        fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox extra-heart-orb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='extra-heart-orb'></div></div></div>";
-                     }
-                     
-                     if ( counter == Math.floor(getRndInteger(200, 300)) ) {
-
-                        fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox extra-heart-orb-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='extra-heart-orb'></div></div></div>";
-                     } 
-
-
-                    //  Snowflake Generator
-
-                    if (counter == randomNum1){
-                        fallingHTML += "<div class='falling-container' value='0' ><div class='pow1 clickbox snowflake-clickbox no-event unclicked' style='left: " + getRndInteger(1 , 90) +  "vw'><div class='snowflake'></div></div></div>";
+                            //SET RED POTION EVENTS
+                    var redPotions = tempNodeMain.querySelectorAll(".red-potion-clickbox");
+                    var redPotionslength = redPotions.length;
+                    if (redPotionslength >= 1){
+                                    
+                        tempNodeMain.firstChild.addEventListener("click", redPotionEffect);
                     }
 
+                    //SET Extra Heart Orb EVENTS
+                var extraHeartOrb = tempNodeMain.querySelectorAll(".extra-heart-orb-clickbox");
+                var extraHeartOrblength = extraHeartOrb.length;
 
-                // Print cells to screen
-                document.getElementById("mainContainer").insertAdjacentHTML("afterbegin", fallingHTML);
+                if (extraHeartOrblength >= 1){
+                                    
+                    tempNodeMain.firstChild.addEventListener("click", extraHeartOrbEffect);
+                }
+
+                // SET BLUE CRYSTAL EVENTS
+
+                var blueCrystal = tempNodeMain.querySelectorAll(".blue-crystal-clickbox");
+                var blueCrystalLength = blueCrystal.length;
+
+                if (blueCrystalLength >= 1){
+                                    
+                    tempNodeMain.firstChild.addEventListener("click", blueCrystalEffect);
+                }
+
+
+                // SET SNOWFLAKE EVENTS
+                var snowFlake = tempNodeMain.querySelectorAll(".snowflake-clickbox");
+                var snowFlakeLength = snowFlake.length;
+
+                for (let i = 0; i < snowFlakeLength; i++) {
+                    if (snowFlakeLength >= 1){
+                                    
+                        tempNodeMain.firstChild.addEventListener("click", snowflakeEffect);
+                    }
+                }
+                        
+    
+                    
+                    // Print cells to screen
+                    mainContainerr.prepend(tempNodeMain);
+                    
+                    
+                }
+                
+
+                
+
+
+                
+                
+
+                
+                
 
                 
 
@@ -199,59 +361,6 @@ function lvl1Pre() {
 
 
                 
-                    // SET EVENT LISTENERS ON CELLS
-
-                    function lvlOneEvents() {
-                
-
-            var allThingOne = document.querySelectorAll(".bomb-clickbox.unclicked.no-event");
-            var allThingOneLength = allThingOne.length;
-            
-                for (let i = 0; i < allThingOneLength; i++) {
-                    
-                    allThingOne[i].addEventListener("click", bombClicked);
-                    allThingOne[i].classList.remove("noevent");
-                }
-
-                //SET RED POTION EVENTS
-                var redPotions = document.querySelectorAll(".red-potion-clickbox.unclicked.no-event");
-                var redPotionslength = redPotions.length;
-                for (let i = 0; i < redPotionslength; i++) {
-                    redPotions[i].addEventListener("click", redPotionEffect);
-                    redPotions[i].classList.remove("noevent");
-                }
-
-                //SET Extra Heart Orb EVENTS
-                var extraHeartOrb = document.querySelectorAll(".extra-heart-orb-clickbox.unclicked.no-event");
-                var extraHeartOrblength = extraHeartOrb.length;
-
-                for (let i = 0; i < extraHeartOrblength; i++) {
-                    extraHeartOrb[i].addEventListener("click", extraHeartOrbEffect);
-                    extraHeartOrb[i].classList.remove("noevent");
-                }
-
-                // SET BLUE CRYSTAL EVENTS
-
-                var blueCrystal = document.querySelectorAll(".blue-crystal-clickbox.unclicked.no-event");
-                var BlueCrystalLength = blueCrystal.length;
-
-                for (let i = 0; i < BlueCrystalLength; i++) {
-                    blueCrystal[i].addEventListener("click", blueCrystalEffect);
-                    blueCrystal[i].classList.remove("noevent");
-                }
-
-
-                // Snowflake Events
-
-                var snowFlake = document.querySelectorAll(".snowflake-clickbox.unclicked.no-event");
-                var snowFlakeLength = snowFlake.length;
-
-                for (let i = 0; i < snowFlakeLength; i++) {
-                    snowFlake[i].addEventListener("click", snowflakeEffect);
-                    snowFlake[i].classList.remove("noevent");
-                }
-            
-                }
                     
             
 
@@ -593,7 +702,7 @@ function lvl1Pre() {
 
                 var audio = new Audio('sounds/lvl1/ice_cracking.mp3');
                 audio.volume = 1;
-                audio.playbackRate = 1;
+                audio.playbackRate = 1.9;
                 audio.play();
 
                 document.getElementById("mainWrapper").style.backgroundImage = "url('img/lvl1/frost_overlay.png')";
@@ -639,6 +748,12 @@ function lvl1Pre() {
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 9);
                     tempSpeed = 7;
+                }
+
+                if (currentTime == 10) {
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 9);
+                    tempSpeed = 8;
                 }
                 
                 setTimeout(function(){
@@ -762,11 +877,10 @@ function lvl1Pre() {
 function bombClicked(evt) {
     this.removeEventListener("click", bombClicked);
     this.removeEventListener("mouseover", bombClicked);
-    this.classList.remove("unclicked");
     
     this.style.zIndex = "1";
     var audio = new Audio('sounds/bomb_explosion.mp3');
-    audio.volume = 0.8;
+    audio.volume = 0.4;
     audio.playbackRate = 1.1;
     audio.play();
     var targetElementTemp = this.querySelectorAll(".thing-one");
@@ -797,7 +911,7 @@ function bombClicked(evt) {
 // RED POTIONS
 
 function redPotionEffect(evt) {
-    this.classList.remove("unclicked");
+    
     this.removeEventListener("click", redPotionEffect);
     this.removeEventListener("mouseover", redPotionEffect);
 
@@ -843,7 +957,7 @@ function redPotionEffect(evt) {
     function extraHeartOrbEffect(evt) {
         
         var targetElement = this.querySelector(".extra-heart-orb");
-        this.classList.remove("unclicked");
+        
         this.removeEventListener("click", extraHeartOrbEffect);
         this.removeEventListener("mouseover", extraHeartOrbEffect);
         score += 80;
@@ -871,7 +985,7 @@ function redPotionEffect(evt) {
 
     function blueCrystalEffect(evt) {
         var targetElement = this.querySelector(".blue-crystal");
-        this.classList.remove("unclicked");
+        
         this.removeEventListener("click", blueCrystalEffect);
         this.removeEventListener("mouseover", blueCrystalEffect);
         this.querySelector(".thing-one-hitbox").remove();
@@ -898,7 +1012,7 @@ function redPotionEffect(evt) {
 
 function snowflakeEffect(evt) {
     var targetElement = this.querySelector(".snowflake");
-        this.classList.remove("unclicked");
+        
         this.removeEventListener("click", snowflakeEffect);
         this.removeEventListener("mouseover", snowflakeEffect);
         score += 100;
