@@ -160,18 +160,18 @@ function lvl1Pre() {
                     nodeContainer.appendChild(thingOneNode.cloneNode(true));
                     
                 } 
-                if (counter % 15 == 0) {   
-                    nodeContainer.appendChild(thingOneNode.cloneNode(true));
-                    nodeContainer.appendChild(thingOneNode.cloneNode(true));
-                    nodeContainer.appendChild(thingOneNode.cloneNode(true));
-                    
-            } 
+                
                 if (counter % 7 == 0) {   
                     nodeContainer.appendChild(thingOneNode.cloneNode(true));
                     nodeContainer.appendChild(thingOneNode.cloneNode(true));
                 } 
-                if (counter % 13 == 0) {
+                if (counter % 10 == 0) {
                     nodeContainer.appendChild(thingOneNode.cloneNode(true));
+                    nodeContainer.appendChild(thingOneNode.cloneNode(true));
+                    
+                }
+
+                if (counter % 9 == 0) {
                     nodeContainer.appendChild(thingOneNode.cloneNode(true));
                 }
 
