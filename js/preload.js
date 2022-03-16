@@ -7,7 +7,7 @@ function preloadFunction(){
   
 
     var stuffPreload = "";
-    var preloadHintHTML = ["Get to a score of 500 for a special ability!", "Get the red potions to heal a lost heart!", "Get the glowing orb for an additional heart!", "Animated with sprite sheets!", "Coded in strict mode!", "Why did I make this?", "Made in 2022"];
+    var preloadHintHTML = ["Get to a score of 500 for a special ability!", "Get the red potions to heal a lost heart!", "Get the glowing orb for an additional heart!", "Animated with sprite sheets!", "Still in Alpha", "You don't come back from infinity", "Made in 2022"];
   var u = preloadHintHTML.length - 1;
     document.getElementById("preloadHint").textContent = preloadHintHTML[Math.floor(getRndInteger(0, u))];
 
@@ -54,7 +54,14 @@ function preloadFunction(){
     document.getElementById("lvl1Highscore").textContent = localStorage.getItem("lvl1HS");
 
 
+    if (localStorage.getItem("lvl2Unlocked") !== "true"){
 
+    document.getElementById("lvl2Slide").src = "img/padlock.png";
+    document.getElementById("lvl2Slide").style.backgroundImage = "url('img/lvl2/lvl2_background.jpg')"
+    document.getElementById("lvl2Slide").style.backgroundSize = "100%";
+    document.getElementById("lvl2Slide").style.backgroundRepeat = "no-repeat";
+    document.getElementById("lvl2Slide").style.backgroundPosition = "center";
+    }
     
    
       setTimeout(function(){
@@ -66,7 +73,7 @@ function preloadFunction(){
         document.getElementById("mainWrapper").style.display = "none";
         currentLvl = "menu";
         document.addEventListener("click", setBackgroundMusic);
-      }, 3000);
+      }, 4000);
         
       
       }

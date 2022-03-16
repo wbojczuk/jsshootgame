@@ -45,6 +45,13 @@
     background-position: center;
 }
 
+.alert-icon {
+    background: url('img/hint_sprite.png') ;
+    animation: hint 2000ms steps(35) infinite;
+    background-size: 3500% 8vw;
+    background-position: center;
+}
+
 .snowflake {
     background: url('img/snowflake_sprite.png') ;
     animation: snowflake 2000ms steps(59) infinite;

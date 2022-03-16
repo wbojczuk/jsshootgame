@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>JavaScript Shooter</title>
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
     
 
      <!-- Bootstrap CSS -->
@@ -65,19 +66,25 @@
               SCORE:&nbsp;
               <span class="score" id="score">0</span>
           </div>
-
+         
         </div>
 
         <div class="main-bar-right" id="mainBarRight">
+          <div class="potion-bar" id="potionBar"></div>
+
           
-        
+          <div id="lvlAlertAnimation" class="alert-icon"></div> <div id="lvlAlertText"></div>  
+       
         </div>
+        
       
     </div>
+    
 
     <div class="main-container" id="mainContainer">  
       
     </div>
+    
     <!-- PAUSE SCREEN -->
     <div class="pause-page" id="pausePage">
       <button id="mainMenuButton" class="main-menu-button" onclick="mainMenu();">Main Menu</button>
@@ -92,6 +99,7 @@
 <div class="start-screen-wrapper" id="startScreenWrapper">
     
 <!-- Carousel -->
+
 <div class="carousel-containerr">
 <div class="carousel-wrapper" id="carouselWrapper">
 
@@ -112,10 +120,13 @@
     </a>
       </div>
       <div class="carousel-item">
-        <a href="#"><img src="img/lvl2/lvl2_background.jpg" class="carousel-img d-block w-100 " alt="Second Slide">
+        <a href="#">
+          
+          <img src="img/lvl2/lvl2_background.jpg" id="lvl2Slide" class="carousel-img d-block w-100 " alt="Second Slide">
+        
         <div class="carousel-caption d-none d-md-block">
-          <h1 style="text-decoration: none; color: #fff;">Level Two</h1>
-          <h4 id="lvl2Desc" style="text-decoration: none; color: #fff;">Coming Soon!</h4>
+          <h1 style="text-decoration: none; color: #FFFFFF;text-shadow: 3px 3px 2px #474747;">Level Two</h1>
+          <h4 id="lvl2Desc" style="text-decoration: none; color: #FFFFFF;text-shadow: 3px 3px 2px #474747;">Coming Soon!</h4>
         </div>
     </a>
       </div>
@@ -132,7 +143,7 @@
 
 </div>
 </div><br>
-<div class="version">v0.7.c</div>
+<div class="version">v0.7.d</div>
 </div>
 
     <!-- End Screen -->

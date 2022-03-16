@@ -46,6 +46,14 @@ setInterval(
 // MAIN MENU FUNTION 
 function mainMenu() {
 
+     // SET lvl 1 HIGHSCORE
+     if (parseInt(localStorage.getItem("lvl1HS")) < score) {
+        localStorage.setItem("lvl1HS", score);
+        localStorage.saveServer
+    }
+
+    document.getElementById("lvl1Highscore").textContent = localStorage.getItem("lvl1HS");
+
     window.removeEventListener("keydown", escPause);
     window.removeEventListener("keydown", escResume);
     document.getElementById("body").style.cursor = "default"

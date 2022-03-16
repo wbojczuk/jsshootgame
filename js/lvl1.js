@@ -2,6 +2,7 @@ var oonlyOne = 1;
 var mainContainerr = document.getElementById("mainContainer");
 var onlyOne = 1;
 var onlyOne1 = 1;
+var onlyOne111 = 1;
 var powerOneToggle = false; 
 var power1On = 0;
 var allThingOneHitbox;
@@ -23,6 +24,7 @@ function lvl1Pre() {
                 randomNum1 = Math.floor(getRndInteger(1, 120));
                 currentLvl = "lvl1";
                 oonlyOne = 1;
+                onlyOne111 = 1;
                 // SET LEVEL ONE BACKGROUND
                 document.getElementById("body").style.backgroundImage = "url('img/lvl1/lvl1_background.jpg')";
                 document.getElementById("body").style.backgroundSize = "cover";
@@ -157,7 +159,7 @@ function lvl1Pre() {
                 if (counter % 3 == 0) {   
                     nodeContainer.appendChild(thingOneNode.cloneNode(true)); 
                 } 
-                if (counter % 4 == 0) {   
+                if (counter % 5 == 0) {   
                     nodeContainer.appendChild(thingOneNode.cloneNode(true)); 
                 } 
                 
@@ -331,24 +333,24 @@ function lvl1Pre() {
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 5);
                 }
-                if (counter == 130) {
+                if (counter == 120) {
                     currentTime = 7; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 4);
                 }
     
-                if (counter == 150) {
+                if (counter == 140) {
                     currentTime = 8; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 3);
                 }
     
-                if (counter == 180) {
+                if (counter == 160) {
                     currentTime = 9; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 2);
                 }
-                if (counter == 200) {
+                if (counter == 180) {
                     currentTime = 10; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 1);
@@ -537,7 +539,27 @@ function lvl1Pre() {
             }
         }
 
-            
+            // WIN GAME
+            if (score >= 1500 && onlyOne111 == 1){
+                localStorage.setItem("lvl1Won", "true");
+                localStorage.setItem("lvl2Unlocked", "true");
+                localStorage.saveServer
+
+                document.getElementById("lvl2Slide").src = "img/lvl2/lvl2_background.jpg";
+                document.getElementById("lvl2Slide").style.backgroundImage = "none";
+
+                onlyOne111 += 1;
+                document.getElementById("lvlAlertText").textContent = "Level Won!";
+                document.getElementById("potionBar").style.display = "none";
+                document.getElementById("lvlAlertText").style.display = "inline-block";
+                document.getElementById("lvlAlertAnimation").style.display = "inline-block";
+
+                setTimeout(function(){
+                    document.getElementById("potionBar").style.display = "flex";
+                document.getElementById("lvlAlertText").style.display = "none";
+                document.getElementById("lvlAlertAnimation").style.display = "none";
+                }, 4000);
+            }
     }
 
             // Test if falling-container is in viewport
@@ -585,7 +607,7 @@ function lvl1Pre() {
                     // SET ICON
                 var pow1IconHTML = "<div class='power-icon power1' id='power1Icon'></div>";
 
-                document.getElementById("mainBarRight").insertAdjacentHTML("afterbegin", pow1IconHTML);
+                document.getElementById("potionBar").insertAdjacentHTML("afterbegin", pow1IconHTML);
                 
                     
                     onlyOne += 1;
@@ -1038,7 +1060,7 @@ function snowflakeEffect(evt) {
 
         var pow2IconHTML = "<div class='power-icon power2' id='power2Icon'></div>";
 
-        document.getElementById("mainBarRight").insertAdjacentHTML("afterbegin", pow2IconHTML);
+        document.getElementById("potionBar").insertAdjacentHTML("afterbegin", pow2IconHTML);
 
         // POWERRR 2
 
