@@ -154,6 +154,9 @@ function lvl1Pre() {
                 
 
                 // Bomb Generation
+                if (counter % 3 == 0) {   
+                    nodeContainer.appendChild(thingOneNode.cloneNode(true)); 
+                } 
                 if (counter % 4 == 0) {   
                     nodeContainer.appendChild(thingOneNode.cloneNode(true)); 
                 } 
@@ -501,6 +504,13 @@ function lvl1Pre() {
 
                     
                         if (heartLost == hearts.length) {
+                            // SET lvl 1 HIGHSCORE
+                            if (parseInt(localStorage.getItem("lvl1HS")) < score) {
+                                localStorage.setItem("lvl1HS", score);
+                                localStorage.saveServer
+                            }
+
+                            document.getElementById("lvl1Highscore").textContent = localStorage.getItem("lvl1HS");
                             failScreen();
                             removePowers();
                             resetVariables();

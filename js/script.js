@@ -62,8 +62,8 @@ function mainMenu() {
     // set location and music 
     currentLvl = "menu";
     currentTime = 1;
-
     
+      
     
 
     counter = -10000000;
@@ -216,6 +216,13 @@ function failScreen() {
 // RESTART
 
 function restart() {
+    // SET lvl 1 HIGHSCORE
+     if (parseInt(localStorage.getItem("lvl1HS")) < score) {
+        localStorage.setItem("lvl1HS", score);
+        localStorage.saveServer
+    }
+
+    document.getElementById("lvl1Highscore").textContent = localStorage.getItem("lvl1HS");
 
     
 

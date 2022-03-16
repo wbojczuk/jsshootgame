@@ -474,3 +474,9 @@ body {
     background-color: #347bb1;
     color:#afc8ffbd;
  }
+
+ .carousel-textt {
+    color: #FFFFFF;
+    background: #ece9e9;
+    text-shadow: 3px 5px 2px #474747;
+ }

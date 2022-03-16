@@ -3,6 +3,9 @@
 window.onload = preloadFunction;
 
 function preloadFunction(){
+
+  
+
     var stuffPreload = "";
     var preloadHintHTML = ["Get to a score of 500 for a special ability!", "Get the red potions to heal a lost heart!", "Get the glowing orb for an additional heart!", "Animated with sprite sheets!", "Coded in strict mode!", "Why did I make this?", "Made in 2022"];
   var u = preloadHintHTML.length - 1;
@@ -38,6 +41,17 @@ function preloadFunction(){
 
 
     document.getElementById("preload").insertAdjacentHTML("afterbegin", stuffPreload);
+
+    // SET HIGHSCORES
+
+    var tempHighscore = parseInt(localStorage.getItem("lvl1HS"));
+
+    if ( isNaN(tempHighscore) ) {
+
+        localStorage.setItem("lvl1HS", "0");
+        localStorage.saveServer
+    }
+    document.getElementById("lvl1Highscore").textContent = localStorage.getItem("lvl1HS");
 
 
 
