@@ -21,6 +21,8 @@ var onlyOne11 = 1;
 var checkPowersRepeat;
 var moveItemsRepeat;
 var randomNum1 = 0;
+var tempSpeed;
+var pow2Good = true;
 
 
 
@@ -211,7 +213,6 @@ function failScreen() {
     clearInterval(checkPowersRepeat);
     clearInterval(moveItemsRepeat);
     clearInterval(power1Repeat);
-    removePowers();
     window.removeEventListener("keydown", escPause);
 
     document.getElementById("mainWrapper").style.display = "none";

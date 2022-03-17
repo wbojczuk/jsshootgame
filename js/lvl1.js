@@ -21,7 +21,7 @@ function lvl1Pre() {
             
 
    
-                randomNum1 = Math.floor(getRndInteger(1, 120));
+                randomNum1 = Math.floor(getRndInteger(5, 120));
                 currentLvl = "lvl1";
                 oonlyOne = 1;
                 onlyOne111 = 1;
@@ -496,6 +496,10 @@ function lvl1Pre() {
                     hearts[heartLost].style.backgroundImage = "url('img/heart1.png')";
                     hearts[heartLost].classList.add("heart-gone");
                     hearts[heartLost].classList.remove("heart-here");
+                var audio = new Audio('sounds/lose_heart.mp3');
+                audio.volume = 0.2;
+                audio.playbackRate = 1;
+                audio.play();
 
                     heartLost += 1;
 
@@ -723,7 +727,7 @@ function lvl1Pre() {
 
         function power2Function(evt) {
             if ((evt.key == "S") || (evt.key == "s")) {
-                var tempSpeed = 0;
+                tempSpeed = 0;
                 document.querySelector(".power2.power-icon").style.boxShadow = "0px 0px 15px 10px rgba(0, 204, 255, 0.664)";
                 window.removeEventListener("keydown", power2Function);
                 var tempCounterr = counter;
@@ -786,6 +790,7 @@ function lvl1Pre() {
                 }
                 
                 setTimeout(function(){
+                    if (pow2Good == true){
                     if (tempSpeed == 1) {
                         clearInterval(moveItemsRepeat);
                         moveItemsRepeat = setInterval(moveItems, 10); 
@@ -835,6 +840,7 @@ function lvl1Pre() {
                     counter = tempCounterr;
                     document.getElementById("mainWrapper").style.backgroundImage = "none";
                     document.querySelector(".power2.power-icon").remove();
+                }
                 },5000);
 
             }
@@ -868,8 +874,17 @@ function lvl1Pre() {
     }
 
     var power2Current = document.querySelectorAll(".power2.power-icon");
+    pow2Good = false;
 
     if (power2Current.length >= 1){
+
+        
+            clearInterval(moveItemsRepeat);
+            
+        console.log("yes");
+        
+        document.getElementById("mainWrapper").style.backgroundImage = "none";
+        
         power2Current[0].remove();
         window.removeEventListener("keydown", power2Function);
     }
@@ -1040,6 +1055,7 @@ function redPotionEffect(evt) {
 
 
 function snowflakeEffect(evt) {
+    pow2Good = true;
     var targetElement = this.querySelector(".snowflake");
         
         this.removeEventListener("click", snowflakeEffect);
