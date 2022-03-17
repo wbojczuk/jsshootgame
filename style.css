@@ -12,7 +12,11 @@ body {
 
 /* Custom Classes */
 
-
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /* CLICKBOX */
 
 .clickbox {
@@ -281,6 +285,8 @@ body {
     align-items: center;
     justify-content: center;
     height: 95vh;
+    position: relative;
+    left: -5vw;
 }
 
 .carousel-wrapper {
@@ -480,6 +486,32 @@ body {
 .lvl-alert {
     height: 4vw;
     width: auto;
+}
+
+.guidebook-button {
+    height: 10vw;
+    width: 10vw;
+    background-image: url("img/tutorial_book.png");
+    background-size: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0px solid transparent;
+    border-radius: 50%;
+    position: relative;
+    left: -2vw;
+    cursor: pointer;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 1.7vw;
+    line-height: 5;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+    0px 8px 13px rgba(0,0,0,0.1),
+    0px 18px 23px rgba(0,0,0,0.1);
+}
+.guidebook-button:hover {
+ color: #000;
 }
  
  #lvlAlertText {

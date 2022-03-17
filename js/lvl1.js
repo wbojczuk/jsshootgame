@@ -158,9 +158,11 @@ function lvl1Pre() {
                 // Bomb Generation
                 if (counter % 3 == 0) {   
                     nodeContainer.appendChild(thingOneNode.cloneNode(true)); 
+                    nodeContainer.appendChild(thingOneNode.cloneNode(true)); 
                 } 
                 if (counter % 5 == 0) {   
                     nodeContainer.appendChild(thingOneNode.cloneNode(true)); 
+                    
                 } 
                 
                 if (counter % 7 == 0) {   
@@ -431,7 +433,7 @@ function lvl1Pre() {
                  }else if (currentTime == 9){
                     
                     for (let i = 0; i < fallingContainersLengths; i++){
-                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 4;
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 5;
                          
                      
                          fallingContainerss[i].style.top =  tempppValue + "px";
@@ -440,7 +442,7 @@ function lvl1Pre() {
                  }else if (currentTime == 10){
                     
                     for (let i = 0; i < fallingContainersLengths; i++){
-                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 5;
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 6;
                          
                      
                          fallingContainerss[i].style.top =  tempppValue + "px";
