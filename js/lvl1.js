@@ -186,7 +186,7 @@ function lvl1Pre() {
            
             // SNOWFLAKE GENERATION
 
-            if (counter == 5) {
+            if (counter == randomNum1) {
                 nodeContainer.appendChild(snowflakeNode.cloneNode(true));
             }
 
