@@ -23,11 +23,11 @@ v0.7.x Changelog:
 - Level 2 under way???????
 
 v0.8.x Changelog:
-- Added the Guidebook which is accessable from the main menu.
+- Added the Guidebook which is accessible from the main menu.
 - Added sound effect for losing a heart.
 - Updated the new NODE Generation System.
 - Support for locked/unlocked levels/items.
-- Highscore per level is now saved and displayed on the main menu.
-- Added Icon/Favicon to game.
+- The highscore per level is now saved and displayed on the main menu.
+- Added Icon/Favicon to the game.
 - Added Alerts which will be displayed in the top/right of the screen ingame.
 - Time Frost icon can be clicked to activate the power.
