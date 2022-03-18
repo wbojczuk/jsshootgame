@@ -43,7 +43,7 @@ var leftPageTitles = [
 
 
   
-  "<span>Having the icon </span><img class='tutorial-icon' src='img/icons/power2.png'><span> In The Top Right Of Your Screen means you currently have the Time Frost Power. Clicking &quot; S &quot; On Your Keyboard Will Cause The Power To Activate, Slowing All Falling Items Down Temporarily.</span>"
+  "<span>Having the icon </span><img class='tutorial-icon' src='img/icons/power2.png'><span> In The Top Right Of Your Screen means you currently have the Time Frost Power. Clicking &quot; S &quot; On Your Keyboard Or Clicking the Icon Will Cause The Power To Activate, Slowing All Falling Items Down Temporarily.</span>"
 
  ];
 

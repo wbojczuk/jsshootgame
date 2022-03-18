@@ -21,3 +21,13 @@ v0.4.x Changelog:
 v0.7.x Changelog:
 - Changed HTML GENERATION from string parsing to Document Fragment Node creation for performance.
 - Level 2 under way???????
+
+v0.8.x Changelog:
+- Added the Guidebook which is accessable from the main menu.
+- Added sound effect for losing a heart.
+- Updated the new NODE Generation System.
+- Support for locked/unlocked levels/items.
+- Highscore per level is now saved and displayed on the main menu.
+- Added Icon/Favicon to game.
+- Added Alerts which will be displayed in the top/right of the screen ingame.
+- Time Frost icon can be clicked to activate the power.

@@ -186,7 +186,7 @@ function lvl1Pre() {
            
             // SNOWFLAKE GENERATION
 
-            if (counter == randomNum1) {
+            if (counter == 5) {
                 nodeContainer.appendChild(snowflakeNode.cloneNode(true));
             }
 
@@ -743,10 +743,12 @@ function lvl1Pre() {
         }
 
         function power2Function(evt) {
-            if ((evt.key == "S") || (evt.key == "s")) {
+            console.log(evt.button);
+            if ((evt.key == "S") || (evt.key == "s") || (evt.button == "0")) {
                 tempSpeed = 0;
                 document.querySelector(".power2.power-icon").style.boxShadow = "0px 0px 15px 10px rgba(0, 204, 255, 0.664)";
                 window.removeEventListener("keydown", power2Function);
+                document.getElementById("power2Icon").removeEventListener("click", power2Function);
                 var tempCounterr = counter;
                 clearInterval(generationRepeat);
 
@@ -1093,7 +1095,13 @@ function snowflakeEffect(evt) {
 
         var pow2IconHTML = "<div class='power-icon power2' id='power2Icon'></div>";
 
+       
+
         document.getElementById("potionBar").insertAdjacentHTML("afterbegin", pow2IconHTML);
+
+         // MAKE ICON CLICKABLE
+
+         document.getElementById("power2Icon").addEventListener("click", power2Function);
 
         // POWERRR 2
 

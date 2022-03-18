@@ -262,6 +262,7 @@ body {
     background-size: cover;
     border: 0px solid transparent;
     border-radius: 10px;
+    cursor: pointer;
     
 }
 /* Start Screen */
