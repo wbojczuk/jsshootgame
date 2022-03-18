@@ -594,7 +594,7 @@ function lvl1Pre() {
             
             
             function checkPowers() {
-                if (score >= 500 && onlyOne11 == 1) {
+                if (score >= 5 && onlyOne11 == 1) {
                     power1Repeat = setInterval(power1Function, 10);
                     onlyOne11 += 1;
                 }
@@ -652,7 +652,6 @@ function lvl1Pre() {
                 for (let i = 0; i < bombsLengthP1; i++) {
                     bombsP1[i].addEventListener("mouseover", bombClicked);
                     bombsP1[i].classList.remove("pow1");
-                    
                 }
 
                 for (let i = 0; i < redPotionslengthP1; i++) {
@@ -939,8 +938,9 @@ function lvl1Pre() {
 
 function bombClicked(evt) {
     this.removeEventListener("click", bombClicked);
-    this.removeEventListener("mouseover", bombClicked);
     
+    this.removeEventListener("mouseover", bombClicked);
+    this.classList.remove("pow1");
     this.style.zIndex = "1";
     var audio = new Audio('sounds/bomb_explosion.mp3');
     audio.volume = 0.4;
@@ -977,7 +977,7 @@ function redPotionEffect(evt) {
     
     this.removeEventListener("click", redPotionEffect);
     this.removeEventListener("mouseover", redPotionEffect);
-
+    this.classList.remove("pow1");
     var goneHeartState = document.querySelectorAll(".heart-gone");
 
     score += 15;
@@ -1020,7 +1020,7 @@ function redPotionEffect(evt) {
     function extraHeartOrbEffect(evt) {
         
         var targetElement = this.querySelector(".extra-heart-orb");
-        
+        this.classList.remove("pow1");
         this.removeEventListener("click", extraHeartOrbEffect);
         this.removeEventListener("mouseover", extraHeartOrbEffect);
         score += 80;
@@ -1048,9 +1048,9 @@ function redPotionEffect(evt) {
 
     function blueCrystalEffect(evt) {
         var targetElement = this.querySelector(".blue-crystal");
-        
+        this.classList.remove("pow1");
         this.removeEventListener("click", blueCrystalEffect);
-        this.removeEventListener("mouseover", blueCrystalEffect);
+        evt.target.removeEventListener("mouseover", blueCrystalEffect);
         this.querySelector(".thing-one-hitbox").remove();
         score += 10;
         document.getElementById("score").innerHTML = score;
@@ -1076,7 +1076,7 @@ function redPotionEffect(evt) {
 function snowflakeEffect(evt) {
     pow2Good = true;
     var targetElement = this.querySelector(".snowflake");
-        
+    this.classList.remove("pow1");
         this.removeEventListener("click", snowflakeEffect);
         this.removeEventListener("mouseover", snowflakeEffect);
         score += 100;
