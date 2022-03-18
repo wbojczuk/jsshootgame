@@ -169,7 +169,7 @@ function lvl1Pre() {
                     nodeContainer.appendChild(thingOneNode.cloneNode(true));
                     nodeContainer.appendChild(thingOneNode.cloneNode(true));
                 } 
-                if (counter % 10 == 0) {
+                if (counter % 13 == 0) {
                     nodeContainer.appendChild(thingOneNode.cloneNode(true));
                     nodeContainer.appendChild(thingOneNode.cloneNode(true));
                     
@@ -312,7 +312,7 @@ function lvl1Pre() {
                     moveItemsRepeat = setInterval(moveItems, 9); 
                 }
     
-                if (counter == 30) {
+                if (counter == 25) {
                     currentTime = 3;
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 7); 
@@ -324,36 +324,42 @@ function lvl1Pre() {
                     moveItemsRepeat = setInterval(moveItems, 5); 
                 }
     
-                if (counter == 70) {
+                if (counter == 60) {
                     currentTime = 5; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 5); 
                 }
     
-                if (counter == 100) {
+                if (counter == 75) {
                     currentTime = 6; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 5);
                 }
-                if (counter == 120) {
+                if (counter == 100) {
                     currentTime = 7; 
                     clearInterval(moveItemsRepeat);
-                    moveItemsRepeat = setInterval(moveItems, 4);
+                    moveItemsRepeat = setInterval(moveItems, 5);
                 }
     
-                if (counter == 140) {
+                if (counter == 120) {
                     currentTime = 8; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 3);
                 }
     
-                if (counter == 160) {
+                if (counter == 140) {
                     currentTime = 9; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 2);
                 }
-                if (counter == 180) {
+                if (counter == 160) {
                     currentTime = 10; 
+                    clearInterval(moveItemsRepeat);
+                    moveItemsRepeat = setInterval(moveItems, 1);
+                }
+
+                if (counter == 180) {
+                    currentTime = 11; 
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 1);
                 }
@@ -406,7 +412,7 @@ function lvl1Pre() {
                  }else if (currentTime == 6){
                     
                     for (let i = 0; i < fallingContainersLengths; i++){
-                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 2;
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 3;
                          
                      
                          fallingContainerss[i].style.top =  tempppValue + "px";
@@ -415,7 +421,7 @@ function lvl1Pre() {
                  }else if (currentTime == 7){
                     
                     for (let i = 0; i < fallingContainersLengths; i++){
-                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 2;
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 4;
                          
                      
                          fallingContainerss[i].style.top =  tempppValue + "px";
@@ -424,7 +430,7 @@ function lvl1Pre() {
                  }else if (currentTime == 8){
                     
                     for (let i = 0; i < fallingContainersLengths; i++){
-                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 3;
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 4;
                          
                      
                          fallingContainerss[i].style.top =  tempppValue + "px";
@@ -448,7 +454,16 @@ function lvl1Pre() {
                          fallingContainerss[i].style.top =  tempppValue + "px";
                         fallingContainerss[i].setAttribute("value", tempppValue);
                     }
-                 }
+                 }else if (currentTime == 11){
+                    
+                    for (let i = 0; i < fallingContainersLengths; i++){
+                         var tempppValue = parseInt(fallingContainerss[i].getAttribute("value")) + 7;
+                         
+                     
+                         fallingContainerss[i].style.top =  tempppValue + "px";
+                        fallingContainerss[i].setAttribute("value", tempppValue);
+                    }
+                }
 
                  var blueCrystal = document.querySelectorAll(".blue-crystal-falling-container");
                 var BlueCrystalLength = blueCrystal.length;
@@ -513,12 +528,12 @@ function lvl1Pre() {
                     
                         if (heartLost == hearts.length) {
                             // SET lvl 1 HIGHSCORE
-                            if (parseInt(localStorage.getItem("lvl1HS")) < score) {
-                                localStorage.setItem("lvl1HS", score);
+                            if (parseInt(localStorage.getItem("FSlvl1HS")) < score) {
+                                localStorage.setItem("FSlvl1HS", score);
                                 localStorage.saveServer
                             }
 
-                            document.getElementById("lvl1Highscore").textContent = localStorage.getItem("lvl1HS");
+                            document.getElementById("lvl1Highscore").textContent = localStorage.getItem("FSlvl1HS");
                             failScreen();
                             removePowers();
                             resetVariables();
@@ -547,8 +562,8 @@ function lvl1Pre() {
 
             // WIN GAME
             if (score >= 1500 && onlyOne111 == 1){
-                localStorage.setItem("lvl1Won", "true");
-                localStorage.setItem("lvl2Unlocked", "true");
+                localStorage.setItem("FSlvl1Won", "true");
+                localStorage.setItem("FSlvl2Unlocked", "true");
                 localStorage.saveServer
 
                 document.getElementById("lvl2Slide").src = "img/lvl2/lvl2_background.jpg";
@@ -785,7 +800,7 @@ function lvl1Pre() {
                     tempSpeed = 7;
                 }
 
-                if (currentTime == 10) {
+                if (currentTime == 10 || currentTime == 11) {
                     clearInterval(moveItemsRepeat);
                     moveItemsRepeat = setInterval(moveItems, 9);
                     tempSpeed = 8;
@@ -883,7 +898,7 @@ function lvl1Pre() {
         
             clearInterval(moveItemsRepeat);
             
-        console.log("yes");
+        
         
         document.getElementById("mainWrapper").style.backgroundImage = "none";
         

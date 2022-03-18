@@ -30,7 +30,7 @@ var pow2Good = true;
 
 setInterval(
     function(){counter = Math.floor(counter) + 1;
-        
+        console.log(counter);
     },1000);
 
     // Random Number Generator
@@ -49,12 +49,12 @@ setInterval(
 function mainMenu() {
 
      // SET lvl 1 HIGHSCORE
-     if (parseInt(localStorage.getItem("lvl1HS")) < score) {
-        localStorage.setItem("lvl1HS", score);
+     if (parseInt(localStorage.getItem("FSlvl1HS")) < score) {
+        localStorage.setItem("FSlvl1HS", score);
         localStorage.saveServer
     }
 
-    document.getElementById("lvl1Highscore").textContent = localStorage.getItem("lvl1HS");
+    document.getElementById("lvl1Highscore").textContent = localStorage.getItem("FSlvl1HS");
 
     window.removeEventListener("keydown", escPause);
     window.removeEventListener("keydown", escResume);
@@ -226,12 +226,12 @@ function failScreen() {
 
 function restart() {
     // SET lvl 1 HIGHSCORE
-     if (parseInt(localStorage.getItem("lvl1HS")) < score) {
-        localStorage.setItem("lvl1HS", score);
+     if (parseInt(localStorage.getItem("FSlvl1HS")) < score) {
+        localStorage.setItem("FSlvl1HS", score);
         localStorage.saveServer
     }
 
-    document.getElementById("lvl1Highscore").textContent = localStorage.getItem("lvl1HS");
+    document.getElementById("lvl1Highscore").textContent = localStorage.getItem("FSlvl1HS");
 
     
 
@@ -364,6 +364,10 @@ function resumeGame() {
                     moveItemsRepeat = setInterval(moveItems, 2);
                 break;
                 case 10 :
+                    moveItemsRepeat = setInterval(moveItems, 1);
+                break;
+
+                case 11 :
                     moveItemsRepeat = setInterval(moveItems, 1);
                 break;
 

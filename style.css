@@ -91,6 +91,11 @@ body {
     user-select: none;
     transform: translateX(-4vw);
 }
+
+.alert-icon {
+    
+}
+
   .preload-hint {
       margin-top: 8vw;
       display: inline-block;
@@ -498,6 +503,7 @@ body {
     border: 0px solid transparent;
     border-radius: 50%;
     position: relative;
+    top: -30vh;
     left: -2vw;
     cursor: pointer;
     text-align: center;
@@ -525,11 +531,13 @@ body {
    font-family: "Kaushan Script", sans-serif;
  }
 
- #lvlAlertAnimation {
+ .alert-icon {
      display: none;
      position: relative;
      height: 8vw;
      width: 8vw;
+    user-select: none;
+    transform: translateX(1vw);
      
  }
  .potion-bar {

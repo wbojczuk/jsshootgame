@@ -12,7 +12,7 @@ var leftPageTitles = [
 "Blue Crystals", 
 // POWERS
 "Drag Destroy",
-"Time Frost Power"
+"Time Frost"
 ];
 
  var leftPages = [
@@ -95,6 +95,7 @@ function index(){
   document.getElementById("tutorialTitle").innerHTML = leftPageTitles[0];
   document.getElementById("tutInnertextLeft").innerHTML = leftPages[0];
   document.getElementById("tutRightIndex").innerHTML = rightIndex[0];
+  document.getElementById("tutRightIndex").style.display = "block";
     
 }
 

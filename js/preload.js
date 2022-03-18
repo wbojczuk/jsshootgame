@@ -44,17 +44,17 @@ function preloadFunction(){
 
     // SET HIGHSCORES
 
-    var tempHighscore = parseInt(localStorage.getItem("lvl1HS"));
+    var tempHighscore = parseInt(localStorage.getItem("FSlvl1HS"));
 
     if ( isNaN(tempHighscore) ) {
 
-        localStorage.setItem("lvl1HS", "0");
+        localStorage.setItem("FSlvl1HS", "0");
         localStorage.saveServer
     }
-    document.getElementById("lvl1Highscore").textContent = localStorage.getItem("lvl1HS");
+    document.getElementById("lvl1Highscore").textContent = localStorage.getItem("FSlvl1HS");
 
 
-    if (localStorage.getItem("lvl2Unlocked") !== "true"){
+    if (localStorage.getItem("FSlvl2Unlocked") !== "true"){
 
     document.getElementById("lvl2Slide").src = "img/padlock.png";
     document.getElementById("lvl2Slide").style.backgroundImage = "url('img/lvl2/lvl2_background.jpg')"
