@@ -1018,7 +1018,7 @@ function redPotionEffect(evt) {
 
     setTimeout(() => {
         this.remove();
-    }, 480);
+    }, 470);
 }
 
 
@@ -1077,7 +1077,7 @@ function redPotionEffect(evt) {
 
         setTimeout(() => {
             this.remove();
-        }, 300);
+        }, 290);
     }
 
 
@@ -1120,7 +1120,7 @@ function snowflakeEffect(evt) {
 
         setTimeout(() => {
             this.remove();
-        }, 300);
+        }, 290);
 }
 
     
