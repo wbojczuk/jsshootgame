@@ -56,7 +56,7 @@ function lvl1Pre() {
 
                 // Bomb Clickbox
                 var bombClickboxNode = document.createElement("div");
-                bombClickboxNode.setAttribute("class", "pow1 clickbox bomb-clickbox");
+                bombClickboxNode.setAttribute("class", "pow1 clickbox bomb-clickbox unclicked");
                 // Bomb Image Box
                 var thingOneDisplayNode = document.createElement("div");
                 thingOneDisplayNode.setAttribute("class", "thing-one");
@@ -74,7 +74,7 @@ function lvl1Pre() {
                 // RED POTION 
 
                 var redPotionClickboxNode = document.createElement("div");
-                redPotionClickboxNode.setAttribute("class", "pow1 clickbox red-potion-clickbox");
+                redPotionClickboxNode.setAttribute("class", "pow1 clickbox red-potion-clickbox unclicked");
                 // POTION Image Box
                 var redPotionDisplayNode = document.createElement("div");
                 redPotionDisplayNode.setAttribute("class", "red-potion");
@@ -89,7 +89,7 @@ function lvl1Pre() {
                 // Extra Heart Orb NODE
 
                 var extraHeartOrbClickboxNode = document.createElement("div");
-                extraHeartOrbClickboxNode.setAttribute("class", "pow1 clickbox extra-heart-orb-clickbox");
+                extraHeartOrbClickboxNode.setAttribute("class", "pow1 clickbox extra-heart-orb-clickbox unclicked");
                 // Extra Heart Orb Image Box
                 var extraHeartOrbDisplayNode = document.createElement("div");
                 extraHeartOrbDisplayNode.setAttribute("class", "extra-heart-orb");
@@ -102,7 +102,7 @@ function lvl1Pre() {
 
                  // Blue Crystal Clickbox
                  var blueCrystalClickboxNode = document.createElement("div");
-                 blueCrystalClickboxNode.setAttribute("class", "pow1 clickbox blue-crystal-clickbox");
+                 blueCrystalClickboxNode.setAttribute("class", "pow1 clickbox blue-crystal-clickbox unclicked");
                  // Blue Crystal Image Box
                  var blueCrystalDisplayNode = document.createElement("div");
                  blueCrystalDisplayNode.setAttribute("class", "blue-crystal");
@@ -121,7 +121,7 @@ function lvl1Pre() {
                  // Snowflake NODE
 
                 var snowflakeClickboxNode = document.createElement("div");
-                snowflakeClickboxNode.setAttribute("class", "pow1 clickbox snowflake-clickbox");
+                snowflakeClickboxNode.setAttribute("class", "pow1 clickbox snowflake-clickbox unclicked");
                 // Snowflake Image Box
                 var snowflakeDisplayNode = document.createElement("div");
                 snowflakeDisplayNode.setAttribute("class", "snowflake");
@@ -618,10 +618,10 @@ function lvl1Pre() {
                 
                 // Set Events
                 while (onlyOne == 1) {
-                    document.getElementById("mainContainer").addEventListener("mousedown", function(evt) {
+                    document.getElementById("mainContainer").addEventListener("mousedown", function() {
                         powerOneToggle = true;
                     });
-                    document.getElementById("mainContainer").addEventListener("mouseup", function(evt) {
+                    document.getElementById("mainContainer").addEventListener("mouseup", function() {
                         powerOneToggle = false;
                     });
 
@@ -636,12 +636,12 @@ function lvl1Pre() {
 
                 if (powerOneToggle == true) {
                     document.getElementById("body").style.cursor = "url('img/lvl1/power1.cur'), crosshair"
-                   var extraHeartOrbP1 = mainContainerr.querySelectorAll(".pow1.extra-heart-orb-clickbox");
-                   var blueCrystalP1 = mainContainerr.querySelectorAll(".pow1.blue-crystal-clickbox");
-                   var redPotionsP1 = mainContainerr.querySelectorAll(".pow1.red-potion-clickbox");
-                   var bombsP1 = mainContainerr.querySelectorAll(".pow1.bomb-clickbox");
+                   var extraHeartOrbP1 = mainContainerr.querySelectorAll(".unclicked.pow1.extra-heart-orb-clickbox");
+                   var blueCrystalP1 = mainContainerr.querySelectorAll(".unclicked.pow1.blue-crystal-clickbox");
+                   var redPotionsP1 = mainContainerr.querySelectorAll(".unclicked.pow1.red-potion-clickbox");
+                   var bombsP1 = mainContainerr.querySelectorAll(".unclicked.pow1.bomb-clickbox");
                    var bombsLengthP1 = bombsP1.length;
-                   var snowflakeP1 = mainContainerr.querySelectorAll(".pow1.snowflake-clickbox");
+                   var snowflakeP1 = mainContainerr.querySelectorAll(".unclicked.pow1.snowflake-clickbox");
                    var snowflakeLengthP1 = snowflakeP1.length;
                    var redPotionslengthP1 = redPotionsP1.length;
                    var extraHeartOrblengthP1 = extraHeartOrbP1.length;
@@ -652,26 +652,31 @@ function lvl1Pre() {
                 for (let i = 0; i < bombsLengthP1; i++) {
                     bombsP1[i].addEventListener("mouseover", bombClicked);
                     bombsP1[i].classList.remove("pow1");
+                    
                 }
 
                 for (let i = 0; i < redPotionslengthP1; i++) {
                     redPotionsP1[i].addEventListener("mouseover", redPotionEffect);
                     redPotionsP1[i].classList.remove("pow1");
+                    
                 }
 
                 for (let i = 0; i < extraHeartOrblengthP1; i++) {
                     extraHeartOrbP1[i].addEventListener("mouseover", extraHeartOrbEffect);
                     extraHeartOrbP1[i].classList.remove("pow1");
+                
                 }
 
                 for (let i = 0; i < blueCrystalLengthP1; i++) {
                     blueCrystalP1[i].addEventListener("mouseover", blueCrystalEffect);
                     blueCrystalP1[i].classList.remove("pow1");
+                   
                 }
 
                 for (let i = 0; i < snowflakeLengthP1; i++) {
                     snowflakeP1[i].addEventListener("mouseover", snowflakeEffect);
                     snowflakeP1[i].classList.remove("pow1");
+                    
                 }
                 
             
@@ -680,11 +685,11 @@ function lvl1Pre() {
 
                 if (powerOneToggle == false) {
                     document.getElementById("body").style.cursor = "url('img/lvl1/lvl1_main.cur'), crosshair";
-                var extraHeartOrbP1 = mainContainerr.querySelectorAll(".extra-heart-orb-clickbox:not(.pow1)");
-                   var redPotionsP1 = mainContainerr.querySelectorAll(".red-potion-clickbox:not(.pow1)");
-                   var bombsP1 = mainContainerr.querySelectorAll(".bomb-clickbox:not(.pow1)");
-                   var blueCrystalP1 = mainContainerr.querySelectorAll(".blue-crystal-clickbox:not(.pow1)");
-                   var snowflakeP1 = mainContainerr.querySelectorAll(".snowflake-clickbox:not(.pow1)");
+                var extraHeartOrbP1 = mainContainerr.querySelectorAll(".unclicked.extra-heart-orb-clickbox:not(.pow1)");
+                   var redPotionsP1 = mainContainerr.querySelectorAll(".unclicked.red-potion-clickbox:not(.pow1)");
+                   var bombsP1 = mainContainerr.querySelectorAll(".unclicked.bomb-clickbox:not(.pow1)");
+                   var blueCrystalP1 = mainContainerr.querySelectorAll(".unclicked.blue-crystal-clickbox:not(.pow1)");
+                   var snowflakeP1 = mainContainerr.querySelectorAll(".unclicked.snowflake-clickbox:not(.pow1)");
                    var snowflakeLengthP1 = snowflakeP1.length;
                    var blueCrystalLengthP1 = blueCrystalP1.length;
                    var bombsLengthP1 = bombsP1.length;
@@ -742,7 +747,7 @@ function lvl1Pre() {
         }
 
         function power2Function(evt) {
-            console.log(evt.button);
+      
             if ((evt.key == "S") || (evt.key == "s") || (evt.button == "0")) {
                 tempSpeed = 0;
                 document.querySelector(".power2.power-icon").style.boxShadow = "0px 0px 15px 10px rgba(0, 204, 255, 0.664)";
@@ -941,6 +946,7 @@ function bombClicked(evt) {
     
     this.removeEventListener("mouseover", bombClicked);
     this.classList.remove("pow1");
+    this.classList.remove("unclicked");
     this.style.zIndex = "1";
     var audio = new Audio('sounds/bomb_explosion.mp3');
     audio.volume = 0.4;
@@ -978,6 +984,7 @@ function redPotionEffect(evt) {
     this.removeEventListener("click", redPotionEffect);
     this.removeEventListener("mouseover", redPotionEffect);
     this.classList.remove("pow1");
+    this.classList.remove("unclicked");
     var goneHeartState = document.querySelectorAll(".heart-gone");
 
     score += 15;
@@ -1021,6 +1028,7 @@ function redPotionEffect(evt) {
         
         var targetElement = this.querySelector(".extra-heart-orb");
         this.classList.remove("pow1");
+        this.classList.remove("unclicked");
         this.removeEventListener("click", extraHeartOrbEffect);
         this.removeEventListener("mouseover", extraHeartOrbEffect);
         score += 80;
@@ -1049,8 +1057,9 @@ function redPotionEffect(evt) {
     function blueCrystalEffect(evt) {
         var targetElement = this.querySelector(".blue-crystal");
         this.classList.remove("pow1");
+        this.classList.remove("unclicked");
         this.removeEventListener("click", blueCrystalEffect);
-        evt.target.removeEventListener("mouseover", blueCrystalEffect);
+        this.removeEventListener("mouseover", blueCrystalEffect);
         this.querySelector(".thing-one-hitbox").remove();
         score += 10;
         document.getElementById("score").innerHTML = score;
@@ -1077,6 +1086,7 @@ function snowflakeEffect(evt) {
     pow2Good = true;
     var targetElement = this.querySelector(".snowflake");
     this.classList.remove("pow1");
+    this.classList.remove("unclicked");
         this.removeEventListener("click", snowflakeEffect);
         this.removeEventListener("mouseover", snowflakeEffect);
         score += 100;
