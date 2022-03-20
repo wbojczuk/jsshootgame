@@ -9,6 +9,7 @@ var allThingOneHitbox;
 var allThingOneLengthHitbox;
 var thingOneNode;
 var redPotionNode;
+var purplePotionNode;
 var extraHeartOrbNode;
 var blueCrystalNode;
 var snowflakeNode;
@@ -83,6 +84,19 @@ function lvl1Pre() {
                 redPotionNode = fallingContainerNode.cloneNode(false);
                 redPotionNode.appendChild(redPotionClickboxNode.cloneNode(false));
                 redPotionNode.firstChild.appendChild(redPotionDisplayNode.cloneNode(false));
+
+                // RED POTION 
+
+                var purplePotionClickboxNode = document.createElement("div");
+                purplePotionClickboxNode.setAttribute("class", "pow1 clickbox purple-potion-clickbox unclicked");
+                // POTION Image Box
+                var purplePotionDisplayNode = document.createElement("div");
+                purplePotionDisplayNode.setAttribute("class", "purple-potion");
+
+                // MAIN REDPOTION NODE
+                purplePotionNode = fallingContainerNode.cloneNode(false);
+                purplePotionNode.appendChild(purplePotionClickboxNode.cloneNode(false));
+                purplePotionNode.firstChild.appendChild(purplePotionDisplayNode.cloneNode(false));
                 
 
 
@@ -159,9 +173,11 @@ function lvl1Pre() {
                 if (counter % 3 == 0) {   
                     nodeContainer.appendChild(thingOneNode.cloneNode(true)); 
                     nodeContainer.appendChild(thingOneNode.cloneNode(true)); 
+                    
                 } 
                 if (counter % 5 == 0) {   
                     nodeContainer.appendChild(thingOneNode.cloneNode(true)); 
+                    nodeContainer.appendChild(purplePotionNode.cloneNode(true));
                     
                 } 
                 
@@ -172,6 +188,7 @@ function lvl1Pre() {
                 if (counter % 13 == 0) {
                     nodeContainer.appendChild(thingOneNode.cloneNode(true));
                     nodeContainer.appendChild(thingOneNode.cloneNode(true));
+                    
                     
                 }
 
@@ -250,6 +267,14 @@ function lvl1Pre() {
                     if (redPotionslength >= 1){
                                     
                         tempNodeMain.firstChild.addEventListener("click", redPotionEffect);
+                    }
+
+                    //SET PURPLE POTION EVENTS
+                    var purplePotions = tempNodeMain.querySelectorAll(".purple-potion-clickbox");
+                    var purplePotionslength = purplePotions.length;
+                    if (purplePotionslength >= 1){
+                                    
+                        tempNodeMain.firstChild.addEventListener("click", purplePotionEffect);
                     }
 
                     //SET Extra Heart Orb EVENTS
@@ -641,6 +666,8 @@ function lvl1Pre() {
                    var redPotionsP1 = mainContainerr.querySelectorAll(".unclicked.pow1.red-potion-clickbox");
                    var bombsP1 = mainContainerr.querySelectorAll(".unclicked.pow1.bomb-clickbox");
                    var bombsLengthP1 = bombsP1.length;
+                   var purplePotionsP1 = mainContainerr.querySelectorAll(".unclicked.pow1.purple-potion-clickbox");
+                   var purplePotionsLengthP1 = purplePotions.length;
                    var snowflakeP1 = mainContainerr.querySelectorAll(".unclicked.pow1.snowflake-clickbox");
                    var snowflakeLengthP1 = snowflakeP1.length;
                    var redPotionslengthP1 = redPotionsP1.length;
@@ -650,6 +677,12 @@ function lvl1Pre() {
                    
                     
                 for (let i = 0; i < bombsLengthP1; i++) {
+                    purplePotionsP1[i].addEventListener("mouseover", bombClicked);
+                    purplePotionsP1[i].classList.remove("pow1");
+                    
+                }
+
+                for (let i = 0; i < purplePotionsLengthP1; i++) {
                     bombsP1[i].addEventListener("mouseover", bombClicked);
                     bombsP1[i].classList.remove("pow1");
                     
@@ -691,6 +724,8 @@ function lvl1Pre() {
                    var blueCrystalP1 = mainContainerr.querySelectorAll(".unclicked.blue-crystal-clickbox:not(.pow1)");
                    var snowflakeP1 = mainContainerr.querySelectorAll(".unclicked.snowflake-clickbox:not(.pow1)");
                    var snowflakeLengthP1 = snowflakeP1.length;
+                   var purplePotions = mainContainerr.querySelectorAll(".unclicked.purple-potion-clickbox:not(.pow1)");
+                   var purplePotionsLengthP1 = purplePotions.length;
                    var blueCrystalLengthP1 = blueCrystalP1.length;
                    var bombsLengthP1 = bombsP1.length;
                    var redPotionslengthP1 = redPotionsP1.length;
@@ -700,6 +735,12 @@ function lvl1Pre() {
                    for (let i = 0; i < bombsLengthP1; i++) {
                     bombsP1[i].removeEventListener("mouseover", bombClicked);
                     bombsP1[i].classList.add("pow1");
+                }
+
+                for (let i = 0; i < purplePotionsLengthP1; i++) {
+                    purplePotions[i].addEventListener("mouseover", bombClicked);
+                    purplePotions[i].classList.remove("pow1");
+                    
                 }
 
                 for (let i = 0; i < redPotionslengthP1; i++) {
@@ -1121,6 +1162,60 @@ function snowflakeEffect(evt) {
         setTimeout(() => {
             this.remove();
         }, 290);
+}
+
+// PURPLE POTIONS
+
+function purplePotionEffect(evt) {
+    this.removeEventListener("click", purplePotionEffect);
+    
+    this.removeEventListener("mouseover", purplePotionEffect);
+    this.classList.remove("pow1");
+    this.classList.remove("unclicked");
+    this.style.zIndex = "1";
+    var targetElementTemp = this.querySelectorAll(".purple-potion");
+    var targetElement = targetElementTemp[0];
+    
+    
+    targetElement.style.background = "url('img/lvl1/purple_potion_explosion_sprite.png')" ;
+    targetElement.style.animation = "purple_potion_explosion 300ms steps(16)";
+    targetElement.style.backgroundSize= "1600% 100%";
+
+    score -= 20;
+    document.getElementById("score").innerHTML = score;
+
+    var hearts = document.querySelectorAll(".heart-img");
+                    hearts[heartLost].style.backgroundImage = "url('img/heart1.png')";
+                    hearts[heartLost].classList.add("heart-gone");
+                    hearts[heartLost].classList.remove("heart-here");
+                var audio = new Audio('sounds/lose_heart.mp3');
+                audio.volume = 0.2;
+                audio.playbackRate = 1;
+                audio.play();
+
+                    heartLost += 1;
+
+                    // FAILLLLL
+            
+
+                    
+                        if (heartLost == hearts.length) {
+                            // SET lvl 1 HIGHSCORE
+                            if (parseInt(localStorage.getItem("FSlvl1HS")) < score) {
+                                localStorage.setItem("FSlvl1HS", score);
+                                localStorage.saveServer
+                            }
+
+                            document.getElementById("lvl1Highscore").textContent = localStorage.getItem("FSlvl1HS");
+                            failScreen();
+                            removePowers();
+                            resetVariables();
+                        }
+    
+
+    setTimeout(() => {
+        this.remove();
+    }, 290);
 }
 
     

@@ -26,8 +26,12 @@ body {
     justify-content: center;
     height: 10vw;
     width: 10vw;
-    z-index: 3;
+    z-index: 4;
     user-select: none;
+}
+
+.purple-potion-clickbox {
+    z-index: 3;
 }
 
 /* MAIN WRAPPER */
@@ -92,9 +96,6 @@ body {
     transform: translateX(-4vw);
 }
 
-.alert-icon {
-    
-}
 
   .preload-hint {
       margin-top: 8vw;
@@ -146,6 +147,13 @@ body {
 .red-potion {
     display: inline-block;
     width: 5vw;
+    height: 5vw;
+    user-select: none;
+}
+
+.purple-potion {
+    display: inline-block;
+    width: 6vw;
     height: 5vw;
     user-select: none;
 }
@@ -538,7 +546,6 @@ body {
      height: 8vw;
      width: 8vw;
     user-select: none;
-    transform: translateX(1vw);
      
  }
  .potion-bar {

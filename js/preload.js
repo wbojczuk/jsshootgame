@@ -36,6 +36,10 @@ function preloadFunction(){
 
     stuffPreload += "<div class='snowflake-explosion-preload preload'></div>";
 
+    stuffPreload += "<div class='purple-potion-preload preload'></div>";
+
+    stuffPreload += "<div class='purple-potion-explosion-preload preload'></div>";
+
     stuffPreload += "<div class='frost-preload preload'></div>";
 
 

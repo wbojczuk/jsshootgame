@@ -60,6 +60,13 @@
     background-position: center;
 }
 
+.purple-potion {
+    background: url('img/lvl1/purple_potion_sprite.png') ;
+    animation: purple_potion 400ms steps(21) infinite;
+    background-size: 2100% 5vw;
+    background-position: center;
+}
+
 
 
 
@@ -126,6 +133,16 @@
 }
 
 @keyframes snowflake_explosion {
+    from{background-position: 0% 0;}
+    to{background-position: -1600% 0;}
+}
+
+@keyframes purple_potion {
+    from{background-position: 0% 0;}
+    to{background-position: -2100% 0;}
+}
+
+@keyframes purple_potion_explosion {
     from{background-position: 0% 0;}
     to{background-position: -1600% 0;}
 }
@@ -208,6 +225,22 @@
     height: 1vw;
     width: 1vw;
     background: url('img/snowflake_explosion_sprite.png') ;
+    animation: snowflake 300ms steps(16);
+    background-size: 1600% 1vw;
+}
+
+.purple-potion-preload {
+    height: 1vw;
+    width: 1vw;
+    background: url('img/lvl1/purple_potion_sprite.png') ;
+    animation: purple_potion 400ms steps(21);
+    background-size: 2100% 1vw;
+}
+
+.purple-potion-explosion-preload {
+    height: 1vw;
+    width: 1vw;
+    background: url('img/lvl1/purple_potion_explosion_sprite.png') ;
     animation: snowflake 300ms steps(16);
     background-size: 1600% 1vw;
 }

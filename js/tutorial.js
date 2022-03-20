@@ -9,7 +9,8 @@ var leftPageTitles = [
 "Glowing Orb",
 "Red Potion",
 "Bombs",
-"Blue Crystals", 
+"Blue Crystals",
+"Purple Potions",
 // POWERS
 "Drag Destroy",
 "Time Frost"
@@ -22,7 +23,8 @@ var leftPageTitles = [
   <a onclick='changePage(2)' href='#' class='tut-index-link'>Glowing Orb</a>\
   <a onclick='changePage(3)' href='#' class='tut-index-link'>Red Potion</a>\
   <a onclick='changePage(4)' href='#' class='tut-index-link'>Bombs</a>\
-  <a onclick='changePage(5)' href='#' class='tut-index-link'>Blue Crystals</a>",
+  <a onclick='changePage(5)' href='#' class='tut-index-link'>Blue Crystals</a>\
+  <a onclick='changePage(6)' href='#' class='tut-index-link'>Purple Potion</a>",
     
   
    //  ITEMS INDEX1
@@ -38,6 +40,8 @@ var leftPageTitles = [
   "<span>Blue Crystals Move Faster Than Bombs, Destroy Them Before They Reach The Bottom Of Your Screen Or You Will Lose A Heart!</span>",
 
 
+  "<span>Do Not Destroy The Purple Potions. Doing So Will Remove 20 Points From Your Score And One Of Your Hearts!</span>",
+
 // POWERS
   "<span>The Drag Destroy Power Allows you to click, hold, and drag through Items. You will see the </span><img class='tutorial-icon' src='img/icons/power1.png'><span> Icon in the top-right of your screen when the power is active.</span>",
 
@@ -49,8 +53,8 @@ var leftPageTitles = [
 
  var rightIndex = [
 "<div class='index-title'>Powers</div>\
-<a onclick='changePage(6)' href='#' class='tut-index-link'>Drag Destroy</a>\
-<a onclick='changePage(7)' href='#' class='tut-index-link'>Time Frost</a>",
+<a onclick='changePage(7)' href='#' class='tut-index-link'>Drag Destroy</a>\
+<a onclick='changePage(8)' href='#' class='tut-index-link'>Time Frost</a>",
  ];
 
  var rightVisual = [
@@ -61,6 +65,7 @@ var leftPageTitles = [
    "<div class='red-potion tut-items'></div>",
    "<div class='thing-one tut-items'></div>",
    "<div class='blue-crystal tut-items'></div>",
+   "<div class='purple-potion tut-items'></div>",
 
   //  POWERS
    "<img class='tutorial-visual-icon' src='img/icons/power1.png'>",
@@ -75,6 +80,7 @@ var leftPageTitles = [
    "Chance To Spawn At Multiple Times Throughout The Level",
    "Thoughout The Level",
    "Thoughout The Level, But Less Frequently Than Bombs",
+   "Thoughout The Level",
   //  POWERS
    "At A Score Of 500",
    "Can Be Triggered Once After Getting A Snowflake",
