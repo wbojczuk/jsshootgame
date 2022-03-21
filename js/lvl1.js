@@ -667,7 +667,7 @@ function lvl1Pre() {
                    var bombsP1 = mainContainerr.querySelectorAll(".unclicked.pow1.bomb-clickbox");
                    var bombsLengthP1 = bombsP1.length;
                    var purplePotionsP1 = mainContainerr.querySelectorAll(".unclicked.pow1.purple-potion-clickbox");
-                   var purplePotionsLengthP1 = purplePotions.length;
+                   var purplePotionsLengthP1 = purplePotionsP1.length;
                    var snowflakeP1 = mainContainerr.querySelectorAll(".unclicked.pow1.snowflake-clickbox");
                    var snowflakeLengthP1 = snowflakeP1.length;
                    var redPotionslengthP1 = redPotionsP1.length;
@@ -725,7 +725,7 @@ function lvl1Pre() {
                    var snowflakeP1 = mainContainerr.querySelectorAll(".unclicked.snowflake-clickbox:not(.pow1)");
                    var snowflakeLengthP1 = snowflakeP1.length;
                    var purplePotions = mainContainerr.querySelectorAll(".unclicked.purple-potion-clickbox:not(.pow1)");
-                   var purplePotionsLengthP1 = purplePotions.length;
+                   var purplePotionsLengthP1 = purplePotionsP1.length;
                    var blueCrystalLengthP1 = blueCrystalP1.length;
                    var bombsLengthP1 = bombsP1.length;
                    var redPotionslengthP1 = redPotionsP1.length;
