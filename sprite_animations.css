@@ -63,7 +63,7 @@
 .purple-potion {
     background: url('img/lvl1/purple_potion_sprite.png') ;
     animation: purple_potion 400ms steps(21) infinite;
-    background-size: 2100% 5vw;
+    background-size: 2100% 100%;
     background-position: center;
 }
 
@@ -147,6 +147,16 @@
     to{background-position: -1600% 0;}
 }
 
+@keyframes heart_explosion {
+    from{background-position: 0% 0;}
+    to{background-position: -1600% 0;}
+}
+
+@keyframes heart_heal {
+    from{background-position: 0% 0;}
+    to{background-position: -2500% 0;}
+}
+
 /* PRELOAD called ANIMATIONS */
 
 .bomb-explosion-preload {
@@ -217,7 +227,7 @@
     height: 1vw;
     width: 1vw;
     background: url('img/snowflake_sprite.png') ;
-    animation: snowflake 390ms steps(60);
+    animation: snowflake 2000ms steps(59) infinite;
     background-size: 6000% 1vw;
 }
 
@@ -249,4 +259,18 @@
     background-image: url('img/lvl1/frost_overlay.png');
     height: 1vw;
     width: 1vw;
+}
+.heart-heal-preload {
+    height: 1vw;
+    width: 1vw;
+    background-image : url('img/heart_heal_sprite.png');
+    background-size : 2500% 1vw;
+    animation : heart_heal 300ms steps(25);
+}
+.heart-explosion-preload {
+    height: 1vw;
+    width: 1vw;
+    background-image : url('img/heart_explosion_sprite.png');
+    background-size : 2200% 1vw;
+    animation : heart_explosion 300ms steps(16);
 }

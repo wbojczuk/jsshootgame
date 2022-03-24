@@ -118,6 +118,7 @@ function mainMenu() {
         Gonehearts[i].style.backgroundImage = "url('img/heart.png')";
     }
     
+    
     setBackgroundMusic();
 
 }
