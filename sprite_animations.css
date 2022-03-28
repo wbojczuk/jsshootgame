@@ -149,7 +149,7 @@
 
 @keyframes heart_explosion {
     from{background-position: 0% 0;}
-    to{background-position: -1600% 0;}
+    to{background-position: -2200% 0;}
 }
 
 @keyframes heart_heal {
@@ -272,5 +272,5 @@
     width: 1vw;
     background-image : url('img/heart_explosion_sprite.png');
     background-size : 2200% 1vw;
-    animation : heart_explosion 300ms steps(16);
+    animation : heart_explosion 300ms steps(22);
 }

@@ -188,7 +188,7 @@ function setBackgroundMusic() {
      
 
     backgroundMusic.play();
-    backgroundMusic.volume = 0.2;
+    backgroundMusic.volume = 0.09;
     document.removeEventListener('click', setBackgroundMusic);
     backgroundMusic.addEventListener("ended", function(){
         backgroundMusic.currentTime = 0;

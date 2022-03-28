@@ -557,8 +557,8 @@ function testViewport(){
             
             if (heartLost == 0){
                 hearts[0].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-                hearts[0].style.animation = "heart_explosion 300ms steps(16)";
-                hearts[0].style.backgroundSize = "1600% 100%";
+                hearts[0].style.animation = "heart_explosion 300ms steps(22)";
+                hearts[0].style.backgroundSize = "2200% 100%";
                 setTimeout(function(){
                     hearts[0].style.animation = "";
                     hearts[0].style.backgroundImage = "url('img/heart1.png')";
@@ -566,8 +566,8 @@ function testViewport(){
                 }, 290);
             } else if (heartLost == 1){
                 hearts[1].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-                hearts[1].style.backgroundSize = "1600% 100%";
-                hearts[1].style.animation = "heart_explosion 300ms steps(16)";
+                hearts[1].style.backgroundSize = "2200% 100%";
+                hearts[1].style.animation = "heart_explosion 300ms steps(22)";
                 setTimeout(function(){
                     hearts[1].style.animation = "";
                     hearts[1].style.backgroundImage = "url('img/heart1.png')";
@@ -575,8 +575,8 @@ function testViewport(){
                 }, 290);
             }else if (heartLost == 2){
                 hearts[2].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-                hearts[2].style.backgroundSize = "1600% 100%";
-                hearts[2].style.animation = "heart_explosion 300ms steps(16)";
+                hearts[2].style.backgroundSize = "2200% 100%";
+                hearts[2].style.animation = "heart_explosion 300ms steps(22)";
                 setTimeout(function(){
                     hearts[2].style.animation = "";
                     hearts[2].style.backgroundImage = "url('img/heart1.png')";
@@ -584,8 +584,8 @@ function testViewport(){
                 }, 290);
             }else if (heartLost == 3){
                 hearts[3].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-                hearts[3].style.backgroundSize = "1600% 100%";
-                hearts[3].style.animation = "heart_explosion 300ms steps(16)";
+                hearts[3].style.backgroundSize = "2200% 100%";
+                hearts[3].style.animation = "heart_explosion 300ms steps(22)";
                 setTimeout(function(){
                     hearts[3].style.animation = "";
                     hearts[3].style.backgroundImage = "url('img/heart1.png')";
@@ -593,8 +593,8 @@ function testViewport(){
                 }, 290);
             }else if (heartLost == 4){
                 hearts[4].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-                hearts[4].style.backgroundSize = "1600% 100%";
-                hearts[4].style.animation = "heart_explosion 300ms steps(16)";
+                hearts[4].style.backgroundSize = "2200% 100%";
+                hearts[4].style.animation = "heart_explosion 300ms steps(22)";
                 setTimeout(function(){
                     hearts[4].style.animation = "";
                     hearts[4].style.backgroundImage = "url('img/heart1.png')";
@@ -602,8 +602,8 @@ function testViewport(){
                 }, 290);
             }else if (heartLost == 5){
                 hearts[5].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-                hearts[5].style.backgroundSize = "1600% 100%";
-                hearts[5].style.animation = "heart_explosion 300ms steps(16)";
+                hearts[5].style.backgroundSize = "2200% 100%";
+                hearts[5].style.animation = "heart_explosion 300ms steps(22)";
                 setTimeout(function(){
                     hearts[5].style.animation = "";
                     hearts[5].style.backgroundImage = "url('img/heart1.png')";
@@ -611,8 +611,8 @@ function testViewport(){
                 }, 290);
             }else if (heartLost == 6){
                 hearts[6].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-                hearts[6].style.backgroundSize = "1600% 100%";
-                hearts[6].style.animation = "heart_explosion 300ms steps(16)";
+                hearts[6].style.backgroundSize = "2200% 100%";
+                hearts[6].style.animation = "heart_explosion 300ms steps(22)";
                 setTimeout(function(){
                     hearts[6].style.animation = "";
                     hearts[6].style.backgroundImage = "url('img/heart1.png')";
@@ -620,8 +620,8 @@ function testViewport(){
                 }, 290);
             }else if (heartLost == 7){
                 hearts[7].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-                hearts[7].style.backgroundSize = "1600% 100%";
-                hearts[7].style.animation = "heart_explosion 300ms steps(16)";
+                hearts[7].style.backgroundSize = "2200% 100%";
+                hearts[7].style.animation = "heart_explosion 300ms steps(22)";
                 setTimeout(function(){
                     hearts[7].style.animation = "";
                     hearts[7].style.backgroundImage = "url('img/heart1.png')";
@@ -629,8 +629,8 @@ function testViewport(){
                 }, 290);
             }else if (heartLost == 8){
                 hearts[8].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-                hearts[8].style.backgroundSize = "1600% 100%";
-                hearts[8].style.animation = "heart_explosion 300ms steps(16)";
+                hearts[8].style.backgroundSize = "2200% 100%";
+                hearts[8].style.animation = "heart_explosion 300ms steps(22)";
                 setTimeout(function(){
                     hearts[8].style.animation = "";
                     hearts[8].style.backgroundImage = "url('img/heart1.png')";
@@ -1099,7 +1099,7 @@ function bombClicked(evt) {
     this.classList.remove("unclicked");
     this.style.zIndex = "1";
     var audio = new Audio('sounds/bomb_explosion.mp3');
-    audio.volume = 0.4;
+    audio.volume = 0.6;
     audio.playbackRate = 1.1;
     audio.play();
     var targetElementTemp = this.querySelectorAll(".thing-one");
@@ -1242,7 +1242,7 @@ function redPotionEffect(evt) {
     } else {
         this.style.zIndex = "1";
         var audio = new Audio('sounds/glass_break.mp3');
-        audio.volume = 0.2;
+        audio.volume = 0.4;
         audio.playbackRate = 1;
         audio.play();
         targetElement.style.background = "url('img/red_splash_sprite.png')" ;
@@ -1269,7 +1269,7 @@ function redPotionEffect(evt) {
         document.getElementById("score").innerHTML = score;
         this.style.zIndex = "1";
         var audio = new Audio('sounds/lvl1/heart_orb.mp3');
-        audio.volume = 0.2;
+        audio.volume = 0.5;
         audio.playbackRate = 1;
         audio.play();
         targetElement.style.height = "8vw";
@@ -1299,7 +1299,7 @@ function redPotionEffect(evt) {
         document.getElementById("score").innerHTML = score;
         this.style.zIndex = "1";
         var audio = new Audio('sounds/blue_crystal_explosion.mp3');
-        audio.volume = 0.1;
+        audio.volume = 0.3;
         audio.playbackRate = 1;
         audio.play();
         targetElement.style.height = "8vw";
@@ -1327,7 +1327,7 @@ function snowflakeEffect(evt) {
         document.getElementById("score").innerHTML = score;
         this.style.zIndex = "1";
         var audio = new Audio('sounds/lvl1/ice_break.mp3');
-        audio.volume = 0.2;
+        audio.volume = 0.3;
         audio.playbackRate = 1;
         audio.play();
         targetElement.style.height = "5.6vw";
@@ -1380,8 +1380,8 @@ function purplePotionEffect(evt) {
     var hearts = document.querySelectorAll(".heart-img");
     if (heartLost == 0){
         hearts[0].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-        hearts[0].style.animation = "heart_explosion 300ms steps(16)";
-        hearts[0].style.backgroundSize = "1600% 100%";
+        hearts[0].style.animation = "heart_explosion 300ms steps(22)";
+        hearts[0].style.backgroundSize = "2200% 100%";
         setTimeout(function(){
             hearts[0].style.animation = "";
             hearts[0].style.backgroundImage = "url('img/heart1.png')";
@@ -1389,8 +1389,8 @@ function purplePotionEffect(evt) {
         }, 290);
     } else if (heartLost == 1){
         hearts[1].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-        hearts[1].style.backgroundSize = "1600% 100%";
-        hearts[1].style.animation = "heart_explosion 300ms steps(16)";
+        hearts[1].style.backgroundSize = "2200% 100%";
+        hearts[1].style.animation = "heart_explosion 300ms steps(22)";
         setTimeout(function(){
             hearts[1].style.animation = "";
             hearts[1].style.backgroundImage = "url('img/heart1.png')";
@@ -1398,8 +1398,8 @@ function purplePotionEffect(evt) {
         }, 290);
     }else if (heartLost == 2){
         hearts[2].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-        hearts[2].style.backgroundSize = "1600% 100%";
-        hearts[2].style.animation = "heart_explosion 300ms steps(16)";
+        hearts[2].style.backgroundSize = "2200% 100%";
+        hearts[2].style.animation = "heart_explosion 300ms steps(22)";
         setTimeout(function(){
             hearts[2].style.animation = "";
             hearts[2].style.backgroundImage = "url('img/heart1.png')";
@@ -1407,8 +1407,8 @@ function purplePotionEffect(evt) {
         }, 290);
     }else if (heartLost == 3){
         hearts[3].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-        hearts[3].style.backgroundSize = "1600% 100%";
-        hearts[3].style.animation = "heart_explosion 300ms steps(16)";
+        hearts[3].style.backgroundSize = "2200% 100%";
+        hearts[3].style.animation = "heart_explosion 300ms steps(22)";
         setTimeout(function(){
             hearts[3].style.animation = "";
             hearts[3].style.backgroundImage = "url('img/heart1.png')";
@@ -1416,8 +1416,8 @@ function purplePotionEffect(evt) {
         }, 290);
     }else if (heartLost == 4){
         hearts[4].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-        hearts[4].style.backgroundSize = "1600% 100%";
-        hearts[4].style.animation = "heart_explosion 300ms steps(16)";
+        hearts[4].style.backgroundSize = "2200% 100%";
+        hearts[4].style.animation = "heart_explosion 300ms steps(22)";
         setTimeout(function(){
             hearts[4].style.animation = "";
             hearts[4].style.backgroundImage = "url('img/heart1.png')";
@@ -1425,8 +1425,8 @@ function purplePotionEffect(evt) {
         }, 290);
     }else if (heartLost == 5){
         hearts[5].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-        hearts[5].style.backgroundSize = "1600% 100%";
-        hearts[5].style.animation = "heart_explosion 300ms steps(16)";
+        hearts[5].style.backgroundSize = "2200% 100%";
+        hearts[5].style.animation = "heart_explosion 300ms steps(22)";
         setTimeout(function(){
             hearts[5].style.animation = "";
             hearts[5].style.backgroundImage = "url('img/heart1.png')";
@@ -1434,8 +1434,8 @@ function purplePotionEffect(evt) {
         }, 290);
     }else if (heartLost == 6){
         hearts[6].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-        hearts[6].style.backgroundSize = "1600% 100%";
-        hearts[6].style.animation = "heart_explosion 300ms steps(16)";
+        hearts[6].style.backgroundSize = "2200% 100%";
+        hearts[6].style.animation = "heart_explosion 300ms steps(22)";
         setTimeout(function(){
             hearts[6].style.animation = "";
             hearts[6].style.backgroundImage = "url('img/heart1.png')";
@@ -1443,8 +1443,8 @@ function purplePotionEffect(evt) {
         }, 290);
     }else if (heartLost == 7){
         hearts[7].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-        hearts[7].style.backgroundSize = "1600% 100%";
-        hearts[7].style.animation = "heart_explosion 300ms steps(16)";
+        hearts[7].style.backgroundSize = "2200% 100%";
+        hearts[7].style.animation = "heart_explosion 300ms steps(22)";
         setTimeout(function(){
             hearts[7].style.animation = "";
             hearts[7].style.backgroundImage = "url('img/heart1.png')";
@@ -1452,8 +1452,8 @@ function purplePotionEffect(evt) {
         }, 290);
     }else if (heartLost == 8){
         hearts[8].style.backgroundImage = "url('img/heart_explosion_sprite.png')";
-        hearts[8].style.backgroundSize = "1600% 100%";
-        hearts[8].style.animation = "heart_explosion 300ms steps(16)";
+        hearts[8].style.backgroundSize = "2200% 100%";
+        hearts[8].style.animation = "heart_explosion 300ms steps(22)";
         setTimeout(function(){
             hearts[8].style.animation = "";
             hearts[8].style.backgroundImage = "url('img/heart1.png')";
@@ -1463,7 +1463,7 @@ function purplePotionEffect(evt) {
                     hearts[heartLost].classList.add("heart-gone");
                     hearts[heartLost].classList.remove("heart-here");
                 var audio = new Audio('sounds/lose_heart.mp3');
-                audio.volume = 0.2;
+                audio.volume = 0.5;
                 audio.playbackRate = 1;
                 audio.play();
 
