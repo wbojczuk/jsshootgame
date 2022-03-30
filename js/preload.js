@@ -4,6 +4,10 @@ window.onload = preloadFunction;
 
 function preloadFunction(){
 
+
+  setTimeout(function() {
+    
+  },20);
   
 
     var stuffPreload = "";
@@ -45,10 +49,12 @@ function preloadFunction(){
     stuffPreload += "<div class='heart-heal-preload preload'></div>";
 
     stuffPreload += "<div class='frost-preload preload'></div>";
+    stuffPreload += "<div class='snow-overlay-preload preload'></div>";
 
 
 
     document.getElementById("preload").insertAdjacentHTML("afterbegin", stuffPreload);
+    
 
     // SET HIGHSCORES
 
@@ -61,6 +67,14 @@ function preloadFunction(){
     }
     document.getElementById("lvl1Highscore").textContent = localStorage.getItem("FSlvl1HS");
 
+    var tempHighscore1 = parseInt(localStorage.getItem("FSlvl2HS"));
+    if ( isNaN(tempHighscore1) ) {
+
+      localStorage.setItem("FSlvl2HS", "0");
+      localStorage.saveServer
+  }
+  document.getElementById("lvl2Highscore").textContent = localStorage.getItem("FSlvl2HS");
+
 
     if (localStorage.getItem("FSlvl2Unlocked") !== "true"){
 
@@ -69,9 +83,14 @@ function preloadFunction(){
     document.getElementById("lvl2Slide").style.backgroundSize = "100%";
     document.getElementById("lvl2Slide").style.backgroundRepeat = "no-repeat";
     document.getElementById("lvl2Slide").style.backgroundPosition = "center";
-    }
     
-   
+    }
+
+    if (localStorage.getItem("FSlvl2Unlocked") == "true"){
+
+    document.getElementById("lvl2Link").setAttribute("onclick", "preStartGame('lvl2');")
+    
+    }
       setTimeout(function(){
         document.getElementById("preload").remove();
         document.getElementById("body").style.backgroundImage = "url('img/main_screen_background.jpg')";
@@ -81,6 +100,7 @@ function preloadFunction(){
         document.getElementById("mainWrapper").style.display = "none";
         currentLvl = "menu";
         document.addEventListener("click", setBackgroundMusic);
+        snowStorm.toggleSnow();
       }, 4000);
         
       

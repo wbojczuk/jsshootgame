@@ -18,12 +18,7 @@
     background-size: 3000% 5vw;
     background-position: center;
 }
-.snowball {
-    background: url('img/snowball_sprite.png') ;
-    animation: snowball 400ms steps(6) infinite;
-    background-size: 600% 5vw;
-    background-position: center;
-}
+
 
 .blue-crystal {
     background: url('img/blue_crystal_sprite.png') ;
@@ -102,15 +97,7 @@
     to{background-position: -1900% 0;}
 }
 
-@keyframes snowball {
-    from{background-position: 0% 0;}
-    to{background-position: -600% 0;}
-}
 
-@keyframes snowball_explosion {
-    from{background-position: 0% 0;}
-    to{background-position: -1200% 0;}
-}
 
 @keyframes blue_crystal {
     from{background-position: 0% 0;}
@@ -273,4 +260,27 @@
     background-image : url('img/heart_explosion_sprite.png');
     background-size : 2200% 1vw;
     animation : heart_explosion 300ms steps(22);
+}
+
+/* lvl 2 */
+
+.snowball {
+    display: inline-block;
+    width: 4vw;
+    height: 5vw;
+    user-select: none;
+    background: url('img/lvl2/snowball_sprite.png') ;
+    animation: snowball 400ms steps(6) infinite;
+    background-size: 600% 5vw;
+    background-position: center;
+}
+
+@keyframes snowball {
+    from{background-position: 0% 0;}
+    to{background-position: -600% 0;}
+}
+
+@keyframes snowball_explosion {
+    from{background-position: 0% 0;}
+    to{background-position: -1500% 0;}
 }

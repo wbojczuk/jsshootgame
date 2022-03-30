@@ -167,12 +167,7 @@ body {
     user-select: none;
 }
 
-.snowball {
-    display: inline-block;
-    width: 4vw;
-    height: 5vw;
-    user-select: none;
-}
+
 
 .extra-heart-orb {
     
@@ -557,4 +552,25 @@ body {
      justify-content: right;
      width: 100%;
      height: 100%;
+ }
+ body {
+     box-shadow: -10px 5px 5px #000;
+ }
+
+ @keyframes snow-shake {
+     0%, 10% {
+        backdrop-filter: blur(1px);
+     }
+
+     20%, 80% {
+        backdrop-filter: blur(1.5px);
+    }
+
+    30%, 50%, 70% {
+        backdrop-filter: blur(2px);
+    }
+
+    40%, 60% {
+        backdrop-filter: blur(1px);
+    }
  }
