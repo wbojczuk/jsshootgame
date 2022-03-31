@@ -151,7 +151,7 @@ function lvl1Pre() {
 
                 
                  lvl1testViewportRepeat = setInterval(lvl1testViewport, 10);
-                 lvl1checkPowersrepeat = setInterval(lvl1checkPowers, 100);
+                 lvl1checkPowersRepeat = setInterval(lvl1checkPowers, 100);
                  lvl1moveItemsRepeat = setInterval(lvl1moveItems, 10);
                  lvl1generationRepeat = setInterval(lvl1Generation, 1000);
 

@@ -45,7 +45,7 @@ setInterval(
 
 // MAIN MENU FUNTION 
 function mainMenu() {
-    snowStorm.stop();
+    
 
      // SET HIGHSCORE
      if (currentLvl == "lvl1"){
@@ -61,7 +61,7 @@ function mainMenu() {
         localStorage.saveServer
     }
 }
-    document.getElementById("lvl2Highscore").textContent = localStorage.getItem("FSlvl2HS");    
+    // document.getElementById("lvl2Highscore").textContent = localStorage.getItem("FSlvl2HS");    
     document.getElementById("lvl1Highscore").textContent = localStorage.getItem("FSlvl1HS");
     document.getElementById("mainWrapper").style.background = "none";
 
@@ -415,7 +415,7 @@ function resumeGame() {
         case "lvl1":
             lvl1generationRepeat = setInterval(lvl1Generation, 1000);
             lvl1testViewportRepeat = setInterval(lvl1testViewport, 10);
-            lvl1checkPowersrepeat = setInterval(lvl1checkPowers, 100);
+            lvl1checkPowersRepeat = setInterval(lvl1checkPowers, 100);
             
 
             switch (currentTime) {
