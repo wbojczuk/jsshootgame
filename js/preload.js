@@ -56,7 +56,7 @@ function preloadFunction(){
     document.getElementById("preload").insertAdjacentHTML("afterbegin", stuffPreload);
     
 
-    // SET HIGHSCORES
+    // SET HIGHSCORE
 
     var tempHighscore = parseInt(localStorage.getItem("FSlvl1HS"));
 
