@@ -73,22 +73,15 @@ function preloadFunction(){
       localStorage.setItem("FSlvl2HS", "0");
       localStorage.saveServer
   }
-  document.getElementById("lvl2Highscore").textContent = localStorage.getItem("FSlvl2HS");
 
 
-    if (localStorage.getItem("FSlvl2Unlocked") !== "true"){
+    if ((localStorage.getItem("FSlvl2Unlocked") !== "true") || (localStorage.getItem("FSlvl2Unlocked") == "true")){
 
     document.getElementById("lvl2Slide").src = "img/padlock.png";
     document.getElementById("lvl2Slide").style.backgroundImage = "url('img/lvl2/lvl2_background.jpg')"
     document.getElementById("lvl2Slide").style.backgroundSize = "100%";
     document.getElementById("lvl2Slide").style.backgroundRepeat = "no-repeat";
     document.getElementById("lvl2Slide").style.backgroundPosition = "center";
-    
-    }
-
-    if (localStorage.getItem("FSlvl2Unlocked") == "true"){
-
-    document.getElementById("lvl2Link").setAttribute("onclick", "preStartGame('lvl2');")
     
     }
       setTimeout(function(){
@@ -100,7 +93,6 @@ function preloadFunction(){
         document.getElementById("mainWrapper").style.display = "none";
         currentLvl = "menu";
         document.addEventListener("click", setBackgroundMusic);
-        snowStorm.toggleSnow();
       }, 4000);
         
       

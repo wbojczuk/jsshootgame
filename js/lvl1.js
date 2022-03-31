@@ -694,10 +694,7 @@ function lvl1testViewport(){
         localStorage.setItem("FSlvl2Unlocked", "true");
         localStorage.saveServer
 
-        document.getElementById("lvl2Slide").src = "img/lvl2/lvl2_background.jpg";
-        document.getElementById("lvl2Slide").style.backgroundImage = "none";
-
-        document.getElementById("lvl2Link").setAttribute("onclick", "preStartGame('lvl2');")
+       
 
         onlyOne111 += 1;
         document.getElementById("lvlAlertText").textContent = "Level Won!";

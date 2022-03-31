@@ -9,9 +9,7 @@ var snowballNode;
 
 function lvl2Pre() {
     
-    vRndX = -7;
-    vRndY = 3;
-    snowStorm.resume();
+    
 
    
     randomNum1 = Math.floor(getRndInteger(5, 120));
