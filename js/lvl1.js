@@ -9,18 +9,28 @@ var extraHeartOrbNode;
 var blueCrystalNode;
 var snowflakeNode;
 var power1Timeout;
-var lvl1generationRepeat;
-var lvl1testViewportRepeat;
-var lvl1power1Repeat;
-var lvl1checkPowersRepeat;
-var lvl1moveItemsRepeat;
+
 
 
 
 function lvl1Pre() {
+
+    // INITIALIZE PARTICLES
+    Particles.init({
+        selector: '.particle-background',
+        sizeVariations: 2,
+        color: "#ffffff",
+        maxParticles: 128
+      });
     
     
-            
+            // SET Normal HEARTS
+
+    var hearts = document.querySelectorAll(".heart-img");
+
+    for (var i = 0; i < hearts.length; i++) {
+        hearts[i].style.backgroundImage = "url('img/heart.png')";
+    }
 
    
                 randomNum1 = Math.floor(getRndInteger(5, 120));
@@ -86,7 +96,7 @@ function lvl1Pre() {
                 redPotionNode.appendChild(redPotionClickboxNode.cloneNode(false));
                 redPotionNode.firstChild.appendChild(redPotionDisplayNode.cloneNode(false));
 
-                // RED POTION 
+                // PURPLE POTION 
 
                 var purplePotionClickboxNode = document.createElement("div");
                 purplePotionClickboxNode.setAttribute("class", "pow1 clickbox purple-potion-clickbox unclicked");
@@ -94,7 +104,7 @@ function lvl1Pre() {
                 var purplePotionDisplayNode = document.createElement("div");
                 purplePotionDisplayNode.setAttribute("class", "purple-potion");
 
-                // MAIN REDPOTION NODE
+                // MAIN Purple Potion NODE
                 purplePotionNode = fallingContainerNode.cloneNode(false);
                 purplePotionNode.appendChild(purplePotionClickboxNode.cloneNode(false));
                 purplePotionNode.firstChild.appendChild(purplePotionDisplayNode.cloneNode(false));
@@ -151,7 +161,7 @@ function lvl1Pre() {
 
                 
                  lvl1testViewportRepeat = setInterval(lvl1testViewport, 10);
-                 lvl1checkPowersRepeat = setInterval(lvl1checkPowers, 100);
+                 lvl1CheckPowersRepeat = setInterval(lvl1checkPowers, 100);
                  lvl1moveItemsRepeat = setInterval(lvl1moveItems, 10);
                  lvl1generationRepeat = setInterval(lvl1Generation, 1000);
 
@@ -237,7 +247,7 @@ function lvl1Pre() {
              }
 
             //  PURPLE POTION GENERATION
-            if ( counter == Math.floor(getRndInteger(20 , 30))) {
+            if ( counter == 5) {
                 nodeContainer.appendChild(purplePotionNode.cloneNode(true));
             }
 
@@ -545,6 +555,7 @@ function lvl1Pre() {
             // Test if cell hitbox is in viewport
 
 function lvl1testViewport(){
+    
 
     allThingOneHitbox = document.querySelectorAll(".thing-one-hitbox");
     allThingOneLengthHitbox = allThingOneHitbox.length;
@@ -671,6 +682,7 @@ function lvl1testViewport(){
         
 
     }
+    
     var viewTest = document.getElementById("mainContainer");
     var viewSubject = viewTest.lastElementChild;
 
@@ -681,20 +693,40 @@ function lvl1testViewport(){
     for(let i = 0; i < fallingCountLength; i++){
     if (isInViewport(viewSubject) === false) {
 
-       viewSubject.remove();
+        // Purple potion trigger
 
+        var allPurplePotions = viewSubject.querySelectorAll(".purple-potion");
+        var allPurplePotionsLength  = allPurplePotions.length;
+
+        for (var s = 0; s < allPurplePotionsLength; s++) {
+            score += 15;
+            document.getElementById("score").textContent = score;
+            var audio = new Audio('sounds/lvl1/purple_potion_break.mp3');
+            audio.volume = 0.2;
+            audio.playbackRate = 1;
+            audio.play();
+        }
+
+// Remove falling containers out of viewport
+       viewSubject.remove();
        viewSubject = viewTest.lastElementChild;
 
     }
 }
 
     // WIN GAME
-    if (score >= 1300 && onlyOne111 == 1){
+    if (score >= 1000 && onlyOne111 == 1){
         localStorage.setItem("FSlvl1Won", "true");
         localStorage.setItem("FSlvl2Unlocked", "true");
         localStorage.saveServer
 
-       
+        document.getElementById("lvl2Slide").src = "img/lvl2/lvl2_background.jpg";
+        document.getElementById("lvl2Slide").style.backgroundImage = "none";
+
+        document.getElementById("lvl2Link").setAttribute("onclick", "preStartGame('lvl2');")
+        document.getElementById("lvl2Title").textContent = "Level 2";
+        document.getElementById("lvl2Desc").textContent = "Snowfall Assault";
+        document.getElementById("lvl2HighTitle").style.display = "block";
 
         onlyOne111 += 1;
         document.getElementById("lvlAlertText").textContent = "Level Won!";
@@ -721,6 +753,7 @@ function lvl1testViewport(){
             
             
             function lvl1checkPowers() {
+                console.log("hello");
                 if (score >= 500 && onlyOne11 == 1) {
                     lvl1power1Repeat = setInterval(lvl1power1Function, 10);
                     onlyOne11 += 1;

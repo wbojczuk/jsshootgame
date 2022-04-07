@@ -1,15 +1,27 @@
+"use strict";
 var allThingOneHitbox;
 var allThingOneLengthHitbox;
-
-var lvl2testViewportRepeat;
-var lvl2checkPowersrepeat;
-var lvl2moveItemsRepeat;
-var lvl2generationRepeat;
 var snowballNode;
+var lvl2SnowmanNode;
+var snowmanCounter = 0;
+var snowmanSpeed = 0;
+var waveScore = 100000;
 
 function lvl2Pre() {
+
+    // SET FROZEN HEARTS
+
+    var hearts = document.querySelectorAll(".heart-img");
+
+    for (var i = 0; i < hearts.length; i++) {
+        hearts[i].style.backgroundImage = "url('img/frozen_heart.png')";
+    }
     
-    
+    vRndX = -7;
+    vRndY = 3;
+    snowStorm.resume();
+    snowmanCounter = 0;
+    snowmanSpeed = 0;
 
    
     randomNum1 = Math.floor(getRndInteger(5, 120));
@@ -27,9 +39,17 @@ function lvl2Pre() {
 
     //  Set InterVals
     
-     
-     
-    
+
+    //  SNOWMAN NODE
+    var snowmanContainerNode = document.createElement("div");
+    snowmanContainerNode.setAttribute("class", "snowman-container");
+
+    var snowmanNode = document.createElement("div");
+    snowmanNode.setAttribute("class", "snowman");
+
+    snowmanContainerNode.append(snowmanNode);
+
+    lvl2SnowmanNode = snowmanContainerNode.cloneNode(true);
 
 
     //  NODE CREATIONS
@@ -95,18 +115,16 @@ function lvl2Pre() {
         
 
         // Bomb Generation
+        if ((score < 50) || ((score >= waveScore) && (score < waveScore + 50)) || (waveScore == 999999)){
         if (counter % 3 == 0) {   
             nodeContainer.appendChild(snowballNode.cloneNode(true)); 
-            nodeContainer.appendChild(snowballNode.cloneNode(true)); 
+ 
             
         } 
         if (counter % 5 == 0) {   
             nodeContainer.appendChild(snowballNode.cloneNode(true)); 
         } 
         
-        if (counter % 7 == 0) {   
-            nodeContainer.appendChild(snowballNode.cloneNode(true)); 
-        } 
         if (counter % 13 == 0) {
             nodeContainer.appendChild(snowballNode.cloneNode(true)); 
             nodeContainer.appendChild(snowballNode.cloneNode(true)); 
@@ -119,10 +137,187 @@ function lvl2Pre() {
         }
 
    
-    // SNOWFLAKE GENERATION
+    }
 
-    if (counter % 5 == 0) {
+    // SNOWMAN STUFF
+
+    // WAVE 1
+    
+    if ((score >= 50)  && (oonlyOne == 1)) {
+
+        snowmanCounter += 1;
+
+        // SNOWMAN MOVE
+
+        if ((snowmanCounter % 2 == 0) && (snowmanCounter < 15)) {
+            snowmanMove(getRndInteger(1, 90), "snowmanOne", snowmanSpeed, "single");
+        }
+
+        if ((snowmanCounter % 2 == 0) && (snowmanCounter > 15) && (snowmanCounter < 30)) {
+            snowmanMove(getRndInteger(1, 90), "snowmanOne", snowmanSpeed, "single");
+            snowmanMove(getRndInteger(1, 90), "snowmanTwo", snowmanSpeed, "single");
+
+        }
+        if (snowmanCounter == 30) {
+            snowmanSpeed = 1;
+        }
+
+        if ((snowmanCounter % 2 == 0) && (snowmanCounter > 30) && (snowmanCounter < 45)) {
+            snowmanMove(getRndInteger(1, 90), "snowmanOne", snowmanSpeed, "single");
+            snowmanMove(getRndInteger(1, 90), "snowmanTwo", snowmanSpeed, "single");
+            snowmanMove(getRndInteger(1, 90), "snowmanThree", snowmanSpeed, "single");
+        }
+
+        // SNOWMAN GENERATION
+        if (snowmanCounter == 1) {
+            snowmanSpawn("snowmanOne");
+            snowmanSpeed = 2;
+
+            // WAVE 1 ALERT
+            document.getElementById("lvlAlertText").textContent = "WAVE 1";
+        document.getElementById("potionBar").style.display = "none";
+        document.getElementById("lvlAlertText").style.display = "inline-block";
+        document.getElementById("lvlAlertAnimation").style.display = "inline-block";
+
+        setTimeout(function(){
+            document.getElementById("potionBar").style.display = "flex";
+        document.getElementById("lvlAlertText").style.display = "none";
+        document.getElementById("lvlAlertAnimation").style.display = "none";
+        }, 4000);
+
+        }
+
+
+        if (snowmanCounter == 15) {
+            snowmanSpawn("snowmanTwo");
+        }
+
+        if (snowmanCounter == 30) {
+            snowmanSpawn("snowmanThree");
+        }
+
+        // SNOWMAN DEATH 
+
+        if (snowmanCounter == 48) {
+            killSnowman("all");
+            oonlyOne = 2;
+            waveScore = score;
+            
+
+            // WON WAVE 1 ALERT
+            document.getElementById("lvlAlertText").style.fontSize = "2vw";
+            document.getElementById("lvlAlertAnimation").classList.remove("alert-icon");
+            document.getElementById("lvlAlertAnimation").classList.add("alert-icon-green");
+            document.getElementById("lvlAlertText").textContent = "WAVE 1 COMPLETED!";
+        document.getElementById("potionBar").style.display = "none";
+        document.getElementById("lvlAlertText").style.display = "inline-block";
+        document.getElementById("lvlAlertAnimation").style.display = "inline-block";
+
+        setTimeout(function(){
+            document.getElementById("potionBar").style.display = "flex";
+        document.getElementById("lvlAlertText").style.display = "none";
+        document.getElementById("lvlAlertAnimation").style.display = "none";
+        document.getElementById("lvlAlertText").style.fontSize = "3vw";
+            document.getElementById("lvlAlertAnimation").classList.add("alert-icon");
+            document.getElementById("lvlAlertAnimation").classList.remove("alert-icon-green");
+            snowmanCounter = 0;
+        }, 4000);
+
+        }
+    }
+
+    // WAVE 2
+
+    if ((score >= waveScore + 50) && (onlyOne1 == 1)) {
+        snowmanCounter += 1;
+
+        if (snowmanCounter == 1) {
+            snowmanSpawn("snowmanOne");
+            snowmanSpeed = 2;
+
+            // WAVE 2 ALERT
+
+            document.getElementById("lvlAlertText").textContent = "WAVE 2";
+        document.getElementById("potionBar").style.display = "none";
+        document.getElementById("lvlAlertText").style.display = "inline-block";
+        document.getElementById("lvlAlertAnimation").style.display = "inline-block";
+
+        setTimeout(function(){
+            document.getElementById("potionBar").style.display = "flex";
+        document.getElementById("lvlAlertText").style.display = "none";
+        document.getElementById("lvlAlertAnimation").style.display = "none";
+        }, 4000);
+
+        }
+
+        if (snowmanCounter == 10) {
+            snowmanSpawn("snowmanTwo");
+        }
+
+        if (snowmanCounter == 20) {
+            snowmanSpawn("snowmanThree");
+            snowmanSpeed = 1;
+        }
+
+        if (snowmanCounter == 33) {
+        killSnowman("all");
         
+        onlyOne1 = 2;
+        
+            waveScore = 999999;
+
+
+        // WON WAVE 2 ALERT
+        document.getElementById("lvlAlertText").style.fontSize = "2vw";
+        document.getElementById("lvlAlertAnimation").classList.remove("alert-icon");
+        document.getElementById("lvlAlertAnimation").classList.add("alert-icon-green");
+        document.getElementById("lvlAlertText").textContent = "WAVE 2 COMPLETED!";
+    document.getElementById("potionBar").style.display = "none";
+    document.getElementById("lvlAlertText").style.display = "inline-block";
+    document.getElementById("lvlAlertAnimation").style.display = "inline-block";
+
+    setTimeout(function(){
+        document.getElementById("potionBar").style.display = "flex";
+    document.getElementById("lvlAlertText").style.display = "none";
+    document.getElementById("lvlAlertAnimation").style.display = "none";
+    document.getElementById("lvlAlertText").style.fontSize = "3vw";
+        document.getElementById("lvlAlertAnimation").classList.add("alert-icon");
+        document.getElementById("lvlAlertAnimation").classList.remove("alert-icon-green");
+        snowmanCounter = 0;
+    }, 4000);
+        
+}
+
+
+
+        // SNOWMAN MOVE
+
+        if ((snowmanCounter % 2 == 0) && (snowmanCounter < 10)) {
+            snowmanMove(getRndInteger(1, 90), "snowmanOne", snowmanSpeed, "double");
+        }
+
+        if ((snowmanCounter % 2 == 0) && (snowmanCounter > 10) && (snowmanCounter < 20)) {
+            snowmanMove(getRndInteger(1, 90), "snowmanOne", snowmanSpeed, "double");
+        }
+
+        if ((snowmanCounter % 3 == 0) && (snowmanCounter > 10) && (snowmanCounter < 20)) {   
+            snowmanMove(getRndInteger(1, 90), "snowmanTwo", snowmanSpeed, "double");
+        }
+
+        if ((snowmanCounter % 2 == 0) && (snowmanCounter > 20) && (snowmanCounter < 30)) {
+            snowmanMove(getRndInteger(1, 90), "snowmanOne", snowmanSpeed, "double");
+            snowmanMove(getRndInteger(1, 90), "snowmanTwo", snowmanSpeed, "single");
+            snowmanMove(getRndInteger(1, 90), "snowmanThree", snowmanSpeed, "double");
+        }
+
+        if ((snowmanCounter % 1 == 0) && (snowmanCounter > 20) && (snowmanCounter < 30)) {
+            
+            snowmanMove(getRndInteger(1, 90), "snowmanTwo", snowmanSpeed, "single");
+            
+        }
+
+
+
     }
 
     
@@ -150,7 +345,7 @@ function lvl2Pre() {
                 
                     if (snowballLength >= 1){
                         
-                        tempNodeMain.firstChild.addEventListener("click", snowballEffect);
+                        tempNodeMain.firstChild.addEventListener("click", lvl2SnowballEffect);
                     }
 
 
@@ -164,34 +359,13 @@ function lvl2Pre() {
                 tempNodeMain.firstChild.addEventListener("click", snowflakeEffect);
             }
         }
-                
-
-            
+                   
             // Print cells to screen
             mainContainerr.prepend(tempNodeMain);
             
             
         }
-        
 
-        
-
-
-        
-        
-
-        
-        // shaky things
-
-        if (counter == 5) {
-            document.getElementById("body").style.animation = "snow-shake 1000ms";
-
-            setTimeout( function(){
-                
-            },1000);
-        }
-
-        
 
         //   Speed things based on time
 
@@ -220,35 +394,35 @@ function lvl2Pre() {
             lvl2moveItemsRepeat = setInterval(lvl2moveItems, 5); 
         }
 
-        if (counter == 85) {
+        if (counter == 100) {
             currentTime = 6; 
             clearInterval(lvl2moveItemsRepeat);
             lvl2moveItemsRepeat = setInterval(lvl2moveItems, 5);
         }
-        if (counter == 100) {
+        if (counter == 125) {
             currentTime = 7; 
             clearInterval(lvl2moveItemsRepeat);
             lvl2moveItemsRepeat = setInterval(lvl2moveItems, 5);
         }
 
-        if (counter == 120) {
+        if (counter == 150) {
             currentTime = 8; 
             clearInterval(lvl2moveItemsRepeat);
             lvl2moveItemsRepeat = setInterval(lvl2moveItems, 3);
         }
 
-        if (counter == 140) {
+        if (counter == 180) {
             currentTime = 9; 
             clearInterval(lvl2moveItemsRepeat);
             lvl2moveItemsRepeat = setInterval(lvl2moveItems, 2);
         }
-        if (counter == 160) {
+        if (counter == 200) {
             currentTime = 10; 
             clearInterval(lvl2moveItemsRepeat);
             lvl2moveItemsRepeat = setInterval(lvl2moveItems, 1);
         }
 
-        if (counter == 180) {
+        if (counter == 230) {
             currentTime = 11; 
             clearInterval(lvl2moveItemsRepeat);
             lvl2moveItemsRepeat = setInterval(lvl2moveItems, 1);
@@ -543,13 +717,13 @@ document.getElementById("lvlAlertAnimation").style.display = "none";
 
 // EFFECT EVENTS
 
-function snowballEffect(evt) {
-    this.removeEventListener("click", snowballEffect);
+function lvl2SnowballEffect(evt) {
+    this.removeEventListener("click", lvl2SnowballEffect);
     this.classList.remove("unclicked");
     this.style.zIndex = "1";
-    var audio = new Audio('sounds/bomb_explosion.mp3');
-    audio.volume = 0.6;
-    audio.playbackRate = 1.1;
+    var audio = new Audio('sounds/lvl2/snowball_explosion.mp3');
+    audio.volume = 0.05;
+    audio.playbackRate = 1.2;
     audio.play();
     var targetElementTemp = this.querySelectorAll(".snowball");
     var targetElement = targetElementTemp[0];
@@ -560,8 +734,8 @@ function snowballEffect(evt) {
     targetElement.style.marginTop = "2vw";
 
     targetElement.style.background = "url('img/lvl2/snowball_explosion_sprite.png')" ;
-    targetElement.style.animation = "snowball_explosion 300ms steps(15)";
-    targetElement.style.backgroundSize= "1500% 100%";
+    targetElement.style.animation = "snowball_explosion 300ms steps(13)";
+    targetElement.style.backgroundSize= "1300% 100%";
 
     score += 5;
     document.getElementById("score").innerHTML = score;
@@ -570,4 +744,243 @@ function snowballEffect(evt) {
     setTimeout(() => {
         this.remove();
     }, 290);
+}
+
+// MOBSSS
+
+// SNOWMAN
+
+function snowmanSpawn(snowmanID) {
+
+    // IDS ARE IN THE FORMAT "snowmanOne, snowmanTwo, etc"
+
+    var tempSnowMan = lvl2SnowmanNode.cloneNode(true);
+
+    // SET ID
+
+    tempSnowMan.firstChild.setAttribute("id", snowmanID);
+    tempSnowMan.firstChild.setAttribute("style", "left:" + Math.floor(getRndInteger(1, 90)) + "vw");
+
+
+    // PREPEND TO MAINCONTANER
+    document.getElementById("mainContainer").prepend(tempSnowMan);
+
+    
+setTimeout( function(){
+    var selectedSnowman = document.getElementById(snowmanID);
+    selectedSnowman.style.background = "url('img/lvl2/snowman/snowman_spawn.png')";
+        selectedSnowman.style.animation = "snowman_spawn 500ms steps(6)";
+        selectedSnowman.style.backgroundSize= "600% 100%";
+
+        selectedSnowman.addEventListener("animationend", snowmanIdle);
+},5)
+    
+}
+
+function snowmanMove(whereAt, snowmanID, speed, hitType) {
+    var currentSnowmanID = snowmanID;
+    var currentSpeed = speed * 10;
+    var snowman = document.getElementById(currentSnowmanID);
+    var currentPosition = parseInt(snowman.style.getPropertyValue("left"));
+    var goTo = parseInt(whereAt);
+    var tempPos = 0;
+    var localCounter = 0;
+    var currentHitType = hitType;
+    // CALC WHERE TO MOVE TO
+
+    // MOVE BACKWARDS
+    if (goTo < currentPosition) {
+        var calcPos = currentPosition - whereAt;
+        var snowmanBackRepeat = setInterval(moveSnowmanBack, currentSpeed);
+
+        // SET SNOWMAN MOVING BACKGROUND
+
+        snowman.style.background = "url('img/lvl2/snowman/snowman_move.png')"
+        snowman.style.animation = "snowman_move 400ms steps(5) infinite";
+        snowman.style.backgroundSize= "500% 100%";
+        
+
+        setTimeout(function(){
+            clearInterval(snowmanBackRepeat)
+            snowmanThrow(currentSnowmanID, currentHitType);
+            
+            }, (calcPos * currentSpeed));
+
+        function moveSnowmanBack() {
+            if (localCounter % 20 == 0) {
+                var audio = new Audio('sounds/lvl2/snowman_move.mp3');
+                audio.volume = 0.8;
+                audio.playbackRate = 1;
+                audio.play();
+                 }
+            localCounter += 1;
+            tempPos = currentPosition - localCounter;
+            snowman.style.left = tempPos + "vw";
+        }
+    }
+
+    if (goTo > currentPosition) {
+        var calcPos = whereAt - currentPosition;
+        var snowmanForwardRepeat = setInterval(moveSnowmanForward, currentSpeed);
+
+        snowman.style.background = "url('img/lvl2/snowman/snowman_move.png')"
+        snowman.style.animation = "snowman_move 400ms steps(5) infinite";
+        snowman.style.backgroundSize= "500% 100%";
+        
+
+        setTimeout(function(){
+            clearInterval(snowmanForwardRepeat);
+            snowmanThrow(currentSnowmanID, currentHitType);
+            }, (calcPos * currentSpeed));
+
+        function moveSnowmanForward() {
+            // SOUND 
+             if (localCounter % 20 == 0) {
+            var audio = new Audio('sounds/lvl2/snowman_move.mp3');
+            audio.volume = 0.8;
+            audio.playbackRate = 1;
+            audio.play();
+             }
+
+            localCounter += 1;
+            tempPos = currentPosition + localCounter;
+            snowman.style.left = tempPos + "vw";
+        }
+    }
+
+    if (goTo == currentPosition) {
+        snowmanThrow(currentSnowmanID, currentHitType);
+            
+    }
+
+}
+
+// THROW
+
+function snowmanThrow(currentSnowmanID, currentHitType) {
+    var currentSnowman = currentSnowmanID;
+    var snowman = document.getElementById(currentSnowman);
+
+    switch(currentHitType){
+        case "single":
+    snowman.style.background = "url('img/lvl2/snowman/snowman_attack.png')"
+    snowman.style.animation = "snowman_attack 400ms steps(6)";
+    snowman.style.backgroundSize= "600% 100%";
+    snowman.addEventListener("animationend", snowmanIdle);
+    var audio = new Audio('sounds/lvl2/snowman_throw.mp3');
+    audio.volume = 0.8;
+    audio.playbackRate = 1.2;
+    audio.play();
+
+    var currentPos = parseInt(snowman.style.getPropertyValue("left") + 1);
+
+    var tempSnowBall = snowballNode.cloneNode(true);
+    tempSnowBall.firstChild.setAttribute("style", "left: " + currentPos +  "vw");
+    tempSnowBall.firstChild.addEventListener("click", lvl2SnowballEffect);
+
+    mainContainerr.prepend(tempSnowBall);
+
+    
+        break;
+
+        case "double":
+                snowman.style.background = "url('img/lvl2/snowman/snowman_attack.png')"
+                snowman.style.animation = "snowman_attack 400ms steps(6) 1";
+                snowman.style.backgroundSize= "600% 100%";
+                var audio = new Audio('sounds/lvl2/snowman_throw.mp3');
+                audio.volume = 0.8;
+                audio.playbackRate = 1.2;
+                audio.play();
+                var currentPos = parseInt(snowman.style.getPropertyValue("left") + 1);
+                var tempSnowBall = snowballNode.cloneNode(true);
+                tempSnowBall.firstChild.setAttribute("style", "left: " + currentPos +  "vw");
+                tempSnowBall.firstChild.addEventListener("click", lvl2SnowballEffect);
+                mainContainerr.prepend(tempSnowBall);
+                var snowmans = snowman;
+                snowmans.addEventListener("animationend", doubleHit);
+        break;
+
+        case "none":
+            snowman.style.background = "url('img/lvl2/snowman/snowman_idle.png')";
+            snowman.style.backgroundSize = "400% 100%";
+            snowman.style.animation = "snowman_idle 400ms steps(4) infinite";
+        break;
+    }
+
+
+    
+
+    function doubleHit(evt) {
+        evt.target.removeEventListener("animationend", doubleHit);
+        evt.target.style.animation = "none";
+        evt.target.offsetHeight;
+        evt.target.style.animation = null;
+        evt.target.style.background = "url('img/lvl2/snowman/snowman_attack.png')"
+        evt.target.style.animation = "snowman_attack 400ms steps(6) 1";
+        evt.target.style.backgroundSize= "600% 100%";
+    
+        var audio = new Audio('sounds/lvl2/snowman_throw.mp3');
+        audio.volume = 0.8;
+        audio.playbackRate = 1;
+        audio.play();
+        var currentPos = parseInt( evt.target.style.getPropertyValue("left") + 1);
+        var tempSnowBall = snowballNode.cloneNode(true);
+        tempSnowBall.firstChild.setAttribute("style", "left: " + currentPos +  "vw");
+        tempSnowBall.firstChild.addEventListener("click", lvl2SnowballEffect);
+        mainContainerr.prepend(tempSnowBall);
+    
+        evt.target.addEventListener("animationend", snowmanIdle);
+    
+    }
+
+}
+
+
+
+// KILL SNOWMEN
+
+function killSnowman(amount){
+    var audio = new Audio('sounds/lvl2/snowman_death.mp3');
+    audio.volume = 0.8;
+    audio.playbackRate = 1.2;
+    audio.play();
+    if (amount == "all") {
+       var allSnowman = document.querySelectorAll(".snowman");
+       
+    //    DEATH ANIMATION
+       for (var i = 0; i < allSnowman.length; i++){
+    allSnowman[i].style.background = "url('img/lvl2/snowman/snowman_death.png')"
+    allSnowman[i].style.animation = "snowman_death 500ms steps(6)";
+    allSnowman[i].style.backgroundSize= "600% 100%";
+       }
+
+       setTimeout(function(){
+        var allSnowmanContainers = document.querySelectorAll(".snowman-container");
+       
+    //    Kill em
+       for (var i = 0; i < allSnowmanContainers.length; i++){
+        allSnowmanContainers[i].remove();
+       }
+       },490);
+    } else {
+        var selectedSnowman = document.getElementById(amount);
+        selectedSnowman.style.background = "url('img/lvl2/snowman/snowman_death.png')"
+        selectedSnowman.style.animation = "snowman_death 500ms steps(6)";
+        selectedSnowman.style.backgroundSize= "600% 100%";
+
+        setTimeout(function(){
+            selectedSnowman.parentElement.remove();
+        }, 490);
+    }
+
+
+}
+
+function snowmanIdle(evt) {
+    evt.target.removeEventListener("animationend", snowmanIdle);
+    evt.target.style.background = "url('img/lvl2/snowman/snowman_idle.png')";
+    evt.target.style.backgroundSize = "400% 100%";
+    evt.target.style.animation = "snowman_idle 400ms steps(4) infinite";
+    
+    
 }

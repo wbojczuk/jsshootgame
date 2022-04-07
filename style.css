@@ -17,6 +17,10 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/* PARTICLE CONTAINER */
+
+
 /* CLICKBOX */
 
 .clickbox {
@@ -43,7 +47,16 @@ body {
 
 .preload {
     z-index: 0;
-    opacity: 0.02;
+    opacity: 0.05;
+}
+
+.unlock-screen {
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    background-image: url("img/padlock.png");
+    background-size: cover;
+    background-position: 50% -30vh;
 }
 
 .preload-screen {
@@ -329,10 +342,7 @@ body {
  .end-screen-wrapper {
     height: 100vh;
     width: 100vw;
-    background: #ff3fff60;
-    background: -webkit-linear-gradient(top left, #FF3FFF60, #FCC2DF60);
-    background: -moz-linear-gradient(top left, #FF3FFF60, #FCC2DF60);
-    background: linear-gradient(to bottom right, #FF3FFF60, #FCC2DF60);
+    background-color: rgba(0, 0, 0, 0.548);
     display: none;
     user-select: none;
  }
@@ -544,6 +554,14 @@ body {
      width: 8vw;
     user-select: none;
      
+ }
+
+ .alert-icon-green {
+    display: none;
+    position: relative;
+    height: 8vw;
+    width: 8vw;
+   user-select: none;
  }
  .potion-bar {
     padding-right: 2vw;

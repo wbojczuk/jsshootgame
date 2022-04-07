@@ -22,6 +22,17 @@ var onlyOne = 1;
 var onlyOne1 = 1;
 var onlyOne111 = 1;
 
+// REPEAT VARIABLES
+var lvl2testViewportRepeat;
+var lvl2checkPowersrepeat;
+var lvl2moveItemsRepeat;
+var lvl2generationRepeat;
+var lvl1generationRepeat;
+var lvl1testViewportRepeat;
+var lvl1power1Repeat;
+var lvl1CheckPowersRepeat;
+var lvl1moveItemsRepeat;
+
 
 
 // SECOND COUNTER 
@@ -45,7 +56,19 @@ setInterval(
 
 // MAIN MENU FUNTION 
 function mainMenu() {
-    
+    snowStorm.stop();
+
+    Particles.destroy();
+    // INSERT PARTICLES TO DOM
+    var particleHTML = "<canvas class='particle-background' style='position: absolute; left: 0; top: 0; z-index: -10;'></canvas>";
+    document.getElementById("body").insertAdjacentHTML("beforeend", particleHTML);
+    // INITIALIZE PARTICLES
+      Particles.init({
+        selector: '.particle-background',
+        sizeVariations: 3,
+        color: "#97E5FF",
+        maxParticles: 128
+      });
 
      // SET HIGHSCORE
      if (currentLvl == "lvl1"){
@@ -61,16 +84,16 @@ function mainMenu() {
         localStorage.saveServer
     }
 }
-    // document.getElementById("lvl2Highscore").textContent = localStorage.getItem("FSlvl2HS");    
+    document.getElementById("lvl2Highscore").textContent = localStorage.getItem("FSlvl2HS");    
     document.getElementById("lvl1Highscore").textContent = localStorage.getItem("FSlvl1HS");
     document.getElementById("mainWrapper").style.background = "none";
 
     window.removeEventListener("keydown", escPause);
     window.removeEventListener("keydown", escResume);
-    document.getElementById("body").style.cursor = "default"
+    document.getElementById("body").style.cursor = "default";
     // DISPLAY SWAP
     document.getElementById("pauseCheck").removeAttribute("onclick");
-    document.getElementById("pauseCheck").setAttribute("onclick", "pauseGame();")
+    document.getElementById("pauseCheck").setAttribute("onclick", "pauseGame();");
     document.getElementById("mainWrapper").style.display = "none";
     document.getElementById("endScreenWrapper").style.display = "none";
     document.getElementById("startScreenWrapper").style.display = "block";
@@ -94,13 +117,10 @@ function mainMenu() {
     removePowers();
     
 
-    // Remove current falling rows
+    // Clear Main Container
 
-    var fallingCount = document.querySelectorAll(".falling-container");
-    var fallingCountLength = fallingCount.length;
-
-    for (let i = 0; i < fallingCountLength; i++) {
-        fallingCount[i].remove();
+    while (mainContainerr.firstChild !== null) {
+        mainContainerr.removeChild(mainContainerr.firstChild);
     }
 
 
@@ -139,6 +159,12 @@ function preStartGame(sLvl) {
 }
 
 function startGame() {
+
+    Particles.destroy();
+    // INSERT PARTICLE CONTAINER TO DOM
+    var particleHTML = "<canvas class='particle-background' style='position: absolute; left: 0; top: 0; z-index: -10;'></canvas>";
+    document.getElementById("body").insertAdjacentHTML("beforeend", particleHTML);
+
     // RESET VARIABLES
 
     score = 0;
@@ -188,7 +214,7 @@ function setBackgroundMusic() {
         case "lvl2":
             backgroundMusic.pause();
             backgroundMusic.currentTime = 0;
-            backgroundMusic = new Audio('sounds/lvl1/main_background_music.mp3');
+            backgroundMusic = new Audio('sounds/lvl2/main_background_music.mp3');
         break;
 
         case "menu":
@@ -202,7 +228,7 @@ function setBackgroundMusic() {
      
 
     backgroundMusic.play();
-    backgroundMusic.volume = 0.09;
+    backgroundMusic.volume = 0.07;
     document.removeEventListener('click', setBackgroundMusic);
     backgroundMusic.addEventListener("ended", function(){
         backgroundMusic.currentTime = 0;
@@ -216,9 +242,12 @@ function setBackgroundMusic() {
 
 
 function clearAllIntervals() {
+    console.log("clearAllIntervalscalled");
     clearInterval(lvl1generationRepeat);
     clearInterval(lvl1testViewportRepeat);
-    clearInterval(lvl1checkPowersRepeat);
+
+    clearInterval(lvl1CheckPowersRepeat);
+
     clearInterval(lvl1moveItemsRepeat);
     clearInterval(lvl1power1Repeat);
     clearInterval(lvl2generationRepeat);
@@ -335,15 +364,11 @@ function restart() {
     document.getElementById("mainWrapper").style.display = "block";
     document.getElementById("endScreenWrapper").style.display = "none";
 
-    // Remove current falling rows
+    // Clear Main Container
 
-    var fallingCount = document.querySelectorAll(".falling-container");
-    var fallingCountLength = fallingCount.length;
-
-    for (let i = 0; i < fallingCountLength; i++) {
-        fallingCount[i].remove();
+    while (mainContainerr.firstChild !== null) {
+        mainContainerr.removeChild(mainContainerr.firstChild);
     }
-
 
     // RESET HEARTS
 
@@ -379,7 +404,7 @@ function pauseGame() {
     
     //  Clear functions
     clearAllIntervals();
-    onlyOne11 = 1;
+    
     document.getElementById("pauseCheck").removeAttribute("onclick");
     document.getElementById("pauseCheck").setAttribute("onclick", "resumeGame();");
     document.getElementById("mainContainer").style.display = "none";
@@ -388,6 +413,7 @@ function pauseGame() {
     window.removeEventListener("keydown", escPause);
 
     window.addEventListener("keydown", escResume);
+    onlyOne11 = 1;
 
     tempCounter = counter;
     
@@ -415,7 +441,7 @@ function resumeGame() {
         case "lvl1":
             lvl1generationRepeat = setInterval(lvl1Generation, 1000);
             lvl1testViewportRepeat = setInterval(lvl1testViewport, 10);
-            lvl1checkPowersRepeat = setInterval(lvl1checkPowers, 100);
+            lvl1CheckPowersRepeat = setInterval(lvl1checkPowers, 100);
             
 
             switch (currentTime) {

@@ -1,9 +1,25 @@
 "use strict";
 
+window.addEventListener("load", index);
+
+window.addEventListener("load", function(){
+  // INSERT PARTICLES TO DOM
+  var particleHTML = "<canvas class='particle-background' style='position: absolute; left: 0; top: 0; z-index: -10;'></canvas>";
+  document.getElementById("body").insertAdjacentHTML("beforeend", particleHTML);
+  // INITIALIZE PARTICLES
+    Particles.init({
+      selector: '.particle-background',
+      sizeVariations: 2,
+      color: "#ffffff",
+      maxParticles: 128
+    });
+});
+
 var currentPageIndex;
 
 var leftPageTitles = [
-"Index", 
+"Index",
+"Index",  
 // ITEMS
 "Snowflake",
 "Glowing Orb",
@@ -17,18 +33,21 @@ var leftPageTitles = [
 ];
 
  var leftPages = [
-  //  index0
+  //  lvl1 first page index0
   "<div class='index-title'>Items</div>\
-  <a onclick='changePage(1)' href='#' class='tut-index-link'>Snowflake</a>\
-  <a onclick='changePage(2)' href='#' class='tut-index-link'>Glowing Orb</a>\
-  <a onclick='changePage(3)' href='#' class='tut-index-link'>Red Potion</a>\
-  <a onclick='changePage(4)' href='#' class='tut-index-link'>Bombs</a>\
-  <a onclick='changePage(5)' href='#' class='tut-index-link'>Blue Crystals</a>\
-  <a onclick='changePage(6)' href='#' class='tut-index-link'>Purple Potion</a>",
+  <a onclick='changePage(2)' href='#' class='tut-index-link'>Snowflake</a>\
+  <a onclick='changePage(3)' href='#' class='tut-index-link'>Glowing Orb</a>\
+  <a onclick='changePage(4)' href='#' class='tut-index-link'>Red Potion</a>\
+  <a onclick='changePage(5)' href='#' class='tut-index-link'>Bombs</a>\
+  <a onclick='changePage(6)' href='#' class='tut-index-link'>Blue Crystals</a>\
+  <a onclick='changePage(7)' href='#' class='tut-index-link'>Purple Potion</a>",
     
   
-   //  ITEMS INDEX1
-  "<span>The Snowflake Item Appears Once Per Game</span><div class='center'><span>After Clicking On It, you will recieve the <a onclick='changePage(7)' href='#' class='intext-link'>Time Frost Power.</a></span>",
+   //lvl1 second page  ITEMS INDEX1
+   "<div class='index-title'>How To Win</div>",
+
+  //  ITEMS
+  "<span>The Snowflake Item Appears Once Per Game</span><div class='center'><span>After Clicking On It, you will recieve the <a onclick='changePage(8)' href='#' class='intext-link'>Time Frost Power.</a></span>",
   
 
   "<span>The Glowing Orb </span><span> Will Give You An Extra Heart For The Rest Of The Game After Clicking On It</span>",
@@ -53,11 +72,15 @@ var leftPageTitles = [
 
  var rightIndex = [
 "<div class='index-title'>Powers</div>\
-<a onclick='changePage(7)' href='#' class='tut-index-link'>Drag Destroy</a>\
-<a onclick='changePage(8)' href='#' class='tut-index-link'>Time Frost</a>",
+<a onclick='changePage(8)' href='#' class='tut-index-link'>Drag Destroy</a>\
+<a onclick='changePage(9)' href='#' class='tut-index-link'>Time Frost</a>",
+
+// Second for first level
+"<div class='index-title'>Misc</div>",
  ];
 
  var rightVisual = [
+   "",
    "",
   //  ITEMS
    "<div class='snowflake tut-items'></div>",
@@ -73,6 +96,7 @@ var leftPageTitles = [
  ];
 
  var rarityText = [
+   "",
    "",
   //  ITEMS
    "Once A Game At A Random Time",
@@ -132,7 +156,7 @@ if (currentPageIndex !== (leftPages.length - 1)) {
   document.getElementById("forwardPage").setAttribute("onclick", "forwardPage();");
 }
 
-if (currentPageIndex !== 0) {
+if (currentPageIndex > 1) {
   document.getElementById("tutRightIndex").style.display = "none";
   document.getElementById("tutRightWrapper").style.display = "block";
   document.getElementById("tutTitle").style.display = "block";
@@ -176,6 +200,14 @@ function forwardPage() {
   document.getElementById("tutRarity").innerHTML = rarityText[currentPageIndex];
 document.getElementById("tutInnertextLeft").innerHTML = currentPage;
 document.getElementById("tutorialTitle").textContent = currentPageTitle;
+if (currentPageIndex <= 1) {
+  document.getElementById("tutRightIndex").style.display = "block";
+  document.getElementById("tutTitle").style.display = "none";
+  document.getElementById("backToIndex").style.display = "none";
+  document.getElementById("backPage").style.color = "#aaa";
+  document.getElementById("tutRightWrapper").style.display = "none";
+  document.getElementById("tutRightIndex").innerHTML = rightIndex[currentPageIndex];
+}
 
 }
 
@@ -195,7 +227,16 @@ function backPage(){
     document.getElementById("backPage").style.color = "#aaa";
     document.getElementById("backPage").removeAttribute("onclick");
     document.getElementById("tutRightWrapper").style.display = "none";
-    document.getElementById("tutRightIndex").innerHTML = rightIndex[0];
+    document.getElementById("tutRightIndex").innerHTML = rightIndex[currentPageIndex];
+  }
+
+  if (currentPageIndex <= 1) {
+    document.getElementById("tutRightIndex").style.display = "block";
+    document.getElementById("tutTitle").style.display = "none";
+    document.getElementById("backToIndex").style.display = "none";
+    document.getElementById("backPage").style.color = "#aaa";
+    document.getElementById("tutRightWrapper").style.display = "none";
+    document.getElementById("tutRightIndex").innerHTML = rightIndex[currentPageIndex];
   }
 
   var currentPage = leftPages[currentPageIndex];

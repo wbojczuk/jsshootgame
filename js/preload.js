@@ -11,7 +11,7 @@ function preloadFunction(){
   
 
     var stuffPreload = "";
-    var preloadHintHTML = ["Get to a score of 500 for a special ability!", "Get the red potions to heal a lost heart!", "Get the glowing orb for an additional heart!", "Animated with sprite sheets!", "Still in Alpha", "You don't come back from infinity", "Made in 2022"];
+    var preloadHintHTML = ["Get to a score of 500 for a special ability!", "Get the red potions to heal a lost heart!", "Get the glowing orb for an additional heart!", "Animated with sprite sheets!", "Made it to Beta!", "You don't come back from infinity", "Made in 2022"];
   var u = preloadHintHTML.length - 1;
     document.getElementById("preloadHint").textContent = preloadHintHTML[Math.floor(getRndInteger(0, u))];
 
@@ -49,14 +49,16 @@ function preloadFunction(){
     stuffPreload += "<div class='heart-heal-preload preload'></div>";
 
     stuffPreload += "<div class='frost-preload preload'></div>";
-    stuffPreload += "<div class='snow-overlay-preload preload'></div>";
+    stuffPreload += "<div class='alert-icon-preload preload'></div>";
+
+    stuffPreload += "<div class='alert-icon-green-preload preload'></div>";
 
 
 
     document.getElementById("preload").insertAdjacentHTML("afterbegin", stuffPreload);
     
 
-    // SET HIGHSCORE
+    // SET HIGHSCORES
 
     var tempHighscore = parseInt(localStorage.getItem("FSlvl1HS"));
 
@@ -73,15 +75,25 @@ function preloadFunction(){
       localStorage.setItem("FSlvl2HS", "0");
       localStorage.saveServer
   }
+  document.getElementById("lvl2Highscore").textContent = localStorage.getItem("FSlvl2HS");
 
 
-    if ((localStorage.getItem("FSlvl2Unlocked") !== "true") || (localStorage.getItem("FSlvl2Unlocked") == "true")){
+    if (localStorage.getItem("FSlvl2Unlocked") !== "true"){
 
     document.getElementById("lvl2Slide").src = "img/padlock.png";
     document.getElementById("lvl2Slide").style.backgroundImage = "url('img/lvl2/lvl2_background.jpg')"
     document.getElementById("lvl2Slide").style.backgroundSize = "100%";
     document.getElementById("lvl2Slide").style.backgroundRepeat = "no-repeat";
     document.getElementById("lvl2Slide").style.backgroundPosition = "center";
+    
+    }
+
+    if (localStorage.getItem("FSlvl2Unlocked") == "true"){
+
+    document.getElementById("lvl2Link").setAttribute("onclick", "preStartGame('lvl2');");
+    document.getElementById("lvl2Title").textContent = "Level 2";
+    document.getElementById("lvl2Desc").textContent = "Snowfall Assault";
+    document.getElementById("lvl2HighTitle").style.display = "block";
     
     }
       setTimeout(function(){
@@ -93,7 +105,18 @@ function preloadFunction(){
         document.getElementById("mainWrapper").style.display = "none";
         currentLvl = "menu";
         document.addEventListener("click", setBackgroundMusic);
-      }, 4000);
+        snowStorm.toggleSnow();
+        // INSERT PARTICLES TO DOM
+        var particleHTML = "<canvas class='particle-background' style='position: absolute; left: 0; top: 0; z-index: -10;'></canvas>";
+        document.getElementById("body").insertAdjacentHTML("beforeend", particleHTML);
+        // INITIALIZE PARTICLES
+          Particles.init({
+            selector: '.particle-background',
+            sizeVariations: 3,
+            color: "#97E5FF",
+            maxParticles: 128
+          });
+      }, 5000);
         
       
       }
